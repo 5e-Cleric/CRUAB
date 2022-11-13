@@ -1,3 +1,4 @@
+
 function eliminarCopiaJoc(copia) {
   if (confirm("Estas segur?")) {
     var xhttpeliminarcopia = new XMLHttpRequest();
@@ -15,7 +16,6 @@ function eliminarCopiaJoc(copia) {
 }
 
 function afegirCopiaJoc() {
-
   var xhttpafegircopia = new XMLHttpRequest();
   const params = new URLSearchParams(window.location.search);
   var nom = params.get("nom");
