@@ -83,7 +83,7 @@ function afegirJoc() {
             document.getElementById('missatge').innerHTML += `<p>${data["DeBug"]}</p>`;
           }
         } else {
-          window.location.href = "jocstaula.html";
+          window.location.href = "jocstaula.php";
         }
       }
     };
@@ -103,7 +103,7 @@ function eliminarJoc(nom) {
         if (data.hasOwnProperty("Error")) {
           console.log(data["Error"] + ", " + data["DeBug"]);
         } else {
-          window.location.href = "jocstaula.html";
+          window.location.href = "jocstaula.php";
         }
       }
     };
@@ -113,7 +113,7 @@ function eliminarJoc(nom) {
 }
 
 function registreJoc() {
-  window.location.href = "afegirjoc.html";
+  window.location.href = "afegirjoc.php";
 }
 
 function getJocsTaula() {
@@ -142,7 +142,7 @@ function getJocsTaula() {
         jocactual.id = joc.Nom;
         jocactual.querySelector(".nom").textContent = joc.Nom;
         jocactual.querySelector("img").src = joc.Imatge;
-        jocactual.querySelector("a").href = "jocindividual.html?nom=" + joc.Nom;
+        jocactual.querySelector("a").href = "jocindividual.php?nom=" + joc.Nom;
         jocactual.querySelector(".editorial").textContent =
           "Publicat per " + joc.Editorial + ".";
         jocactual.querySelector(".tipus").textContent =

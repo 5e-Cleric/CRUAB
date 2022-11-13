@@ -110,7 +110,7 @@ function enviarDades() {
             document.getElementById('missatge').textContent += data["DeBug"];
           }
         } else {
-          window.location.href = "registrat.html";
+          window.location.href = "registrat.php";
         }
       }
     };

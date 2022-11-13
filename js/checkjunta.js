@@ -4,10 +4,10 @@ xhttpjunta.onreadystatechange = function(){
         var junta = JSON.parse(xhttpjunta.responseText);
         //console.log(junta);
         if(junta == null){
-            window.location.href = "login.html";
+            window.location.href = "login.php";
         } else {
             if(!(junta.hasOwnProperty('juntari') && junta['juntari'] == true)){
-                window.location.href = "login.html";
+                window.location.href = "login.php";
             }
         }
     }

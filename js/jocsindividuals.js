@@ -108,7 +108,7 @@ function obtenirJocs() {
           document.getElementById('boto-afegir').addEventListener('click', function () { afegirCopiaJoc(); });
         }
       } else {
-        window.location.href = "login.html";
+        window.location.href = "login.php";
       }
     }
   }

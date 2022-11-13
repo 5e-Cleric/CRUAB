@@ -73,7 +73,7 @@ function afegirManual() {
             document.getElementById('missatge').innerHTML += `<p>${data["DeBug"]}</p>`;
           }
         } else {
-          window.location.href = "manuals.html";
+          window.location.href = "manuals.php";
         }
       }
     };
@@ -94,7 +94,7 @@ function eliminarManual(nom) {
         if ((data.hasOwnProperty('Error'))) {
           alert(data["Error"] + " " + data["DeBug"]);
         } else {
-          window.location.href = "manuals.html";
+          window.location.href = "manuals.php";
         }
       }
     }
@@ -104,7 +104,7 @@ function eliminarManual(nom) {
 }
 
 function registreManual() {
-  window.location.href = "afegirmanual.html";
+  window.location.href = "afegirmanual.php";
 }
 
 function getManuals() {
@@ -129,7 +129,7 @@ function getManuals() {
         var manualactual = document.querySelector(".manual:last-child");
         manualactual.id = manual.Nom;
         manualactual.getElementsByClassName("nom")[0].textContent = decode(manual.Nom);
-        manualactual.querySelector("a").href = "manualindividual.html?nom=" + manual.Nom;
+        manualactual.querySelector("a").href = "manualindividual.php?nom=" + manual.Nom;
         manualactual.querySelector("img").src = manual.Imatge;
         manualactual.querySelector(".editorial").textContent = "Publicat per " + decode(manual.Editorial) + ".";
         manualactual.querySelector(".ambientacio").textContent = "Ambientació: " + decode(manual.Ambientacio) + ".";

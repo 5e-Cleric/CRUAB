@@ -15,64 +15,64 @@ function alCarregar() {
 
 
   switch (nomArxiu()) { /*carga los eventos onload para la pagina correspondiente*/
-    case "index.html":
+    case "index.php":
       obtenirContingut();
       break;
-    case "manuals.html":
+    case "manuals.php":
       document.getElementById('paginamanuals').classList.add("active");
       getManuals();
       break;
-    case "jocstaula.html":
+    case "jocstaula.php":
       document.getElementById('paginajocs').classList.add("active");
       getJocsTaula();
       break;
-    case "manualindividual.html":
+    case "manualindividual.php":
       document.getElementById('paginamanuals').classList.add("active");
       obtenirManuals();
       break;
-    case "jocindividual.html":
+    case "jocindividual.php":
       document.getElementById('paginajocs').classList.add("active");
       obtenirJocs();
       break;
-    case "lloguersjocs.html":
+    case "lloguersjocs.php":
       obtenirLloguersJocs();
       break;
-    case "lloguersmanuals.html":
+    case "lloguersmanuals.php":
       obtenirLloguersManuals();
       break;
-    case "gestio.html":
+    case "gestio.php":
       document.getElementById('paginagestio').classList.add("active");
       break;
-    case "gestioingresosmembres.html":
+    case "gestioingresosmembres.php":
       document.getElementById('paginagestio').classList.add("active");
       obtenirMembres();
       break;
-    case "gestiomembres.html":
+    case "gestiomembres.php":
       document.getElementById('paginagestio').classList.add("active");
       getMembres();
       break;
-    case "gestiolloguersjocs.html":
+    case "gestiolloguersjocs.php":
       document.getElementById('paginagestio').classList.add("active");
       obtenirJocs();
       break;
-    case "gestiolloguersmanuals.html":
+    case "gestiolloguersmanuals.php":
       document.getElementById('paginagestio').classList.add("active");
       obtenirManuals();
       break;
-    case "membre.html":
+    case "membre.php":
       document.getElementById('paginacompte').classList.add("active");
       checkPeriodeaActivacio();
       actiuInactiu();
       break;
-    case "eleccions.html":
+    case "eleccions.php":
       if (sessionStorage.eleccions == "false") {
-        window.location.href = "index.html";
+        window.location.href = "index.php";
       } else {
         pasEleccions();
       }
       break;
     case "":
-      window.location.href = "index.html";
+      window.location.href = "index.php";
       break;
     default:
 
@@ -115,7 +115,7 @@ function afegeixListeners() {
   });
   */
   switch (nomArxiu()) {
-    case "login.html":
+    case "login.php":
       document.getElementById("login").addEventListener('click', function () { ferLogin(); }); /*boton de login*/
       document.getElementById("login").addEventListener('click', function () { inputError(); });
       window.addEventListener("keydown", checkKeyPressed, false); /*al pulsar enter, mira que tecla es*/
@@ -127,11 +127,11 @@ function afegeixListeners() {
         }
       }
       break;
-    case "registre.html":
+    case "registre.php":
       document.getElementById("registre").addEventListener('click', function () { enviarDades(); });
       document.getElementById("registre").addEventListener('click', function () { inputError(); });
       break;
-    case "gestio.html":
+    case "gestio.php":
       document.getElementById('obrireleccions').addEventListener('click', function () { obrirEleccions(); });
       document.getElementById('obrirllistes').addEventListener('click', function () { obrirLlistes(); });
       document.getElementById('obrirvotacio').addEventListener('click', function () { obrirVotacio(); });

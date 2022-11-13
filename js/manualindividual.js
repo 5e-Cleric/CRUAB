@@ -108,7 +108,7 @@ function obtenirManuals() {
           document.getElementById('boto-afegir').addEventListener('click', function () { afegirCopiaManual(); });
         }
       } else { /*si no es membre, que inicii sessió*/
-        window.location.href = "login.html";
+        window.location.href = "login.php";
       }
     }
   }

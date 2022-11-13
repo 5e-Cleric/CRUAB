@@ -1,6 +1,6 @@
 
 if (sessionStorage["numsoci"]) {
-  window.location.href = "index.html";
+  window.location.href = "index.php";
 }
 
 function ferLogin() {
@@ -26,7 +26,7 @@ function ferLogin() {
       } else {
         sessionStorage.setItem("numsoci", data["numsoci"]);
         sessionStorage.setItem("juntari", data["juntari"]);
-        window.location.href = "index.html";
+        window.location.href = "index.php";
       }
     }
   };
