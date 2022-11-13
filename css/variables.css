@@ -68,7 +68,7 @@ body.clar {
   --secondary-accent-color: yellow;
   /*base backgrounds*/
   --body-bg-color: var(--theme-mincontrast);
-  --body-bg-image: url(https://www.dndbeyond.com/content/1-0-2187-0/skins/waterdeep/images/background_texture.png);
+  --body-bg-image: url("/img/temes/white bg.png");
   --nav-bg-color: var(--theme-10contrast);
   --enllaç-navegacio-bg-hover: 90%;
   --nav-bg-image: none;
@@ -108,6 +108,7 @@ body.fosc {
   --theme-10contrast: hsl(0, 0%, 10%);
   --theme-mincontrast: hsl(0, 0%, 0%);
   --body-bg-color: var(--theme-20contrast);
+  --body-bg-image: url("/img/temes/blackscroll.png");
   --nav-bg-color: var(--theme-30contrast);
   --button-bg-fallback: hsl(60, 70%, 50%);
   --destructiu: linear-gradient(150deg, hsl(0, 91%, 55%), hsl(0, 91%, 35%));
@@ -176,4 +177,102 @@ body.pergami {
   --a-color: var(--PHB-logo-color);
   --a-selected-color: var(--secondary-accent-color);
   --footer-color: var(--theme-10contrast);
+}
+
+body.lgbt {
+  --theme-maxcontrast: hsl(0, 0%, 0%);
+  --theme-90contrast: hsl(0, 0%, 10%);
+  --theme-80contrast: hsl(0, 0%, 20%);
+  --theme-70contrast: hsl(0, 0%, 30%);
+  --theme-60contrast: hsl(0, 0%, 40%);
+  --theme-50contrast: hsl(0, 0%, 50%);
+  --theme-40contrast: hsl(0, 0%, 60%);
+  --theme-30contrast: hsl(0, 0%, 70%);
+  --theme-20contrast: hsl(0, 0%, 80%);
+  --theme-10contrast: hsl(0, 0%, 90%);
+  --theme-mincontrast: hsl(0, 0%, 100%);
+  --accent-color: hsl(0, 84%, 29%);
+  --secondary-accent-color: yellow;
+  /*base backgrounds*/
+  --body-bg-color: hsl(41, 100%, 85%);
+  --body-bg-image: none;
+  --nav-bg-color: hsl(41, 100%, 76%);
+  --enllaç-navegacio-bg-hover: 90%;
+  --nav-bg-image: none;
+  /*interactive colors*/
+  --button-bg-fallback: yellow;
+  --destructiu: linear-gradient(150deg, hsl(0, 91%, 55%), hsl(0, 91%, 35%));
+  --destructiu-hover: linear-gradient(150deg, hsl(0, 91%, 70%), hsl(0, 91%, 55%));
+  --constructiu: linear-gradient(150deg, hsl(125, 91%, 55%), hsl(125, 91%, 35%));
+  --constructiu-hover: linear-gradient(150deg, hsl(125, 91%, 75%), hsl(125, 91%, 55%));
+  --neutre: linear-gradient(150deg, hsl(200, 91%, 65%), hsl(200, 91%, 35%));
+  --neutre-hover: linear-gradient(150deg, hsl(200, 91%, 75%), hsl(200, 91%, 50%));
+  --button-bg: var(--button-bg-fallback);
+  --enllaç-navegacio-bg-clicked: var(--theme-40contrast);
+  --input-border: var(--theme-maxcontrast);
+  /*text color*/
+  --text-color-general: var(--theme-80contrast);
+  --header-color-general: var(--text-color-general);
+  --h1-color: var(--header-color-general);
+  --h2-color: var(--header-color-general);
+  --h3-color: var(--header-color-general);
+  --h4-color: var(--header-color-general);
+  --p-color: var(--text-color-general);
+  --a-color: var(--accent-color);
+  --a-selected-color: var(--secondary-accent-color);
+}
+
+
+
+@property --maskStart {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: -90deg;
+}
+
+@property --maskEnd {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 360deg;
+}
+
+body.lgbt {
+	--bg: var(--body-bg-color);
+	--size: clamp(200px, 20vw, 500px);
+	--start: 20%;
+	--w: calc(80% / 20);
+	--top: conic-gradient(from var(--maskStart, 90deg) at center, var(--bg) var(--maskEnd, 180deg), transparent 0);
+	--rainbow: radial-gradient(circle at center,
+		transparent var(--start),
+		violet 0, violet calc(var(--start) + var(--w)),
+		indigo 0, indigo calc(var(--start) + (var(--w) * 2)),
+		blue 0, blue calc(var(--start) + (var(--w) * 3)),
+		green 0, green calc(var(--start) + (var(--w) * 4)),
+		yellow 0, yellow calc(var(--start) + (var(--w) * 5)),
+		orange 0, orange calc(var(--start) + (var(--w) * 6)),
+		red 0, red calc(var(--start) + (var(--w) * 7)),
+		transparent 0
+	);
+	margin: 0;
+	min-height: 100vh;
+	background: var(--top), var(--rainbow), var(--body-bg-color);
+	background-size: var(--size) calc(var(--size) * 0.55);
+	background-position: center 5vh;
+	animation: draw 4800ms forwards infinite cubic-bezier(.33,.19,.32,1);
+}
+
+@keyframes draw {
+	40% {
+		--maskStart: 90deg;
+		--maskEnd: 180deg;
+	}
+	80% {
+		--maskStart: 90deg;
+		--maskEnd: 360deg;
+	}
+}
+
+body.lgbt article {
+  box-shadow: inset 0px 0px 0px var(--body-bg-color);
+  background:hsla(41, 100%, 85%, 60%);
 }

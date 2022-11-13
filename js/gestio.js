@@ -1,4 +1,8 @@
 
+// totes les funcions actualitzen els estats dels processos electorals
+
+// #######################################   OBRIR   ####################################
+
 function obrirEleccions() {
   if (confirm("Estas segur?")) {
     var xhttpobrireleccions = new XMLHttpRequest;

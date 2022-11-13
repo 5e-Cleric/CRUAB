@@ -1,5 +1,7 @@
 
 function pasEleccions() {
+  // determina en quin pas de les eleccions estem i truca a les funcions corresponents
+
   var xhttpcheckeleccions = new XMLHttpRequest();
   xhttpcheckeleccions.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -8,7 +10,6 @@ function pasEleccions() {
       console.table(llista);
       if (llista['presentacio de llistes'] === 1) {
         obtenirLlistes();
-
 
         setTimeout(function () {
           let botoelimina = document.getElementsByClassName('eliminar');
@@ -53,6 +54,8 @@ function pasEleccions() {
 }
 
 function obtenirLlistes() {
+  // demana les llistes electorals de les ultimes eleccions i les imprimeix en pàgina
+
   var xhttpllistes = new XMLHttpRequest();
   xhttpllistes.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -105,9 +108,10 @@ function obtenirLlistes() {
 }
 
 function eliminarLlista(index) {
+  // esborra la llista
+
   if (confirm("Estas segur?")) {
     const llistallistes = document.querySelectorAll('.table-holder .llista');
-    //llistallistes[index].classList.add('hidden');
     var data = {};
     data['nom'] = llistallistes[index].id;
 
@@ -124,7 +128,7 @@ function eliminarLlista(index) {
 }
 
 function editarLlista(index) {
-
+  // transforma la llista en una col·lecció de selects per a poder editar-la
   let presi, vice, treso, secre, vocals;
   const llistallistes = document.querySelectorAll('.table-holder .llista');
   document.querySelectorAll(':is(.editar, .eliminar)').forEach(function (button) {
@@ -281,6 +285,7 @@ function editarLlista(index) {
 }
 
 function canviarLlista(id) {
+  // actualitza la llista, per algun motiu que no recordo esta fet amb delete i post en comptes de PUT, s'ha de refer
   const llistatr = document.getElementById(id);
 
   var data = {};
@@ -320,6 +325,8 @@ function canviarLlista(id) {
 }
 
 function obtenirMembres(formulari) {
+  //demana els membres a la db i els imprimeix a les opcions dels selects.
+
   var xhttpmembres = new XMLHttpRequest();
   xhttpmembres.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -354,6 +361,8 @@ function obtenirMembres(formulari) {
 }
 
 function afegirVocal(parent) {
+  // afegeix més selects a sota del select de vocals
+
   let selectparent = document.querySelector(parent);
   let vocalacopiar;
 
@@ -381,6 +390,7 @@ function afegirVocal(parent) {
 }
 
 function eliminarVocal(parent) {
+  //elimina selects de vocal
   let selectparent = document.querySelector(parent);
   let vocalaeliminar = selectparent.querySelector('select:last-of-type');
 
@@ -393,6 +403,8 @@ function eliminarVocal(parent) {
 }
 
 function validarFormulari(dades) {
+  // notifica al usuari si falta algun carreg
+
   var registreLabels = document.querySelectorAll('label:not([for="nom"], [for^="Vocal"])');
   var labelsbyname = [];
   console.log(registreLabels);
@@ -404,7 +416,7 @@ function validarFormulari(dades) {
   let dadestotes = true;
   for (const [key, value] of Object.entries(dades['carregs'])) {
     const index = labelsbyname.indexOf(key);
-    if (key.startsWith('Vocal')) { } else {
+    if (!key.startsWith('Vocal')) { 
       if (value == "") {
         console.log('Id = ' + key);
         document.getElementById(key).focus();
@@ -419,6 +431,8 @@ function validarFormulari(dades) {
 }
 
 function enviarLlista(tipo, nomllista) {
+ // valors dels selects a la base de dades per POST
+
   var data = {};
 
   if (tipo === 'update') {

@@ -1,4 +1,6 @@
 function obtenirContingut() {
+  // demana els articles a la base de dades i els imprimeix al html
+
   var xhttpcontingut = new XMLHttpRequest();
   xhttpcontingut.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -59,6 +61,8 @@ function obtenirContingut() {
 }
 
 function activarLinks(parent) {
+  //transforma els links de la textarea a links de veritat
+
   const contingut = document.querySelector(parent);
   const articles = contingut.querySelectorAll("p");
 
@@ -81,6 +85,8 @@ function activarLinks(parent) {
 }
 
 function afegirBotons() {
+  //si tens els permisos, afegeix els botons d'afegir un article, esborrar i editar
+
   if (sessionStorage["juntari"] == "true") {
     const afegirboto = document
       .getElementById("template")
@@ -119,6 +125,8 @@ function afegirBotons() {
 }
 
 function editarArticle(id) {
+  // transforma l'article en input i textarea
+
   let usuari = {};
   usuari["numsoci"] = sessionStorage["numsoci"];
 
@@ -158,6 +166,7 @@ function editarArticle(id) {
 }
 
 function guardarArticle(id) {
+  //agafa els valors de input i textarea i els envia a la base de dades amb un PUT
   if (confirm("Estas segur que vols guardar aquest event?")) {
     const event = document.getElementById(id);
     if (event.getAttribute("new") == "no") {
@@ -222,6 +231,8 @@ function guardarArticle(id) {
 }
 
 function afegirArticle() {
+  //agafa els valors de input i textarea i els envia a la base de dades amb un POST
+
   if (!document.querySelector('#contingut section[new="yes"]')) {
     document
       .getElementById("contingut")
@@ -277,6 +288,7 @@ function afegirArticle() {
 }
 
 function borrarArticle(id) {
+  //Esborra l'article en questió
   if (confirm("Estas segur que vols eliminar aquest event?")) {
     let data = {};
 

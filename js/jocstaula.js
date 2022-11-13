@@ -159,20 +159,20 @@ function getJocsTaula() {
         let dificultat = jocactual.querySelector(".dificultat");
         switch (joc.Dificultat) {
           case 1:
+            dificultat.setAttribute("name", "facil");
             dificultat.textContent = "fàcil";
-            dificultat.style = "background-color: green;";
             break;
           case 2:
-            dificultat.textContent = "mitjà";
-            dificultat.style = "background-color: rgb(223, 223, 6);";
+            dificultat.setAttribute("name", "mitja");
+            dificultat.textContent = "mitja";
             break;
           case 3:
+            dificultat.setAttribute("name", "dificil");
             dificultat.textContent = "dificil";
-            dificultat.style = "background-color: orange;";
             break;
           case 4:
-            dificultat.textContent = "molt dificil";
-            dificultat.style = "background-color: red;";
+            dificultat.setAttribute("name", "molt dificil");
+            dificultat.textContent = "molt difícil";
             break;
           default:
             alert("error, dificultad invalida");
