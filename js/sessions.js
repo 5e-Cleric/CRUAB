@@ -9,7 +9,7 @@ function logout() {
       sessionStorage.clear();
     }
   };
-  xhttp.open('DELETE', '/api/login.php', true);
+  xhttp.open('GET', '/api/login.php', true);
   xhttp.send();
 }
 

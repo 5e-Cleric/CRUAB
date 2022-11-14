@@ -11,7 +11,10 @@ switch($_SERVER['REQUEST_METHOD']){
             $msg["numsoci"] = $_SESSION["usuari"]; 
             $msg["juntari"] = $_SESSION["juntari"];
         } else {
-            $msg = null;
+            $_SESSION["usuari"]=4;
+            $_SESSION["juntari"]=false;
+
+
         }
         break;
 
