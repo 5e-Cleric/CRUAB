@@ -39,8 +39,21 @@
     </section>
   </footer>
 
+  <script src="js/checkjunta.js"></script>
+  <script src="js/contingut.js"></script>
+  <script src="js/eleccions.js"></script>
+  <script src="js/gestio.js"></script>
   <script src="js/jocsindividuals.js"></script>
-  <script src="js/temesimenus.js"></script>
+  <script src="js/jocstaula.js"></script>
+  <script src="js/lloguerjocs.js"></script>
+  <script src="js/lloguermanuals.js"></script>
+  <script src="js/manuals.js"></script>
+  <script src="js/membre.js"></script>
+  <script src="js/registre.js"></script>
+  <script src="js/validarlloguerjoc.js"></script>
+  <script src="js/validarlloguermanual.js"></script>
+  <script src="js/validarmembres.js"></script>
+
   <script src="js/sessions.js"></script>
   <script src="js/temesimenus.js"></script>
   <script src="js/onload.js"></script>
