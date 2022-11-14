@@ -1,10 +1,10 @@
 <?php
 
 function getconn(){
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "cruab";
+    $servername = "hl1136.dinaserver.com";
+    $username = "admin_suprem";
+    $password = "Renunciode-36";
+    $dbname = "cruab_dataset";
     $conexion = new mysqli($servername, $username, $password, $dbname);
     mysqli_set_charset($conexion, "utf8");
 
@@ -16,10 +16,10 @@ function getconn(){
 }
 
 function dbconnselect($query){
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "cruab";
+    $servername = "hl1136.dinaserver.com";
+    $username = "admin_suprem";
+    $password = "Renunciode-36";
+    $dbname = "cruab_dataset";
     $conexion = new mysqli($servername, $username, $password, $dbname);
     mysqli_set_charset($conexion, "utf8");
 
@@ -35,10 +35,10 @@ function dbconnselect($query){
 }
 
 function dbconninsert($query){
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "cruab";
+    $servername = "hl1136.dinaserver.com";
+    $username = "admin_suprem";
+    $password = "Renunciode-36";
+    $dbname = "cruab_dataset";
 
     // Create connection
     $conexion = new mysqli($servername, $username, $password, $dbname);
@@ -59,10 +59,10 @@ function dbconninsert($query){
 }
 
 function dbconnupdate($query){
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "cruab";
+    $servername = "hl1136.dinaserver.com";
+    $username = "admin_suprem";
+    $password = "Renunciode-36";
+    $dbname = "cruab_dataset";
 
     // Create connection
     $conexion = new mysqli($servername, $username, $password, $dbname);
@@ -81,10 +81,10 @@ function dbconnupdate($query){
 }
 
 function dbconndelete($query){
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "cruab";
+    $servername = "hl1136.dinaserver.com";
+    $username = "admin_suprem";
+    $password = "Renunciode-36";
+    $dbname = "cruab_dataset";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
