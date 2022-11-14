@@ -1,5 +1,5 @@
 function logout() {
-  //console.log("entra logout");
+  console.log("entra logout");
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {

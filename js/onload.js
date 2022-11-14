@@ -15,7 +15,7 @@ function alCarregar() {
 
 
   switch (nomArxiu()) { /*carga los eventos onload para la pagina correspondiente*/
-    case "index.php":
+    /*case "index.php":
       obtenirContingut();
       break;
     case "manuals.php":
@@ -73,7 +73,7 @@ function alCarregar() {
       break;
     case "":
       window.location.href = "index.php";
-      break;
+      break;*/
     default:
 
       break;
@@ -115,13 +115,13 @@ function afegeixListeners() {
   });
   */
   switch (nomArxiu()) {
-    case "login.php":
-      document.getElementById("login").addEventListener('click', function () { ferLogin(); }); /*boton de login*/
+    /*case "login.php":
+      document.getElementById("login").addEventListener('click', function () { ferLogin(); }); //boton de login
       document.getElementById("login").addEventListener('click', function () { inputError(); });
-      window.addEventListener("keydown", checkKeyPressed, false); /*al pulsar enter, mira que tecla es*/
+      window.addEventListener("keydown", checkKeyPressed, false); //al pulsar enter, mira que tecla es
 
       function checkKeyPressed(e) {
-        if (e.keyCode == "13") { /*si es enter( cualquiera de los dos) haz login*/
+        if (e.keyCode == "13") { //si es enter( cualquiera de los dos) haz login
           ferLogin();
           inputError();
         }
@@ -140,7 +140,7 @@ function afegeixListeners() {
       document.getElementById('tancarllistes').addEventListener('click', function () { tancarLlistes(); });
       document.getElementById('tancarvotacio').addEventListener('click', function () { tancarVotacio(); });
       document.getElementById('tancaractivacio').addEventListener('click', function () { tancarActivacio(); });
-      break;
+      break;*/
     default:
       break;
   }

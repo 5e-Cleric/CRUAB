@@ -17,7 +17,7 @@
       <h3>Ens pots trobar a...</h3>
       <a id="instagram" class="social-link" property="instagram" name="@"
         href="https://www.instagram.com/cruab_clubderol/">Instagram</a>
-      <a id="facebook" class="social-link" property="facebook" name="" href="facebook.com">Facebook</a>
+      <a id="facebook" class="social-link" property="facebook" name="" href="https://www.facebook.com/CRUABOficial">Facebook</a>
       <a id="twitter" class="social-link" href="https://twitter.com/cruaboficial?">Twitter</a>
     </section>
     <section class="socis hidden">
@@ -39,7 +39,7 @@
     </section>
   </footer>
 
-  <script src="js/checkjunta.js"></script>
+  <!--<script src="js/checkjunta.js"></script>-->
   <script src="js/contingut.js"></script>
   <script src="js/eleccions.js"></script>
   <script src="js/gestio.js"></script>
@@ -57,7 +57,7 @@
   <script src="js/sessions.js"></script>
   <script src="js/temesimenus.js"></script>
   <script src="js/onload.js"></script>
-  <script src="js/checkmembre.js"></script>
+  <!--<script src="js/checkmembre.js"></script>-->
 </body>
 
 </html>
