@@ -5,8 +5,8 @@
 	$email = "exemple@cruab.cat";
 	if($_POST["email"] && $_POST["password"] )
 	{
-		$email = $_POST["email"];
-		[$id, $es_junta] = comprovaUsuari($_POST["email"],$_POST["password"]);
+		$email = assegurarInputs($_POST["email"]);
+		[$id, $es_junta] = comprovaUsuari($email,assegurarInputs($_POST["password"]));
 		if($id == -1)
 		{
 			$missatge_error_login="Usuari o Contrassenya equivocats";
