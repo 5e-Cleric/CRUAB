@@ -1,5 +1,5 @@
 <?php
-  include "header.php"
+  require_once(__DIR__."/header.php");
 ?>
   <main class="main-content rows center">
     <article id="contingut" class="rows">
@@ -82,5 +82,5 @@
 </main>
 
 <?php
-  include "footer.php"
+  require_once(__DIR__."/footer.php");
 ?>

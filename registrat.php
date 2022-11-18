@@ -1,5 +1,5 @@
 <?php
-  include "header.php"
+  require_once(__DIR__."/header.php");
 ?>
   <main class="main-content">
     <article>
@@ -7,11 +7,11 @@
 
     </article>
     <?php
-      include "boto_pujar.php"
+      require_once(__DIR__."/boto_pujar.php");
     ?>
   </main>
 
 
 <?php
-  include "footer.php"
+  require_once(__DIR__."/footer.php");
 ?>

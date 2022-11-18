@@ -1,4 +1,6 @@
 <?php
+require_once(__DIR__."/connectDB.php");
+//require_once(__DIR__."/config.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
