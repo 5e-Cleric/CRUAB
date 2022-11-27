@@ -11,7 +11,7 @@
     <div>
       <label class="form-input-label" for="password">Contrassenya</label>
         <br>
-      <input id="password" type="password" name="password" placeholder="Contrasenya" autocomplete="current-password" pattern="[A-Za-z0-9.-_ ].{3,}" title="4 caracters minim, siusplau.">
+      <input id="password" type="password" name="password" placeholder="Contrasenya" autocomplete="current-password" pattern="[A-Za-z0-9.-_ ].{6,}" title="6 caracters minim, siusplau.">
     </div>
 
     <div>
@@ -19,5 +19,5 @@
     </div>
   </form>
   <p id="missatgelogin"><?php echo $missatge_error_login; ?></p>
-  <span>No recordes la teva contrassenya? Clica <a href="recuperar_contrassenya.php">Aquí</a></span>
+  <span>No recordes la teva contrassenya? Clica <a href="recuperarcontrassenya.php">Aquí</a></span>
 </article>
