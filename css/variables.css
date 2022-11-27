@@ -1,23 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
 /*#########################   VARIABLES   ##########################################*/
 :root {
   /*fonts*/
   --brand-font-size: 35px;
-  --nav-font-size: 23px;
-  --header-font-family: 'Libre Baskerville', serif;
+  --nav-font-size:clamp(16.5px ,1.8vw, 26px);
+
+  --header-font-family: 'Cinzel', serif;
   /*family*/
   --h1-font: var(--header-font-family);
   --h2-font: var(--header-font-family);
   --h3-font: var(--header-font-family);
   --h4-font: var(--header-font-family);
   --h5-font: var(--header-font-family);
-  --p-font: 'Verdana', sans-serif;
+  --p-font: 'PT Serif', serif;
   /*size*/
-  --h1-size: 35px;
-  --h2-size: 27px;
-  --h3-size: 25px;
-  --h4-size: 22px;
+  --h1-size: 2vw;
+  --h2-size: 1.7vw;
+  --h3-size: 1.3vw;
+  --h4-size: 1.2vw;
   --label-size: var(--h4-size);
-  --p-size: 20px;
+  --p-size: 1.2vw;
   --p-weight-normal: 100;
   --p-weight-semi: 400;
   --p-weight-bold: 700;
@@ -25,7 +30,13 @@
   --button-font-size: 18px;
   width: 100vw;
   height: 100%;
-  --scroll: url("http://cruab/img/temes/scroll.jfif");
+  --scroll: url(/img/temes/scroll.jfif);
+
+
+  --tema-blau-fosc: #2986cc;
+  --tema-blau-mig: #87b4dd;
+  --tema-blau-clar: #cfe2f3;
+  --tema-crema: #f2ece4;
 }
 
 body {
@@ -49,7 +60,7 @@ body {
   --input-border-incorrect: red;
   --input-border-correct: green;
   --input-border-focus: orange;
-  --footer-color: var(--theme-90contrast);
+  --footer-p-color: var(--theme-90contrast);
 }
 
 body.clar {
@@ -69,17 +80,25 @@ body.clar {
   /*base backgrounds*/
   --body-bg-color: var(--theme-mincontrast);
   --body-bg-image: url("/img/temes/white bg.png");
-  --nav-bg-color: var(--theme-10contrast);
+  --nav-bg-color: var(--tema-blau-clar);
   --enllaç-navegacio-bg-hover: 90%;
   --nav-bg-image: none;
   /*interactive colors*/
   --button-bg-fallback: yellow;
   --destructiu: linear-gradient(150deg, hsl(0, 91%, 55%), hsl(0, 91%, 35%));
-  --destructiu-hover: linear-gradient(150deg, hsl(0, 91%, 70%), hsl(0, 91%, 55%));
-  --constructiu: linear-gradient(150deg, hsl(125, 91%, 55%), hsl(125, 91%, 35%));
-  --constructiu-hover: linear-gradient(150deg, hsl(125, 91%, 75%), hsl(125, 91%, 55%));
+  --destructiu-hover: linear-gradient(150deg,
+      hsl(0, 91%, 70%),
+      hsl(0, 91%, 55%));
+  --constructiu: linear-gradient(150deg,
+      hsl(125, 91%, 55%),
+      hsl(125, 91%, 35%));
+  --constructiu-hover: linear-gradient(150deg,
+      hsl(125, 91%, 75%),
+      hsl(125, 91%, 55%));
   --neutre: linear-gradient(150deg, hsl(200, 91%, 65%), hsl(200, 91%, 35%));
-  --neutre-hover: linear-gradient(150deg, hsl(200, 91%, 75%), hsl(200, 91%, 50%));
+  --neutre-hover: linear-gradient(150deg,
+      hsl(200, 91%, 75%),
+      hsl(200, 91%, 50%));
   --button-bg: var(--button-bg-fallback);
   --enllaç-navegacio-bg-clicked: var(--theme-40contrast);
   --input-border: var(--theme-maxcontrast);
@@ -108,15 +127,23 @@ body.fosc {
   --theme-10contrast: hsl(0, 0%, 10%);
   --theme-mincontrast: hsl(0, 0%, 0%);
   --body-bg-color: var(--theme-20contrast);
-  --body-bg-image: url("/img/temes/blackscroll.png");
+  /*--body-bg-image: url("/img/temes/blackscroll.png");*/
   --nav-bg-color: var(--theme-30contrast);
   --button-bg-fallback: hsl(60, 70%, 50%);
   --destructiu: linear-gradient(150deg, hsl(0, 91%, 55%), hsl(0, 91%, 35%));
-  --destructiu-hover: linear-gradient(150deg, hsl(0, 91%, 70%), hsl(0, 91%, 55%));
-  --constructiu: linear-gradient(150deg, hsl(125, 91%, 55%), hsl(125, 91%, 35%));
-  --constructiu-hover: linear-gradient(150deg, hsl(125, 91%, 75%), hsl(125, 91%, 55%));
+  --destructiu-hover: linear-gradient(150deg,
+      hsl(0, 91%, 70%),
+      hsl(0, 91%, 55%));
+  --constructiu: linear-gradient(150deg,
+      hsl(125, 91%, 55%),
+      hsl(125, 91%, 35%));
+  --constructiu-hover: linear-gradient(150deg,
+      hsl(125, 91%, 75%),
+      hsl(125, 91%, 55%));
   --neutre: linear-gradient(150deg, hsl(200, 91%, 65%), hsl(200, 91%, 35%));
-  --neutre-hover: linear-gradient(150deg, hsl(200, 91%, 75%), hsl(200, 91%, 50%));
+  --neutre-hover: linear-gradient(150deg,
+      hsl(200, 91%, 75%),
+      hsl(200, 91%, 50%));
   --button-bg: var(--button-bg-fallback);
   --enllaç-navegacio-bg-hover: 130%;
   --enllaç-navegacio-bg-clicked: var(--theme-50contrast);
@@ -161,9 +188,15 @@ body.pergami {
   /*interactive colors*/
   --button-bg-fallback: yellow;
   --destructiu: linear-gradient(150deg, hsl(0, 91%, 55%), hsl(0, 91%, 35%));
-  --destructiu-hover: linear-gradient(150deg, hsl(0, 91%, 70%), hsl(0, 91%, 55%));
-  --constructiu: linear-gradient(150deg, hsl(125, 91%, 55%), hsl(125, 91%, 35%));
-  --constructiu-hover: linear-gradient(150deg, hsl(125, 91%, 75%), hsl(125, 91%, 55%));
+  --destructiu-hover: linear-gradient(150deg,
+      hsl(0, 91%, 70%),
+      hsl(0, 91%, 55%));
+  --constructiu: linear-gradient(150deg,
+      hsl(125, 91%, 55%),
+      hsl(125, 91%, 35%));
+  --constructiu-hover: linear-gradient(150deg,
+      hsl(125, 91%, 75%),
+      hsl(125, 91%, 55%));
   --neutre: linear-gradient(150deg, hsl(0, 0%, 40%), hsl(0, 0%, 20%));
   --neutre-hover: linear-gradient(150deg, hsl(0, 0%, 70%), hsl(0, 0%, 40%));
   --button-bg: var(--button-bg-fallback);
@@ -176,9 +209,11 @@ body.pergami {
   --p-color: var(--text-color-general);
   --a-color: var(--PHB-logo-color);
   --a-selected-color: var(--secondary-accent-color);
-  --footer-color: var(--theme-10contrast);
+  --footer-p-color: var(--theme-10contrast);
 }
 
+
+/*####################   LGBT   ######################################*/
 body.lgbt {
   --theme-maxcontrast: hsl(0, 0%, 0%);
   --theme-90contrast: hsl(0, 0%, 10%);
@@ -202,11 +237,19 @@ body.lgbt {
   /*interactive colors*/
   --button-bg-fallback: yellow;
   --destructiu: linear-gradient(150deg, hsl(0, 91%, 55%), hsl(0, 91%, 35%));
-  --destructiu-hover: linear-gradient(150deg, hsl(0, 91%, 70%), hsl(0, 91%, 55%));
-  --constructiu: linear-gradient(150deg, hsl(125, 91%, 55%), hsl(125, 91%, 35%));
-  --constructiu-hover: linear-gradient(150deg, hsl(125, 91%, 75%), hsl(125, 91%, 55%));
+  --destructiu-hover: linear-gradient(150deg,
+      hsl(0, 91%, 70%),
+      hsl(0, 91%, 55%));
+  --constructiu: linear-gradient(150deg,
+      hsl(125, 91%, 55%),
+      hsl(125, 91%, 35%));
+  --constructiu-hover: linear-gradient(150deg,
+      hsl(125, 91%, 75%),
+      hsl(125, 91%, 55%));
   --neutre: linear-gradient(150deg, hsl(200, 91%, 65%), hsl(200, 91%, 35%));
-  --neutre-hover: linear-gradient(150deg, hsl(200, 91%, 75%), hsl(200, 91%, 50%));
+  --neutre-hover: linear-gradient(150deg,
+      hsl(200, 91%, 75%),
+      hsl(200, 91%, 50%));
   --button-bg: var(--button-bg-fallback);
   --enllaç-navegacio-bg-clicked: var(--theme-40contrast);
   --input-border: var(--theme-maxcontrast);
@@ -222,57 +265,68 @@ body.lgbt {
   --a-selected-color: var(--secondary-accent-color);
 }
 
-
-
 @property --maskStart {
-  syntax: '<angle>';
+  syntax: "<angle>";
   inherits: false;
   initial-value: -90deg;
 }
 
 @property --maskEnd {
-  syntax: '<angle>';
+  syntax: "<angle>";
   inherits: false;
   initial-value: 360deg;
 }
 
 body.lgbt {
-	--bg: var(--body-bg-color);
-	--size: clamp(200px, 20vw, 500px);
-	--start: 20%;
-	--w: calc(80% / 20);
-	--top: conic-gradient(from var(--maskStart, 90deg) at center, var(--bg) var(--maskEnd, 180deg), transparent 0);
-	--rainbow: radial-gradient(circle at center,
-		transparent var(--start),
-		violet 0, violet calc(var(--start) + var(--w)),
-		indigo 0, indigo calc(var(--start) + (var(--w) * 2)),
-		blue 0, blue calc(var(--start) + (var(--w) * 3)),
-		green 0, green calc(var(--start) + (var(--w) * 4)),
-		yellow 0, yellow calc(var(--start) + (var(--w) * 5)),
-		orange 0, orange calc(var(--start) + (var(--w) * 6)),
-		red 0, red calc(var(--start) + (var(--w) * 7)),
-		transparent 0
-	);
-	margin: 0;
-	min-height: 100vh;
-	background: var(--top), var(--rainbow), var(--body-bg-color);
-	background-size: var(--size) calc(var(--size) * 0.55);
-	background-position: center 5vh;
-	animation: draw 4800ms forwards infinite cubic-bezier(.33,.19,.32,1);
+  --bg: var(--body-bg-color);
+  --size: clamp(200px, 20vw, 500px);
+  --start: 20%;
+  --w: calc(80% / 20);
+  --top: conic-gradient(from var(--maskStart, 90deg) at center,
+      var(--bg) var(--maskEnd, 180deg),
+      transparent 0);
+  --rainbow: radial-gradient(circle at center,
+      transparent var(--start),
+      violet 0,
+      violet calc(var(--start) + var(--w)),
+      indigo 0,
+      indigo calc(var(--start) + (var(--w) * 2)),
+      blue 0,
+      blue calc(var(--start) + (var(--w) * 3)),
+      green 0,
+      green calc(var(--start) + (var(--w) * 4)),
+      yellow 0,
+      yellow calc(var(--start) + (var(--w) * 5)),
+      orange 0,
+      orange calc(var(--start) + (var(--w) * 6)),
+      red 0,
+      red calc(var(--start) + (var(--w) * 7)),
+      transparent 0);
+  margin: 0;
+  min-height: 100vh;
+  background: var(--top), var(--rainbow), var(--body-bg-color);
+  background-size: var(--size) calc(var(--size) * 0.55);
+  background-position: center 5vh;
+  animation: draw 4800ms forwards infinite cubic-bezier(0.33, 0.19, 0.32, 1);
 }
 
 @keyframes draw {
-	40% {
-		--maskStart: 90deg;
-		--maskEnd: 180deg;
-	}
-	80% {
-		--maskStart: 90deg;
-		--maskEnd: 360deg;
-	}
+  40% {
+    --maskStart: 90deg;
+    --maskEnd: 180deg;
+  }
+
+  80% {
+    --maskStart: 90deg;
+    --maskEnd: 360deg;
+  }
 }
 
 body.lgbt article {
   box-shadow: inset 0px 0px 0px var(--body-bg-color);
-  background:hsla(41, 100%, 85%, 60%);
+  background: hsla(41, 100%, 85%, 60%);
 }
+
+/*#################################   ANIMACIO GENERAL DE PLUJA  ######################################*/
+
+body:after {}

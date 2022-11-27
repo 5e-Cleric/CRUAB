@@ -1,7 +1,7 @@
 <?php
-function esJunta($id)
+function esJunta($conn,$id)
 {
-	SQLquery="SELECT * FROM `Llistes` WHERE `Junta_Actual`=1";
+	$SQLquery="SELECT * FROM Llistes WHERE Junta_Actual=1;";
 		console_log($SQLquery);
 		#echo "<br>";
 		console_log($conn->query($SQLquery));

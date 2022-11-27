@@ -1,6 +1,6 @@
 
 /* ####################################################3#######  TEMES  ##############################################3################*/
-
+/*
 function canviaTema() {
   var tema = localStorage.getItem('tema');
   if (tema == null) {
@@ -16,6 +16,15 @@ function canviaTema() {
   }
   document.body.classList = tema;
 }
+*/
+
+function canviaTema() {
+  var tema = localStorage.getItem('tema');
+  if (tema == null) {
+    localStorage.setItem('tema', "pergami");
+  }
+  document.body.classList = tema;
+}
 
 function estableixTema(temaactual) {
   localStorage.setItem('tema', temaactual);
@@ -23,7 +32,7 @@ function estableixTema(temaactual) {
 
 function afegirClassAMain() {
   var nomarxiu = nomArxiu();
-  nomarxiu = nomarxiu.slice(0, -5);
+  nomarxiu = nomarxiu.slice(0, -4);
   document.querySelector(".main-content").classList += " " + nomarxiu;
 }
 
@@ -93,16 +102,13 @@ function toast(mensaje) {
 }
 
 function decode(text) {
-
-  var map = {
+  let map = {
     '&amp;': '&',
     '&lt;': '<',
     '&gt;': '>',
     '&quot;': '"',
     '&#039;': "'"
   };
-
-
   return text.replace(/(&amp;|&lt;|&gt;|&quot;|&#039;)/g, function (m) { return map[m]; });
 }
 

@@ -1,20 +1,20 @@
 <?php
-	function comprovaUsuari($email, $pass)
+	function comprovaUsuari($conn,$email, $pass)
 	{
 		$id = -1;
 		$es_junta = false;
-		SQLquery="SELECT * FROM `Usuaris` WHERE `Email`='$email'";
+		$SQLquery="SELECT * FROM `Usuaris` WHERE `Email`='$email'";
 		console_log($SQLquery);
 		#echo "<br>";
 		console_log($conn->query($SQLquery));
 		#;
 		if($result=$conn->query($SQLquery))
 		{
-			$row = $result->fetch_assoc()
+			$row = $result->fetch_assoc();
 			if($row["Contrassenya"] == hash("sha256",$pass))
 			{
 				$id = $row["ID"];
-				$junta = esJunta($id);
+				$junta = esJunta($conn,$id);
 			}
 		}
 		else

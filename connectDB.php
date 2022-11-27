@@ -1,4 +1,5 @@
 <?php
+
 	function console_log($output, $with_script_tags = true) 
 	{
 	    $js_code = 'console.log('.json_encode($output, JSON_HEX_TAG).');';
@@ -18,12 +19,6 @@
 	    $input = mysqli_real_escape_string($connection, $input);
 	    return $input;
 	}
-
-	function assegurarInputs($input){
-	    $input = XSS($input);
-	    $input = sqlinjection(getconn(), $input);
-	    return $input;
-	}
 	$server = "hl1136.dinaserver.com";
 	$username = "admin_suprem";
 	$password = "Renunciode-36";
@@ -39,5 +34,12 @@
 	{
 		//console_log("Connect worked");
 		//echo "hw_GetChildColl(connection, objectID)";
+	}
+
+	function assegurarInputs($input){
+		global $conn;
+	    $input = XSS($input);
+	    $input = sqlinjection($conn, $input);
+	    return $input;
 	}
 ?>

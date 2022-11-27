@@ -21,6 +21,7 @@ require_once(__DIR__."/connectDB.php");
       </a>
 
       <div id="botonsnavegacioprincipal" class="collapsed">
+        <a id="paginacalendari" class="enllaç-navegacio" aria-current="page" href="calendari.php">Calendari</a>
         <a id="paginajocs" class="enllaç-navegacio" aria-current="page" href="jocstaula.php">Jocs de taula</a>
         <a id="paginamanuals" class="enllaç-navegacio" aria-current="page" href="manuals.php">Manuals</a>
         <a id="paginagestio" class="enllaç-navegacio hidden" aria-current="page" href="gestio.php">Gestió</a>

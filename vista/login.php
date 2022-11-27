@@ -6,7 +6,7 @@
     <div>
       <label class="form-input-label" for="email">E-mail</label>
         <br>
-      <input id="email" type="email" name="email" placeholder="<?php$ echo $email; ?>" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+      <input id="email" type="email" name="email" placeholder="<?php echo $email; ?>" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
     </div>
     <div>
       <label class="form-input-label" for="password">Contrassenya</label>
@@ -15,7 +15,7 @@
     </div>
 
     <div>
-      <input id="login" type="button" class="neutre" name="submit" value="Entrar">
+      <input id="login" type="submit" class="neutre" name="submit" value="Entrar">
     </div>
   </form>
   <p id="missatgelogin"><?php echo $missatge_error_login; ?></p>
