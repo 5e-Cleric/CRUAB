@@ -11,7 +11,7 @@
     <div>
       <label class="form-input-label" for="password">Contrassenya</label>
         <br>
-      <input id="password" type="password" name="password" placeholder="Contrasenya" autocomplete="current-password" pattern="[A-Za-z0-9.-_ ].{6,}" title="6 caracters minim, siusplau.">
+      <input id="password" type="password" name="password" placeholder="Contrasenya" autocomplete="current-password" pattern="[A-Za-z0-9.-_ ].{3,}" title="6 caracters minim, siusplau.">
     </div>
 
     <div>

@@ -1,5 +1,10 @@
 <?php
-
+if ($enviat)
+{
+  echo "<span>".$missatge_formulari_enviat."</span>";
+}
+else
+{
 ?>
 <form id="form_recuperar_contrassenya_general" name="formlogin" autocomplete="on" action="recuperarcontrassenya.php" method = post>
     <div>
@@ -11,4 +16,6 @@
       <input id="submit_nova_contrassenya" type="submit" class="neutre" name="submit" value="<?php echo $missatge_recuperar; ?>">
     </div>
 </form>
-<span hidden><?php echo $missatge_formulari_enviat; ?></span>
+<?php 
+  }
+?>

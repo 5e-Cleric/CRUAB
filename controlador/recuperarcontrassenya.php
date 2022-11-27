@@ -1,5 +1,5 @@
 <?php
-	require_once(__DIR__."/model/recuperarcontrassenya.php");
+	require_once(__DIR__."/../model/recuperarcontrassenya.php");
 
 	$correu_especificat = false;
 	$actualitzacio_interna = false;
@@ -12,41 +12,69 @@
 		$actualitzacio_interna = true;
 	}
 
-
 	if($actualitzacio_interna)
 	{
 		$email = assegurarInputs($_POST["email"]);
 		if($_POST["contrassenya"])
-		{
-			$codi = assegurarInputs($_POST["code"]);
+		{	
+			$codi = "";
+			if ($_POST["codi"])
+			{
+				$codi = $_POST["codi"];
+			}
+			if ($_GET["codi"])
+			{
+				$codi = $_GET["codi"];
+			}
+			$codi = assegurarInputs($codi);
 			$codi_correcte = comprovarCodiValid($conn, $email, $codi);
 			if($codi_correcte)
 			{
-				setContrassenya($conn, $email, assegurarInputs($_POST["contrassenya"]);
+				$missatge_formulari_enviat = "";
+				if(setContrassenya($conn, $email, hash("sha256",assegurarInputs($_POST["contrassenya"]))))
+				{
+					$missatge_formulari_enviat = "Canvi especificat. Prova a fer login amb la nova contrassenya.";
+				}
+				else
+				{
+					$missatge_formulari_enviat = "Error configurant la nova contrassenya";
+				}
+				$enviat=true;
+				require_once(__DIR__."/../vista/recuperarcontrassenya_usuari.php");
 			}
 		}
 		else
 		{
+			$missatge_formulari_enviat = "";
+			if(checkCorreuEnviar($conn, $email))
+			{
+				$missatge_formulari_enviat = "Petició rebuda. Si el correu està registrat, hi enviarem un enllaç per restablir la contrassenya.";
+			}
+			else
+			{
+				$missatge_formulari_enviat = "Error en l'enviament del correu. Prova-ho en una estona o contacta amb un administrador.";
+			}
 			
-			checkCorreuEnviar($conn, $email);
+			$enviat=true;
+			require_once(__DIR__."/../vista/recuperarcontrassenya_general.php");
 		}
 	}
 	else if($correu_especificat)
 	{
 		$email = assegurarInputs($_GET["email"]);
-		$codi = assegurarInputs($_GET["code"]);
+		$codi = assegurarInputs($_GET["codi"]);
 
 		$codi_correcte = comprovarCodiValid($conn, $email, $codi);
-		
+
 		$missatge_recuperar = "Recuperar Contrassenya"; 
-		$missatge_formulari_enviat = "Petició rebuda. Si el correu està registrat, hi enviarem un unllaç per restablir la contrassenya."
-		require_once(__DIR__."/vista/recuperarcontrassenya_usuari.php");
+		$enviat=false;
+		require_once(__DIR__."/../vista/recuperarcontrassenya_usuari.php");
 	}
 	else
 	{
 		$missatge_recuperar = "Recuperar Contrassenya"; 
-		$missatge_formulari_enviat = "Petició rebuda. Si el correu està registrat, hi enviarem un unllaç per restablir la contrassenya."
-		require_once(__DIR__."/vista/recuperarcontrassenya_general.php");
+		$enviat=false;
+		require_once(__DIR__."/../vista/recuperarcontrassenya_general.php");
 	}
 
 ?>
