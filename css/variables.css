@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
 /*#########################   VARIABLES   ##########################################*/
 :root {
   /*fonts*/
   --brand-font-size: 35px;
-  --nav-font-size:clamp(16.5px ,1.8vw, 26px);
+  --nav-font-size:clamp(16.5px ,1.2vw, 26px);
 
   --header-font-family: 'Cinzel', serif;
   /*family*/
@@ -17,12 +17,12 @@
   --h5-font: var(--header-font-family);
   --p-font: 'PT Serif', serif;
   /*size*/
-  --h1-size: 2vw;
-  --h2-size: 1.7vw;
-  --h3-size: 1.3vw;
-  --h4-size: 1.2vw;
+  --h1-size: 1.2vw;
+  --h2-size: 1vw;
+  --h3-size: 0.9vw;
+  --h4-size: 0.9vw;
   --label-size: var(--h4-size);
-  --p-size: 1.2vw;
+  --p-size: 0.8vw;
   --p-weight-normal: 100;
   --p-weight-semi: 400;
   --p-weight-bold: 700;
@@ -81,6 +81,7 @@ body.clar {
   --body-bg-color: var(--theme-mincontrast);
   --body-bg-image: url("/img/temes/white bg.png");
   --nav-bg-color: var(--tema-blau-clar);
+  --dropdown-bg-color:var(--tema-blau-clar);
   --enllaç-navegacio-bg-hover: 90%;
   --nav-bg-image: none;
   /*interactive colors*/
@@ -161,8 +162,9 @@ body.pergami {
   --PHB-statblocklines: #9c2b1b;
   --scroll: url(/img/temes/scroll.jfif);
   --redscroll: url(/img/temes/redscroll.jpg);
-  --bluescroll: url(/img/temes/dark blue.jpg);
-  --seascroll: url(/img/temes/sea.jpg);
+  --bluescroll: url(/img/temes/bluescroll.jpg);
+  --seascroll: url(/img/temes/seascroll.jpg);
+  --turquoisescroll: url(/img/temes/turquoisescroll.png);
   --theme-maxcontrast: hsl(0, 0%, 0%);
   --theme-90contrast: hsl(0, 0%, 10%);
   --theme-80contrast: hsl(0, 0%, 20%);
@@ -177,13 +179,14 @@ body.pergami {
   --accent-color: var(--PHB-statblocklines);
   --secondary-accent-color: var(--PHB-underline-color);
   /*base backgrounds*/
-  --body-bg-color: var(--HB-bg-color);
+  --body-bg-color: #053247;
   --body-bg-image: ;
   --content-bg-image: var(--scroll);
   --nav-bg-color: var(--theme-20contrast);
+  --dropdown-bg-color:var(--PHB-statblocklines);
   --enllaç-navegacio-bg-hover: 150%;
   --nav-bg-image: var(--redscroll);
-  --footer-bg-image: var(--seascroll);
+  --footer-bg-image: var(--turquoisescroll);
   --nav-shadow: 0px 0px 14px #000;
   /*interactive colors*/
   --button-bg-fallback: yellow;
@@ -327,6 +330,3 @@ body.lgbt article {
   background: hsla(41, 100%, 85%, 60%);
 }
 
-/*#################################   ANIMACIO GENERAL DE PLUJA  ######################################*/
-
-body:after {}
