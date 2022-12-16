@@ -42,13 +42,16 @@ function clickeffect(e) { /*efecte de clic als botons*/
   e.target.classList.toggle("clicked");
 }
 
-function opennav() { /* obre i tanca la navegacio en mòbil*/
-  document.getElementById("botonsnavegacioprincipal").classList.toggle("collapsed");
-  document.getElementById("boto-navegacio").classList.toggle("active");
-}
 
-function obrirTemes() {
-  document.getElementById("espaitemes").classList.toggle('open');
+
+function toggleDropdown(dropdownId) {
+    console.log("Se abre el dropdown= " + dropdownId);
+    const collapsed = document.getElementById(dropdownId).getAttribute("data-collapsed");
+    if (collapsed == "yes") {
+        document.getElementById(dropdownId).setAttribute("data-collapsed", "no");
+    } else {
+        document.getElementById(dropdownId).setAttribute("data-collapsed", "yes");
+    }
 }
 
 function inputError() {
@@ -86,6 +89,7 @@ function ifScrollMostrarPujar() {
 function scrollTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
 
 // #################################################################   FUNCIONS COMUNES DE DISPLAY D'INFORMACIO ##############################################
 
