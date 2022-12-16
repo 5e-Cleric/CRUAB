@@ -1,13 +1,6 @@
-
-
 window.onload = alCarregar;
 
-
-
 function alCarregar() {
-
-
-
   //carregant();
 
   canviaTema();
@@ -18,10 +11,9 @@ function alCarregar() {
 
   ensenyarSocisActius();
 
-
-
-  switch (nomArxiu()) { /*carga los eventos onload para la pagina correspondiente*/
-
+  switch (
+    nomArxiu() /*carga los eventos onload para la pagina correspondiente*/
+  ) {
     /*case "index.php":
 
       obtenirContingut();
@@ -141,74 +133,61 @@ function alCarregar() {
       break;*/
 
     default:
-
-
-
       break;
-
   }
-
-
 
   afegeixListeners();
 
   console.table(sessionStorage);
-
 }
 
-
-
 function afegeixListeners() {
-
-  var botonsnavegacioprincipal = document.getElementsByClassName("enllaç-navegacio");
+  var botonsnavegacioprincipal =
+    document.getElementsByClassName("enllaç-navegacio");
 
   for (i = 0; i < botonsnavegacioprincipal.length; i++) {
+    botonsnavegacioprincipal[i].addEventListener("mousedown", clickeffect);
 
-    botonsnavegacioprincipal[i].addEventListener('mousedown', clickeffect);
-
-    botonsnavegacioprincipal[i].addEventListener('mouseup', clickeffect);
-
+    botonsnavegacioprincipal[i].addEventListener("mouseup", clickeffect);
   }
+
+  document
+    .getElementById("juntanav-button")
+    .addEventListener("click", function () {
+      toggleDropdown("juntanavbar");
+    });
 
   ifSubmmit();
 
   ifFiltre();
 
-
-
-  window.addEventListener('scroll', function () {
-
+  window.addEventListener("scroll", function () {
     ifScrollNavBg();
 
     ifScrollMostrarPujar();
-
   });
 
+  //document.getElementById("pujar").addEventListener('click', function () { scrollTop(); });
 
+  //document.getElementById("boto-navegacio").addEventListener('click', toggleDropdown("navbar"));
 
-  document.getElementById("pujar").addEventListener('click', function () { scrollTop(); });
+  document.getElementById("temes").addEventListener("click", function () {
+    toggleDropdown("theme-dropdown");
+  }); /*TEMES*/
 
-
-
-  document.getElementById("boto-navegacio").addEventListener('click', opennav);
-
-
-
-  document.getElementById("temes").addEventListener('click', obrirTemes); /*TEMES*/
-
-  document.querySelectorAll(".canvi-tema").forEach(element => {
-
-    element.addEventListener('click', function () {
-
+  document.querySelectorAll(".canvi-tema").forEach((element) => {
+    element.addEventListener("click", function () {
       estableixTema(this.id);
 
       canviaTema();
-
     });
-
   });
 
-
+  document
+    .getElementById("user-dropdown-button")
+    .addEventListener("click", function () {
+      toggleDropdown("user-menu");
+    });
 
   /*
 
@@ -221,7 +200,6 @@ function afegeixListeners() {
   */
 
   switch (nomArxiu()) {
-
     /*case "login.php":
 
       document.getElementById("login").addEventListener('click', function () { ferLogin(); }); //boton de login
@@ -275,22 +253,12 @@ function afegeixListeners() {
       break;*/
 
     default:
-
       break;
-
   }
-
-
-
-
-
-
-
 }
 
-
-
-function nomArxiu() { /*da el nombre del archivo extrayendolo de la url*/
+function nomArxiu() {
+  /*da el nombre del archivo extrayendolo de la url*/
 
   var rutaAbsoluta = self.location.href;
 
@@ -301,87 +269,72 @@ function nomArxiu() { /*da el nombre del archivo extrayendolo de la url*/
   var rutaRelativa;
 
   if (posicionInterrogante == -1) {
-
-    rutaRelativa = rutaAbsoluta.substring(posicionUltimaBarra + "/".length, rutaAbsoluta.length);
-
+    rutaRelativa = rutaAbsoluta.substring(
+      posicionUltimaBarra + "/".length,
+      rutaAbsoluta.length
+    );
   } else {
-
-    rutaRelativa = rutaAbsoluta.substring(posicionUltimaBarra + "/".length, posicionInterrogante);
-
+    rutaRelativa = rutaAbsoluta.substring(
+      posicionUltimaBarra + "/".length,
+      posicionInterrogante
+    );
   }
 
   return rutaRelativa;
-
 }
-
-
 
 function ifSubmmit() {
-
   if (document.querySelector('input[type="submit"]') != undefined) {
-
-    document.querySelector('input[type="submit"]').addEventListener('click', function () { inputError(); });
-
+    document
+      .querySelector('input[type="submit"]')
+      .addEventListener("click", function () {
+        inputError();
+      });
   }
-
 }
-
-
 
 function ifFiltre() {
-
   if (document.getElementById("filterbox") != undefined) {
+    const filters = document.querySelectorAll("#filterbox select");
 
-    const filters = document.querySelectorAll('#filterbox select');
-
-    filters.forEach((e) => { e.addEventListener('change', function () { filtrar(); }); });
-
+    filters.forEach((e) => {
+      e.addEventListener("change", function () {
+        filtrar();
+      });
+    });
   }
-
 }
 
-
-
 function checkEleccions() {
-
   var xhttpcheckeleccions = new XMLHttpRequest();
 
   xhttpcheckeleccions.onreadystatechange = function () {
-
     if (this.readyState == 4 && this.status == 200) {
-
       //console.log(xhttpcheckeleccions.responseText);
 
       var llista = JSON.parse(xhttpcheckeleccions.responseText);
 
       console.table(llista);
 
-      if (llista['proces electoral'] === 1 && sessionStorage['numsoci'] != null) {
+      if (
+        llista["proces electoral"] === 1 &&
+        sessionStorage["numsoci"] != null
+      ) {
+        document.getElementById("paginaeleccions").classList.remove("hidden");
 
-        document.getElementById('paginaeleccions').classList.remove('hidden');
-
-        window.sessionStorage.setItem('eleccions', true);
-
+        window.sessionStorage.setItem("eleccions", true);
       } else {
-
-        window.sessionStorage.setItem('eleccions', false);
-
+        window.sessionStorage.setItem("eleccions", false);
       }
-
     }
+  };
 
-  }
-
-  xhttpcheckeleccions.open('GET', '/api/eleccions.php?opcio=eleccio', true);
+  xhttpcheckeleccions.open("GET", "/api/eleccions.php?opcio=eleccio", true);
 
   xhttpcheckeleccions.send();
-
 }
 
-
-
 function ensenyarSocisActius() {
-
   var socisactius = [];
 
   const nummembre = sessionStorage.getItem("numsoci");
@@ -389,54 +342,30 @@ function ensenyarSocisActius() {
   var xhttpactiu = new XMLHttpRequest();
 
   xhttpactiu.onreadystatechange = function () {
-
     if (this.readyState == 4 && this.status == 200) {
-
       var data = JSON.parse(xhttpactiu.responseText);
 
       for (i = 0; i < data.length; i++) {
-
         if (data[i]["numsoci"] == nummembre) {
-
-          sessionStorage.setItem("estatsoci", data[i]['estat']);
-
+          sessionStorage.setItem("estatsoci", data[i]["estat"]);
         }
 
-        if (data[i]['estat'] == 'actiu') {
-
-          socisactius.push(data[i]['estat']);
-
+        if (data[i]["estat"] == "actiu") {
+          socisactius.push(data[i]["estat"]);
         }
-
       }
-
     }
+  };
 
-  }
-
-  xhttpactiu.open('GET', '/api/registre.php?tipus=actiusono', true);
+  xhttpactiu.open("GET", "/api/registre.php?tipus=actiusono", true);
 
   xhttpactiu.send();
 
-
-
-
-
-
-
   setTimeout(() => {
+    if (sessionStorage["estatsoci"] == "actiu") {
+      document.querySelector(".socis").classList.remove("hidden");
 
-    if (sessionStorage['estatsoci'] == "actiu") {
-
-      document.querySelector('.socis').classList.remove('hidden');
-
-      document.getElementById('socisactius').textContent = socisactius.length;
-
+      document.getElementById("socisactius").textContent = socisactius.length;
     }
-
   }, 100);
-
 }
-
-
-
