@@ -10,7 +10,7 @@ require_once(__DIR__ . "/connectDB.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cruab</title>
     <link rel="icon" type="image/x-icon" href="/img/logo/dragon.ico">
-    <link rel="stylesheet" type="text/css" href="./css/general.css">
+    <link rel="stylesheet" href="css/general.css">
 </head>
 
 <body>
