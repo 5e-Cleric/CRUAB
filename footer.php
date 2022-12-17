@@ -1,14 +1,15 @@
 <?php
 ?>
-<footer class="columns space-evenly">
+<footer class="row space-evenly">
     <section id="contacte">
         <h3>Contacta amb nosaltres!</h3>
         <adress property="email">
             <a id="email" class="social-link" href="mailto:juntacruab@gmail.com">juntacruab@gmail.com</a>
         </adress>
         <adress property="adress" typeof="PostalAdress">
-            <p property="streetAdress">Plaça Cívica, 08193 Bellaterra, Barcelona</p>
-            <p>T'esperem!</p>
+            <span property="streetAdress">Plaça Cívica, 08193 Bellaterra, Barcelona</span>
+            <br>
+            <span>T'esperem!</span>
         </adress>
     </section>
     <section id="enllaços-socials">
@@ -25,16 +26,11 @@
     </section>
     <section id="textos-legals">
         <h3>Textos legals</h3>
-        <p>
-            <a href="/avis-legal/" target="_blank" rel="noopener noreferrer">Avís Legal</a>
-            <br>
-            <a href="/politica-de-privacitat/" target="_blank" rel="noopener noreferrer"> Política de Privacitat i
-                Cookies</a><br>
-            <!--<a href="/drets-dimatge/" target="_blank" rel="noopener noreferrer"> Drets de cessió de dades i imatges</a><br>
-        <a href="/estatuts-del-club-excursionista-esparreguera/" target="_blank" rel="noopener noreferrer"> Estatuts del
-          Club</a><br>
-        <a href="/politica-de-xarxes-socials/" target="_blank" rel="noopener noreferrer"> Política de Xarxes Socials</a>-->
-        </p>
+        <a href="/avis-legal/" target="_blank" rel="noopener noreferrer">Avís Legal</a>
+        <br>
+        <a href="/politica-de-privacitat/" target="_blank" rel="noopener noreferrer"> Política de Privacitat i
+            Cookies</a>
+
     </section>
 
     <button id="pujar" class="especial hidden">
