@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__ . "/header.php");
 ?>
-<main class="main-content rows center">
+<main class="main-content column center">
     <article class="error">
         <h1>La pàgina que busques no existeix</h1>
         <div class="error-message">

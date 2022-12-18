@@ -8,14 +8,14 @@
 
 
 
-    <article class="rows center">
+    <article class="column center">
 
-      <aside id="filterbox" class="filterbox rows center">
+      <aside id="filterbox" class="filterbox column center">
         <h2>Filtres</h2>
         <div class="filter-parent">
 
 
-          <div class="rows">
+          <div class="column">
 
             <label class="filterlabel" for="minuts">Filtre de durada del joc:</label>
 
@@ -39,7 +39,7 @@
 
           </div>
 
-          <div class="rows">
+          <div class="column">
 
             <label class="filterlabel" for="jugadors">Filtre de nombre de jugadors:</label>
 
@@ -71,7 +71,7 @@
 
           </div>
 
-          <div class="rows">
+          <div class="column">
 
             <label class="filterlabel" for="dificultat">Filtre per dificultat:</label>
 

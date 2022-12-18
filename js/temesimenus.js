@@ -1,4 +1,3 @@
-
 /* ####################################################3#######  TEMES  ##############################################3################*/
 /*
 function canviaTema() {
@@ -19,15 +18,15 @@ function canviaTema() {
 */
 
 function canviaTema() {
-  var tema = localStorage.getItem('tema');
+  var tema = localStorage.getItem("tema");
   if (tema == null) {
-    localStorage.setItem('tema', "pergami");
+    localStorage.setItem("tema", "pergami");
   }
   document.body.classList = tema;
 }
 
 function estableixTema(temaactual) {
-  localStorage.setItem('tema', temaactual);
+  localStorage.setItem("tema", temaactual);
 }
 
 function afegirClassAMain() {
@@ -38,17 +37,21 @@ function afegirClassAMain() {
 
 /*############################################################   MENUS   ##############################################################*/
 
-function clickeffect(e) { /*efecte de clic als botons*/
+function clickeffect(e) {
+  /*efecte de clic als botons*/
   e.target.classList.toggle("clicked");
 }
 
-function opennav() { /* obre i tanca la navegacio en mòbil*/
-  document.getElementById("botonsnavegacioprincipal").classList.toggle("collapsed");
-  document.getElementById("boto-navegacio").classList.toggle("active");
-}
-
-function obrirTemes() {
-  document.getElementById("espaitemes").classList.toggle('open');
+function toggleDropdown(dropdownId) {
+  console.log("Se abre el dropdown= " + dropdownId);
+  const collapsed = document
+    .getElementById(dropdownId)
+    .getAttribute("data-collapsed");
+  if (collapsed == "yes") {
+    document.getElementById(dropdownId).setAttribute("data-collapsed", "no");
+  } else {
+    document.getElementById(dropdownId).setAttribute("data-collapsed", "yes");
+  }
 }
 
 function inputError() {
@@ -58,15 +61,17 @@ function inputError() {
 
   inputs.forEach(function (element, index) {
     if (element.validity.valid == false || element.value == "") {
-      element.classList.add('error');
-      setTimeout(() => { element.classList.remove('error'); }, 501);
-      labels[index].classList.add('error');
+      element.classList.add("error");
+      setTimeout(() => {
+        element.classList.remove("error");
+      }, 501);
+      labels[index].classList.add("error");
     }
   });
 }
 
 function ifScrollNavBg() {
-  const nav = document.getElementById('capçalera');
+  const nav = document.getElementById("capçalera");
   if (window.pageYOffset < 20) {
     nav.classList.remove("opac");
   } else {
@@ -75,7 +80,7 @@ function ifScrollNavBg() {
 }
 
 function ifScrollMostrarPujar() {
-  const boto = document.getElementById('pujar');
+  const boto = document.getElementById("pujar");
   if (window.pageYOffset > 400) {
     boto.classList.remove("hidden");
   } else {
@@ -84,41 +89,42 @@ function ifScrollMostrarPujar() {
 }
 
 function scrollTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 // #################################################################   FUNCIONS COMUNES DE DISPLAY D'INFORMACIO ##############################################
 
 function toast(mensaje) {
-  const toast = document.getElementById('toast');
-  if (!toast.classList.contains('visible')) {
+  const toast = document.getElementById("toast");
+  if (!toast.classList.contains("visible")) {
     toast.textContent = mensaje;
-    toast.className = 'visible';
+    toast.className = "visible";
     setTimeout(function () {
-      toast.className = '';
+      toast.className = "";
     }, 2500);
   }
-
 }
 
 function decode(text) {
   let map = {
-    '&amp;': '&',
-    '&lt;': '<',
-    '&gt;': '>',
-    '&quot;': '"',
-    '&#039;': "'"
+    "&amp;": "&",
+    "&lt;": "<",
+    "&gt;": ">",
+    "&quot;": '"',
+    "&#039;": "'",
   };
-  return text.replace(/(&amp;|&lt;|&gt;|&quot;|&#039;)/g, function (m) { return map[m]; });
+  return text.replace(/(&amp;|&lt;|&gt;|&quot;|&#039;)/g, function (m) {
+    return map[m];
+  });
 }
 
 function carregant() {
-  document.getElementsByTagName('main')[0].classList.add('hidden');
-  document.getElementsByTagName('footer')[0].classList.add('hidden');
-  document.querySelector('.loading-parent').classList.remove('hidden');
+  document.getElementsByTagName("main")[0].classList.add("hidden");
+  document.getElementsByTagName("footer")[0].classList.add("hidden");
+  document.querySelector(".loading-parent").classList.remove("hidden");
 
   setTimeout(() => {
-    document.querySelector('.loading-parent').classList.add('hidden');
-    document.getElementsByTagName('main')[0].classList.remove('hidden');
+    document.querySelector(".loading-parent").classList.add("hidden");
+    document.getElementsByTagName("main")[0].classList.remove("hidden");
   }, 4996);
 }

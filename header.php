@@ -9,7 +9,7 @@ require_once(__DIR__ . "/connectDB.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cruab</title>
-    <link rel="icon" type="image/x-icon" href="/img/icon/dragon.ico">
+    <link rel="icon" type="image/x-icon" href="/img/logo/dragon.ico">
     <link rel="stylesheet" href="css/general.css">
 </head>
 
@@ -51,7 +51,7 @@ require_once(__DIR__ . "/connectDB.php");
                     <a id="paginalogin" class="enllaç-navegacio hidden" aria-current="page" href="login.php">Iniciar
                         sessió</a>
 
-                    <button id="user-dropdown-button" class="nav-button columns center">
+                    <button id="user-dropdown-button" class="nav-button row center hidden">
                         <span class="material-symbols-rounded">expand_more</span>
                         <div class="image-holder">
                             <img id="user-image" src="" alt="Your user image">
@@ -70,23 +70,23 @@ require_once(__DIR__ . "/connectDB.php");
             </div>
         </nav>
     </header>
-    <button class="neutre" id="juntanav-button"><span
+    <button class="neutre hidden" id="juntanav-button"><span
             class="material-symbols-rounded">keyboard_double_arrow_up</span></button>
     <nav id="juntanavbar" data-collapsed="yes">
         <a class="" href="gestiomembres.php" data-title="Ingresos membres">
-            <div class="anti-rotate rows center">
+            <div class="anti-rotate column center">
                 <span class="material-symbols-rounded">supervised_user_circle</span>
                 <span>Usuari</span>
             </div>
         </a>
         <a class="" href="gestiolloguers.php" data-title="Gestió lloguers">
-            <div class="anti-rotate rows center">
+            <div class="anti-rotate column center">
                 <span class="material-symbols-rounded">casino</span>
                 <span>Llog.</span>
             </div>
         </a>
         <a class="" href="gestiolloguersmanuals.php" data-title="Gestió lloguers manuals">
-            <div class="anti-rotate rows center">
+            <div class="anti-rotate column center">
                 <span class="material-symbols-rounded">extension</span>
                 <span>Rol</span>
             </div>

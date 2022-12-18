@@ -5,7 +5,6 @@ function obtenirJocs(){
             //console.log(xhttp.responseText);
             var data = JSON.parse(xhttp.responseText);
             console.table(data);
-
             var t = document.querySelector('#jocsdetaula'),
             td = t.content.querySelectorAll("td");
             for(let i = 0; i < data.length; i++){
@@ -33,7 +32,6 @@ function obtenirJocs(){
     xhttp.open('GET', '/api/validarlloguerjoc.php', true);
     xhttp.send();
 }
-
 function validarLlogerJoc(numlloguer, numsoci){
     var xhttp = new XMLHttpRequest();
     var data= {};
@@ -48,7 +46,6 @@ function validarLlogerJoc(numlloguer, numsoci){
     xhttp.open('POST', '/api/validarlloguerjoc.php', true);
     xhttp.send(JSON.stringify(data));
 }
-
 function rebutjaLlogerJoc(numlloguer, numsoci){
     var xhttp = new XMLHttpRequest();
     var data= {};

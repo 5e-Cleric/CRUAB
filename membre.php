@@ -1,63 +1,49 @@
 <?php
-
 include "header.php"
+    ?>
+<main class="main-content column center">
+    <article class="">
 
-?>
+        <section id="user-page" class="column">
+            <div class="column center">
+                <div class="user-image column center">
+                    <img src="" alt="imatge de perfil">
+                </div>
 
-<main class="main-content">
-
-    <article class="columns center stretch threegap">
-
-        <section id="prestecsmembre" class="rows">
-
-            <button class="neutre">
-
-                <a href="lloguers.php">Els meus prestecs de jocs</a>
-
-            </button>
-
-
-
-        </section>
-
-        <section id="user-page" class="rows">
-
-            <div id="user-info">
-
-                <a class="hidden">editar el meu perfil</a>
-
-                <button class="hidden" disabled>deixar de ser membre</button>
-
-                <p id="activitat"></p>
-
+                <div>
+                    <label for="nom">Nom:</label>
+                    <span id="nom">Nom cognom1 cognom2</span>
+                    <br>
+                    <label for="correu">Correu:</label>
+                    <span id="correu">correu@gmail.com</span>
+                </div>
                 <br>
+                <button class="neutre" title="Això encara no està disponible" disabled>Editar el meu perfil</button>
+                <button class="destructiu" title="Això encara no està disponible" disabled>Deixar de ser membre</button>
 
-                <br>
-
-                <button id="activarmembre" class="constructiu hidden">Vull ser soci actiu</button>
-
-                <button id="desactivarmembre" class="destructiu hidden">Vull ser soci inactiu</button>
 
             </div>
-
+            <div id="user-info">
+                
+                <p id="activitat"></p>
+                <br>
+                <br>
+                <button id="activarmembre" class="constructiu hidden">Vull ser soci actiu</button>
+                <button id="desactivarmembre" class="destructiu hidden">Vull ser soci inactiu</button>
+            </div>
         </section>
 
     </article>
-
+    <article id="prestecsmembre" class="column">
+        <h1>Els meus préstecs</h1>
+        <button class="neutre">
+            <a href="lloguers.php">Els meus prestecs de jocs</a>
+        </button>
+    </article>
     <?php
-
     include "boto_pujar.php"
-
-    ?>
-
+        ?>
 </main>
-
-
-
-
-
 <?php
-
 include "footer.php"
-
-?>
+    ?>
