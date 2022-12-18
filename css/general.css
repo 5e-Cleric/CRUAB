@@ -521,7 +521,7 @@ nav .theme-button:hover svg {
     }
 
     /* enllaços al contingut principal quan hover*/
-    :is(main, footer) a:is(:hover, :focus) {
+    main a:is(:hover, :focus) {
         color: var(--a-selected-color);
         filter: brightness(70%);
         background-size: 100% 2px;
