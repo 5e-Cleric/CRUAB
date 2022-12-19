@@ -1,0 +1,282 @@
+/* # El css esta separat per pagines amb comentaris com el següent, i esta importat a la layer specific*/
+
+
+
+/*###############################   MEMBRE.php   ##############################*/
+.user-image {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 100%;
+    isolation: isolate;
+}
+
+.user-image:before {
+    content: '';
+    display: block;
+    background: grey;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100px;
+    width: 100px;
+    z-index: -999;
+
+}
+
+user .user-image img {
+    width: 100%;
+    height: 100%;
+    transition: scale 200ms;
+}
+
+.user-image:after {
+    content: '';
+    display: block;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/266/266146.png);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100px;
+    width: 100px;
+    background-position: center center;
+    background-size: 25%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 200ms;
+}
+
+.user-image:hover:after {
+    opacity: 1;
+}
+
+.botons {
+    height: 25px;
+    margin-left: 20px;
+}
+
+.botons *:not(:first-child) {
+    margin-left: 20px;
+}
+
+#login {
+    margin-top: 20px;
+}
+
+#user-menu {
+    color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+
+
+#user-menu>*:not(:first-child) {
+    border-top: 1px solid rgb(255, 133, 133);
+}
+
+#user-menu a {
+    color: white;
+    padding: 5px;
+    transition-duration: 100ms;
+}
+
+#user-menu a:is(:hover, :focus) {
+    color: var(--secondary-accent-color);
+}
+
+
+/* #########################   LOGIN   ###################*/
+
+
+[id="loginform"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#missatgelogin {
+    position: absolute;
+    bottom: 5px;
+}
+
+
+/* #############################   LUDOTECA    #############################*/
+
+
+.ludoteca .image-holder {
+    position: relative;
+    max-width: unset;
+    height: auto;
+    isolation: isolate;
+}
+
+.ludoteca .image-holder:after {
+    display: block;
+    content: attr(data-title);
+    width: 100%;
+    background: rgba(128, 128, 128, 0.612);
+    color: white;
+    font-size: 30px;
+    height: 30%;
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+}
+
+div.ludoteca {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    gap: 50px;
+    height: 50vh;
+    justify-items: center;
+}
+
+
+
+
+
+.jocmanual-pare {
+    width: 60%;
+}
+
+.element-copia {
+    width: 400px;
+    margin-bottom: 20px;
+}
+
+.llistaelements {
+    --column-gap: calc((80vw - (300px * 3)) / 4);
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    column-gap: var(--column-gap);
+    row-gap: 5vh;
+    width: fit-content;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1320px) {
+    .llistaelements {
+        --column-gap: calc((80vw - (300px * 2)) / 3) grid-template-columns: repeat(2, 300px);
+    }
+}
+
+@media screen and (min-width: 1980px) {
+    .llistaelements {
+        --column-gap: calc((80vw - (300px * 4)) / 5) grid-template-columns: repeat(4, 300px);
+    }
+}
+
+@media screen and (min-width: 2500px) {
+    .llistaelements {
+        --column-gap: calc((80vw - (300px * 5)) / 6) grid-template-columns: repeat(5, 300px);
+    }
+}
+
+.element {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.element h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    height: min-content;
+    text-overflow: ellipsis;
+}
+
+.element-copia .boto-reserva:nth-of-type(2):not([Id]) {
+    display: none;
+}
+
+
+
+.contingut:not(:empty) {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    min-height: 150px;
+    width: 300px;
+}
+
+.detalls:not(:empty) {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    height: 70%;
+    min-width: 100px;
+    line-height: 1em;
+}
+
+.detalls>p {
+    font-size: calc(var(--p-size) * 0.7);
+    padding: 2px 5px;
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.detalls .dificultat {
+    display: block;
+    color: hsl(0, 0%, 0%);
+    font-weight: bolder;
+    padding: 0 10px;
+    border-radius: 3px;
+    margin-left: 10px;
+    width: fit-content;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+.detalls .dificultat[name^="f"] {
+    background: limegreen;
+}
+
+.detalls .dificultat[name^="mi"] {
+    background: rgb(223, 223, 6);
+}
+
+.detalls .dificultat[name^="dif"] {
+    background: orange;
+}
+
+.detalls .dificultat[name^="mo"] {
+    background: red;
+}
+
+/*#############################   GESTIO    #############################*/
+
+.gestiojocs article {
+    padding-inline: 100px;
+    gap: 20vw;
+}
+
+
+/*#############################   SOBRENOSALTRES.PHP   #############################*/
+
+.junta {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.juntari {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.juntari .image-holder {
+    width: 15vw;
+    aspect-ratio: 1;
+    background-color: grey;
+}
