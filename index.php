@@ -5,7 +5,7 @@ require_once(__DIR__ . "/header.php");
     <article id="noticies">
         <h1>Les últimes notícies</h1>
         <section class="article">
-            <div class="header row align">
+            <div class="header align">
                 <h2 class="titol">Lorem Ipsum</h2>
             </div>
             <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -17,7 +17,7 @@ require_once(__DIR__ . "/header.php");
         </section>
 
         <section class="article">
-            <div class="header row align">
+            <div class="header align">
                 <h2 class="titol">Lorem Ipsum</h2>
             </div>
             <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -30,14 +30,14 @@ require_once(__DIR__ . "/header.php");
 
     </article>
     <article id="contingut" class="column"></article>
-    <button id="pujar" class="especial hidden">
+    <button id="pujar" class="hidden">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
             <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 
           45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 
           12.5 45.3 0s12.5-32.8 0-45.3l-160-160z" />
         </svg>
     </button>
-    <article class="pc-row-mobile-column space-between">
+    <article class="pc-row-mobile-column between">
         <div>
             <h2>On estem?</h2>
             <p>El CRUAB no té un edifici propi, pero compartim diverses zones amb la resta d'associacions de la UAB, la
@@ -59,7 +59,7 @@ require_once(__DIR__ . "/header.php");
 </main>
 <template id="template">
     <section class="article">
-        <div class="header row align">
+        <div class="header align">
             <h2 class="titol"></h2>
         </div>
         <p class="text"></p>
@@ -68,7 +68,7 @@ require_once(__DIR__ . "/header.php");
     <div class="button-holder start">
         <button class="afegir constructiu hidden">Afegir event</button>
     </div>
-    <div class="botons row align">
+    <div class="botons align">
         <button class="editar neutre rodo hidden">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
                 <path style="transform:translate(20%, 20%)"

@@ -30,7 +30,7 @@ require_once(__DIR__ . "/connectDB.php");
 
 
             </div>
-            <div id="float-right">
+            <div class="float-right">
                 <div class="dropdown-parent">
                     <button id="temes" class="nav-button theme-button" type="button" data-target="theme-dropdown">
                         <span class="material-symbols-rounded">palette</span>
@@ -51,7 +51,7 @@ require_once(__DIR__ . "/connectDB.php");
                     <a id="paginalogin" class="enllaç-navegacio hidden" aria-current="page" href="login.php">Iniciar
                         sessió</a>
 
-                    <button id="user-dropdown-button" class="nav-button row center hidden">
+                    <button id="user-dropdown-button" class="nav-button center hidden">
                         <span class="material-symbols-rounded">expand_more</span>
                         <div class="image-holder">
                             <img id="user-image" src="" alt="Your user image">
@@ -70,13 +70,13 @@ require_once(__DIR__ . "/connectDB.php");
             </div>
         </nav>
     </header>
-    <button class="neutre hidden" id="juntanav-button"><span
+    <button class="neutre" id="juntanav-button"><span
             class="material-symbols-rounded">keyboard_double_arrow_up</span></button>
     <nav id="juntanavbar" data-collapsed="yes">
         <a class="" href="gestiomembres.php" data-title="Ingresos membres">
             <div class="anti-rotate column center">
                 <span class="material-symbols-rounded">supervised_user_circle</span>
-                <span>Usuari</span>
+                <span>membres</span>
             </div>
         </a>
         <a class="" href="gestiolloguers.php" data-title="Gestió lloguers">
@@ -85,9 +85,15 @@ require_once(__DIR__ . "/connectDB.php");
                 <span>Llog.</span>
             </div>
         </a>
-        <a class="" href="gestiolloguersmanuals.php" data-title="Gestió lloguers manuals">
+        <a class="" href="gestiojocs.php" data-title="Gestió jocs de taula">
             <div class="anti-rotate column center">
                 <span class="material-symbols-rounded">extension</span>
+                <span>Jocs</span>
+            </div>
+        </a>
+        <a class="" href="gestiomanuals.php" data-title="Gestió manuals">
+            <div class="anti-rotate column center">
+                <span class="material-symbols-rounded">book</span>
                 <span>Rol</span>
             </div>
         </a>

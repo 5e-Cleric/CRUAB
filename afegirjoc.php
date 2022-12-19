@@ -4,7 +4,7 @@
 <main class="main-content">
     <article>
         <div id="missatge"></div>
-        <form id="formulari" class="double-column" name="formafegirjoc" action="/api/JocsTaula.php" method="POST"
+        <form class="double-column" name="formafegirjoc" action="/api/JocsTaula.php" method="POST"
             enctype="multipart/form-data">
             <div>
                 <div>
@@ -15,7 +15,7 @@
                 </div>
                 <div>
                     <label class="form-input-label sense-asterisc" for="jugadors">Jugadors</label>
-                    <div id="jugadors">
+                    <div class="between">
                         <div>
                             <label class="form-input-label" title="Aquest camp es obligatori"
                                 for="minjugadors">Mínim</label>

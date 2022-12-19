@@ -49,7 +49,7 @@ require_once(__DIR__ . "/header.php");
                 <label class="nom">Katty, David, Abel</label>
             </div>
         </section>
-        <section class="pc-row-mobile-column space-between">
+        <section class="pc-row-mobile-column between">
             <div>
                 <h2>Ón estem?</h2>
                 <p>El CRUAB no té un edifici propi, pero compartim diverses zones amb la resta d'associacions de la UAB,
