@@ -72,7 +72,11 @@ require_once(__DIR__ . "/connectDB.php");
     </header>
     <button class="neutre" id="juntanav-button"><span
             class="material-symbols-rounded">keyboard_double_arrow_up</span></button>
-    <nav id="juntanavbar" data-collapsed="yes">
+    <nav id="juntanavbar" data-collapsed="yes" style="
+        --n: 4;
+        --radius: 300px;
+        --button-diameter: 70px;">
+
         <a class="" href="gestiomembres.php" data-title="Ingresos membres">
             <div class="anti-rotate column center">
                 <span class="material-symbols-rounded">supervised_user_circle</span>

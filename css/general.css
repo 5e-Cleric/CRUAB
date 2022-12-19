@@ -728,7 +728,7 @@ font-family: 'PT Serif', serif;
     /*botons neutres, que no afegeixen ni eliminen*/
     .neutre,
     input[type="file"]:invalid::file-selector-button {
-        --button-bg: var(--neutre, #1a1a1a; );
+        --button-bg: var(--neutre, #1a1a1a);
     }
 
     /*botons neutres quan hover o focus*/
@@ -1265,10 +1265,7 @@ font-family: 'PT Serif', serif;
 
 @layer specific {
     nav#juntanavbar {
-        --n: 4;
         --a: calc(var(--n) + 1.5);
-        --radius: 200px;
-        --button-diameter: 50px;
         /*if it goes in the bottom, make sure to position everything correctly and put orientation on -1*/
         --orientation: -1;
         --rot: calc(90deg / var(--a) * var(--orientation) * var(--element));
@@ -1303,7 +1300,7 @@ font-family: 'PT Serif', serif;
         bottom: 0;
         left: var(--radius);
         translate: -50% 50%;
-        transform-origin: -200px bottom;
+        transform-origin: calc(var(--radius) * -1) bottom ;
     }
 
 
@@ -1331,6 +1328,20 @@ font-family: 'PT Serif', serif;
         rotate: var(--rot);
     }
 
+    nav#juntanavbar> :nth-child(5) {
+        --element: 5;
+        --rot: calc(90deg / var(--a) * var(--orientation) * var(--element));
+        rotate: var(--rot);
+    }
+
+    nav#juntanavbar> :nth-child(6) {
+        --element: 6;
+        --rot: calc(90deg / var(--a) * var(--orientation) * var(--element));
+        rotate: var(--rot);
+    }
+
+
+
     nav#juntanavbar>*:hover:after {
         opacity: 1;
     }
@@ -1347,6 +1358,7 @@ font-family: 'PT Serif', serif;
         font-size: 0.8vw;
         margin-top: -5px;
         height: min-content;
+        color: white;
     }
 
 
