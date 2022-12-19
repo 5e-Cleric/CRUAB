@@ -117,7 +117,8 @@ body.fosc {
   --theme-mincontrast: hsl(0, 0%, 0%);
   --body-bg-color: var(--theme-20contrast);
   /*--body-bg-image: url("/img/temes/blackscroll.png");*/
-  --nav-bg-color: var(--theme-30contrast);
+  --nav-bg-color: var(--theme-10contrast);
+  --dropdown-bg-color: var(--nav-bg-color);
   --button-bg-fallback: hsl(60, 70%, 50%);
   --destructiu: linear-gradient(150deg, hsl(0, 91%, 55%), hsl(0, 91%, 35%));
   --destructiu-hover: linear-gradient(150deg,
@@ -170,7 +171,7 @@ body.pergami {
   --body-bg-color: #053247;
   --body-bg-image: ;
   --content-bg-image: var(--scroll);
-  --nav-bg-color: var(--theme-20contrast);
+  --nav-bg-color: var(--PHB-h1-color);
   --dropdown-bg-color: var(--PHB-statblocklines);
   --enllaç-navegacio-bg-hover: 150%;
   --nav-bg-image: var(--redscroll);
@@ -223,6 +224,7 @@ body.lgbt {
   --body-bg-color: hsl(41, 100%, 85%);
   --body-bg-image: none;
   --nav-bg-color: hsl(41, 100%, 76%);
+  --dropdown-bg-color: var(--nav-bg-color);
   --enllaç-navegacio-bg-hover: 90%;
   --nav-bg-image: none;
   /*interactive colors*/

@@ -65,19 +65,27 @@ user .user-image img {
 }
 
 #user-menu {
-    color: white;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
 
 
 
-#user-menu>*:not(:first-child) {
-    border-top: 1px solid rgb(255, 133, 133);
+#user-menu>*:not(:first-child):after {
+    display: block;
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    border-top: 1px solid var(--dropdown-bg-color);
+    filter: brightness(70%);
 }
 
 #user-menu a {
-    color: white;
+    position: relative;
     padding: 5px;
     transition-duration: 100ms;
 }

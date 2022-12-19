@@ -37,14 +37,14 @@ require_once(__DIR__ . "/connectDB.php");
                         <span class="material-symbols-rounded">expand_more</span>
                     </button>
                     <dropdown id="theme-dropdown" data-collapsed="yes" class="theme-dropdown">
-                        <button id="clar" class="canvi-tema" type="button" data-toggle="theme" data-target="body"
-                            disabled>Clar</button>
-                        <button id="fosc" class="canvi-tema" type="button" data-toggle="theme" data-target="body"
-                            disabled>Fosc</button>
+                        <button id="clar" class="canvi-tema" type="button" data-toggle="theme"
+                            data-target="body">Clar</button>
+                        <button id="fosc" class="canvi-tema" type="button" data-toggle="theme"
+                            data-target="body">Fosc</button>
                         <button id="pergami" class="canvi-tema" type="button" data-toggle="theme"
                             data-target="body">Pergami</button>
-                        <button id="lgbt" class="canvi-tema" type="button" data-toggle="theme" data-target="body"
-                            disabled>Lgbt</button>
+                        <button id="lgbt" class="canvi-tema" type="button" data-toggle="theme"
+                            data-target="body">Lgbt</button>
                     </dropdown>
                 </div>
                 <div class="dropdown-parent">

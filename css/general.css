@@ -338,6 +338,7 @@ font-family: 'PT Serif', serif;
     }
 
     dropdown a {
+        color: var(--nav-color);
         font-size: var(--span-size);
     }
 
@@ -1264,7 +1265,7 @@ font-family: 'PT Serif', serif;
 
 
 @layer specific {
-    nav#juntanavbar {
+    #juntanavbar {
         --a: calc(var(--n) + 1.5);
         /*if it goes in the bottom, make sure to position everything correctly and put orientation on -1*/
         --orientation: -1;
@@ -1284,7 +1285,7 @@ font-family: 'PT Serif', serif;
         z-index: 4;
     }
 
-    nav#juntanavbar>* {
+    #juntanavbar>* {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -1292,49 +1293,69 @@ font-family: 'PT Serif', serif;
         height: var(--button-diameter);
         text-align: center;
         width: var(--button-diameter);
-        background: rgb(254, 104, 104);
+        background: var(--nav-bg-color);
+        background-image: var(--nav-bg-image);
         border-radius: 100%;
         padding: unset;
-        color: rgb(255, 255, 255);
+        color: var(--nav-color);
         position: absolute;
         bottom: 0;
         left: var(--radius);
         translate: -50% 50%;
-        transform-origin: calc(var(--radius) * -1) bottom ;
+        transform-origin: calc(var(--radius) * -1) bottom;
+        isolation: isolate;
+    }
+
+    #juntanavbar>a:is(:hover, :focus):after {
+        display: block;
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 99;
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        backdrop-filter: brightness(150%);
+    }
+
+    #juntanavbar>a:is(:hover, :focus) span.material-symbols-rounded {
+        scale: 1.5;
     }
 
 
-    nav#juntanavbar> :first-child {
+
+    #juntanavbar> :first-child {
         --element: 1;
         --rot: calc(90deg / var(--a) * var(--orientation) * var(--element));
         rotate: var(--rot);
     }
 
-    nav#juntanavbar> :nth-child(2) {
+    #juntanavbar> :nth-child(2) {
         --element: 2;
         --rot: calc(90deg / var(--a) * var(--orientation) * var(--element));
         rotate: var(--rot);
     }
 
-    nav#juntanavbar> :nth-child(3) {
+    #juntanavbar> :nth-child(3) {
         --element: 3;
         --rot: calc(90deg / var(--a) * var(--orientation) * var(--element));
         rotate: var(--rot);
     }
 
-    nav#juntanavbar> :nth-child(4) {
+    #juntanavbar> :nth-child(4) {
         --element: 4;
         --rot: calc(90deg / var(--a) * var(--orientation) * var(--element));
         rotate: var(--rot);
     }
 
-    nav#juntanavbar> :nth-child(5) {
+    #juntanavbar> :nth-child(5) {
         --element: 5;
         --rot: calc(90deg / var(--a) * var(--orientation) * var(--element));
         rotate: var(--rot);
     }
 
-    nav#juntanavbar> :nth-child(6) {
+    #juntanavbar> :nth-child(6) {
         --element: 6;
         --rot: calc(90deg / var(--a) * var(--orientation) * var(--element));
         rotate: var(--rot);
@@ -1342,11 +1363,7 @@ font-family: 'PT Serif', serif;
 
 
 
-    nav#juntanavbar>*:hover:after {
-        opacity: 1;
-    }
-
-    nav#juntanavbar[data-collapsed="no"] {
+    #juntanavbar[data-collapsed="no"] {
         rotate: 0deg;
     }
 
@@ -1359,6 +1376,7 @@ font-family: 'PT Serif', serif;
         margin-top: -5px;
         height: min-content;
         color: white;
+        transition: all 200ms;
     }
 
 

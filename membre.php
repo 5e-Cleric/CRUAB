@@ -35,9 +35,9 @@ include "header.php"
 
     </article>
     <article id="prestecsmembre" class="column">
-        <h1>Els meus préstecs</h1>
+        <h1>Els meus lloguers</h1>
         <button class="neutre">
-            <a href="lloguers.php">Els meus prestecs de jocs</a>
+            <a href="lloguers.php">Els meus lloguers</a>
         </button>
     </article>
     <?php
