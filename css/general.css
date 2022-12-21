@@ -1304,6 +1304,7 @@ font-family: 'PT Serif', serif;
         translate: -50% 50%;
         transform-origin: calc(var(--radius) * -1) bottom;
         isolation: isolate;
+        outline: 1px solid var(--nav-color);
     }
 
     #juntanavbar>a:is(:hover, :focus):after {
@@ -1323,6 +1324,9 @@ font-family: 'PT Serif', serif;
         scale: 1.5;
     }
 
+    #juntanavbar>a:is(:hover, :focus) span:not(.material-symbols-rounded) {
+        margin-top: 0;
+    }
 
 
     #juntanavbar> :first-child {
@@ -1375,7 +1379,7 @@ font-family: 'PT Serif', serif;
         font-size: 0.8vw;
         margin-top: -5px;
         height: min-content;
-        color: white;
+        color: var(--nav-color);
         transition: all 200ms;
     }
 
