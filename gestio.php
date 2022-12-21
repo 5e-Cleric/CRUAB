@@ -23,9 +23,7 @@ require_once(__DIR__ . "/header.php");
             <button id="tancaractivacio" class="destructiu">Tancar activacio de membres</button>
         </section>
     </article>
-    <?php
-    require_once(__DIR__ . "/boto_pujar.php");
-    ?>
+    
 </main>
 <?php
 require_once(__DIR__ . "/footer.php");

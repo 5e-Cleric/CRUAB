@@ -16,15 +16,15 @@ require_once(__DIR__ . "/connectDB.php");
 <body>
     <header id="capçalera" class="navigation">
         <nav id="navbar">
-            <a class="logo enllaç-navegacio" style="max-width:100px;" href="index.php">
+            <a class="logo nav-link" style="max-width:100px;" href="index.php">
                 <img src="img/logo/logo.svg" alt="Logo" title="Logo" />
             </a>
-            <a id="paginasobrenosaltres" class="enllaç-navegacio" aria-current="page" href="sobrenosaltres.php">Sobre
+            <a id="paginasobrenosaltres" class="nav-link" aria-current="page" href="sobrenosaltres.php">Sobre
                 nosaltres</a>
-            <a id="paginaactualitat" class="enllaç-navegacio" aria-current="page" href="actualitat.php">Actualitat</a>
-            <a id="paginaludoteca" class="enllaç-navegacio" aria-current="page" href="ludoteca.php">Ludoteca</a>
-            <a id="paginaeleccions" class="enllaç-navegacio hidden" aria-current="page"
-                href="eleccions.php">Eleccions</a>
+            <a id="paginaactualitat" class="nav-link" aria-current="page" href="actualitat.php">Actualitat</a>
+            <a id="paginaludoteca" class="nav-link" aria-current="page" href="ludoteca.php">Ludoteca</a>
+            <a id="paginacomissions" class="nav-link" aria-current="page" href="comissions.php">Comissions</a>
+            <a id="paginaeleccions" class="nav-link hidden" aria-current="page" href="eleccions.php">Eleccions</a>
 
 
 
@@ -48,7 +48,7 @@ require_once(__DIR__ . "/connectDB.php");
                     </dropdown>
                 </div>
                 <div class="dropdown-parent">
-                    <a id="paginalogin" class="enllaç-navegacio hidden" aria-current="page" href="login.php">Iniciar
+                    <a id="paginalogin" class="nav-link hidden" aria-current="page" href="login.php">Iniciar
                         sessió</a>
 
                     <button id="user-dropdown-button" class="nav-button center hidden">

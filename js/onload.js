@@ -75,7 +75,7 @@ function alCarregar() {
 }
 function afegeixListeners() {
   var botonsnavegacioprincipal =
-    document.getElementsByClassName("enllaç-navegacio");
+    document.getElementsByClassName("nav-link");
   for (i = 0; i < botonsnavegacioprincipal.length; i++) {
     botonsnavegacioprincipal[i].addEventListener("mousedown", clickeffect);
     botonsnavegacioprincipal[i].addEventListener("mouseup", clickeffect);

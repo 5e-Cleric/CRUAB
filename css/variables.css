@@ -16,6 +16,7 @@
   --h2-size: 36px;
   --h3-size: 32px;
   --h4-size: 28px;
+  --h5-size: 26px;
   --label-size: var(--h4-size);
   --p-size: 24px;
   --p-weight-normal: 100;
@@ -74,7 +75,7 @@ body.clar {
   --body-bg-image: url("/img/temes/white bg.png");
   --nav-bg-color: var(--tema-blau-clar);
   --dropdown-bg-color: var(--tema-blau-clar);
-  --enllaç-navegacio-bg-hover: 90%;
+  --nav-link-bg-hover: 90%;
   --nav-bg-image: none;
   /*interactive colors*/
   --button-bg-fallback: yellow;
@@ -93,7 +94,7 @@ body.clar {
       hsl(200, 91%, 75%),
       hsl(200, 91%, 50%));
   --button-bg: var(--button-bg-fallback);
-  --enllaç-navegacio-bg-clicked: var(--theme-40contrast);
+  --nav-link-bg-clicked: var(--theme-40contrast);
   --input-border: var(--theme-maxcontrast);
   /*text color*/
   --text-color-general: var(--theme-80contrast);
@@ -135,8 +136,8 @@ body.fosc {
       hsl(200, 91%, 75%),
       hsl(200, 91%, 50%));
   --button-bg: var(--button-bg-fallback);
-  --enllaç-navegacio-bg-hover: 130%;
-  --enllaç-navegacio-bg-clicked: var(--theme-50contrast);
+  --nav-link-bg-hover: 130%;
+  --nav-link-bg-clicked: var(--theme-50contrast);
   --accent-color: hsl(170, 100%, 50%);
   --secondary-accent-color: rgb(255, 8, 8);
 }
@@ -173,7 +174,7 @@ body.pergami {
   --content-bg-image: var(--scroll);
   --nav-bg-color: var(--PHB-h1-color);
   --dropdown-bg-color: var(--PHB-statblocklines);
-  --enllaç-navegacio-bg-hover: 150%;
+  --nav-link-bg-hover: 150%;
   --nav-bg-image: var(--redscroll);
   --footer-bg-image: var(--turquoisescroll);
   --nav-shadow: 0px 0px 14px #000;
@@ -192,7 +193,7 @@ body.pergami {
   --neutre: linear-gradient(150deg, hsl(0, 0%, 40%), hsl(0, 0%, 20%));
   --neutre-hover: linear-gradient(150deg, hsl(0, 0%, 70%), hsl(0, 0%, 40%));
   --button-bg: var(--button-bg-fallback);
-  --enllaç-navegacio-bg-clicked: var(--PHB-statblocklines);
+  --nav-link-bg-clicked: var(--PHB-statblocklines);
   --input-border: var(--theme-maxcontrast);
   /*text color*/
   --text-color-general: var(--theme-80contrast);
@@ -225,7 +226,7 @@ body.lgbt {
   --body-bg-image: none;
   --nav-bg-color: hsl(41, 100%, 76%);
   --dropdown-bg-color: var(--nav-bg-color);
-  --enllaç-navegacio-bg-hover: 90%;
+  --nav-link-bg-hover: 90%;
   --nav-bg-image: none;
   /*interactive colors*/
   --button-bg-fallback: yellow;
@@ -244,7 +245,7 @@ body.lgbt {
       hsl(200, 91%, 75%),
       hsl(200, 91%, 50%));
   --button-bg: var(--button-bg-fallback);
-  --enllaç-navegacio-bg-clicked: var(--theme-40contrast);
+  --nav-link-bg-clicked: var(--theme-40contrast);
   --input-border: var(--theme-maxcontrast);
   /*text color*/
   --text-color-general: var(--theme-80contrast);

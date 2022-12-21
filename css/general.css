@@ -348,7 +348,7 @@ font-family: 'PT Serif', serif;
     }
 
 
-    .enllaç-navegacio {
+    .nav-link {
         background-color: unset;
         display: flex;
         align-items: center;
@@ -362,13 +362,13 @@ font-family: 'PT Serif', serif;
     }
 
     /*enllaços de navegacio quan hover o focus si la navegacio te fons opac*/
-    :where(.dropdown-parent, .enllaç-navegacio:not(.logo)):is(:hover, :focus) {
-        backdrop-filter: brightness(var(--enllaç-navegacio-bg-hover));
+    :where(.dropdown-parent, .nav-link:not(.logo)):is(:hover, :focus) {
+        backdrop-filter: brightness(var(--nav-link-bg-hover));
         z-index: 100;
     }
 
-    .enllaç-navegacio.clicked,
-    .enllaç-navegacio.active {
+    .nav-link.clicked,
+    .nav-link.active {
         backdrop-filter: brightness(170%);
     }
 
@@ -978,6 +978,10 @@ font-family: 'PT Serif', serif;
     .gap {
         gap: 30px;
     }
+
+    .grid {
+        display: grid;
+    }
 }
 
 
@@ -1103,7 +1107,7 @@ font-family: 'PT Serif', serif;
         }
 
 
-        .enllaç-navegacio:not(.logo) {
+        .nav-link:not(.logo) {
             align-items: flex-start;
             width: 100%;
             justify-content: center;
