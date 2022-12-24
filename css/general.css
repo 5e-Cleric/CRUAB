@@ -291,19 +291,45 @@ font-family: 'PT Serif', serif;
 
 
     dropdown {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-rows: 1fr;
         position: absolute;
         top: var(--parent-height);
         right: 0;
-        width: max-content;
-        height: auto;
         background-color: inherit;
         z-index: 5;
+        overflow: hidden;
+        transition: grid-template-rows 250ms;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    dropdown>content {
+        display: flex;
+        flex-direction: column;
+        width: max-content;
+        height: auto;
+        min-height: 0;
+    }
+
+    dropdown>content>* {
+        padding: 5px;
+    }
+    dropdown a:not(:first-child):after {
+        display: block;
+        pointer-events: none;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        border-top: 1px solid var(--dropdown-bg-color);
+        filter: brightness(70%);
     }
 
     dropdown[data-collapsed="yes"] {
-        display: none;
+        grid-template-rows: 0fr;
     }
 
     .dropdown-parent {
@@ -471,10 +497,6 @@ font-family: 'PT Serif', serif;
     }
 
 
-    .theme-dropdown {
-        gap: 10px;
-        padding: 10px;
-    }
 
     nav .theme-button svg {
         height: 25px;
@@ -1148,6 +1170,7 @@ font-family: 'PT Serif', serif;
             flex-direction: column;
             align-items: center;
         }
+        
 
         .element h3 {
             max-width: 90%;

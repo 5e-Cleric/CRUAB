@@ -27,8 +27,6 @@ require_once(__DIR__ . "/connectDB.php");
             <a id="paginaeleccions" class="nav-link hidden" aria-current="page" href="eleccions.php">Eleccions</a>
 
 
-
-
             </div>
             <div class="float-right">
                 <div class="dropdown-parent">
@@ -37,14 +35,16 @@ require_once(__DIR__ . "/connectDB.php");
                         <span class="material-symbols-rounded">expand_more</span>
                     </button>
                     <dropdown id="theme-dropdown" data-collapsed="yes" class="theme-dropdown">
-                        <button id="clar" class="canvi-tema" type="button" data-toggle="theme"
-                            data-target="body">Clar</button>
-                        <button id="fosc" class="canvi-tema" type="button" data-toggle="theme"
-                            data-target="body">Fosc</button>
-                        <button id="pergami" class="canvi-tema" type="button" data-toggle="theme"
-                            data-target="body">Pergami</button>
-                        <button id="lgbt" class="canvi-tema" type="button" data-toggle="theme"
-                            data-target="body">Lgbt</button>
+                        <content>
+                            <button id="clar" class="canvi-tema" type="button" data-toggle="theme"
+                                data-target="body">Clar</button>
+                            <button id="fosc" class="canvi-tema" type="button" data-toggle="theme"
+                                data-target="body">Fosc</button>
+                            <button id="pergami" class="canvi-tema" type="button" data-toggle="theme"
+                                data-target="body">Pergami</button>
+                            <button id="lgbt" class="canvi-tema" type="button" data-toggle="theme"
+                                data-target="body">Lgbt</button>
+                        </content>
                     </dropdown>
                 </div>
                 <div class="dropdown-parent">
@@ -54,16 +54,18 @@ require_once(__DIR__ . "/connectDB.php");
                     <button id="user-dropdown-button" class="nav-button center hidden">
                         <span class="material-symbols-rounded">expand_more</span>
                         <div class="image-holder">
-                            <img id="user-image" src="" alt="Your user image">
+                            <img id="user-image" src="https://unsplash.it/50/50" alt="Your user image">
                         </div>
                     </button>
 
 
                     <dropdown id="user-menu" data-collapsed="yes">
-                        <a href="membre.php">El meu compte</a>
-                        <a href="lloguers.php">Els meus lloguers</a>
-                        <a href="feedback.php">Feedback</a>
-                        <a id="paginalogout">Tancar sessió</a>
+                        <content>
+                            <a href="membre.php">El meu compte</a>
+                            <a href="lloguers.php">Els meus lloguers</a>
+                            <a href="feedback.php">Feedback</a>
+                            <a id="paginalogout">Tancar sessió</a>
+                        </content>
                     </dropdown>
 
                 </div>

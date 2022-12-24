@@ -7,52 +7,52 @@ require_once(__DIR__ . "/header.php");
     <form class="double-column" name="formregistre">
       <div id="primera-columna">
         <div>
-          <label class="form-input-label" title="Aquest camp es obligatori" errormessage="El nom és obligatori"
+          <label class="form-input-label" title="Aquest camp es obligatori" data-error-message="El nom és obligatori"
             for="nom">Nom</label>
           <br>
-          <input id="nom" type="text" name="nom" placeholder="David" pattern="[a-zA-ZñÑÁÉÍÓÚÜÏÖáéíóúüïö-çÇ ]+"
+          <input id="nom" type="text" name="nom" placeholder="Jana" pattern="[a-zA-ZñÑÁÉÍÓÚÜÏÖáéíóúüïö-çÇ ]+"
             title="Escriu el teu nom real, siusplau" required>
         </div>
         <div>
           <label class="form-input-label" title="Aquest camp es obligatori"
-            errormessage="El primer cognom és obligatori" for="cognom1">Primer cognom</label>
+            data-error-message="El primer cognom és obligatori" for="cognom1">Primer cognom</label>
           <br>
-          <input id="cognom1" type="text" name="cognom1" placeholder="Badillo" pattern="[a-zA-ZñÑÁÉÍÓÚÜÏÖáéíóúüïö-çÇ ]+"
+          <input id="cognom1" type="text" name="cognom1" placeholder="De Sande"
+            pattern="[a-zA-ZñÑÁÉÍÓÚÜÏÖáéíóúüïö-çÇ ]+" required>
+        </div>
+        <div>
+          <label class="form-input-label" title="Aquest camp es obligatori"
+            data-error-message="El segon cognom és obligatori" for="cognom2">Segon cognom</label>
+          <br>
+          <input id="cognom2" type="text" name="cognom2" placeholder="Bolart" pattern="[a-zA-ZñÑÁÉÍÓÚÜÏÖáéíóúüïö-çÇ ]+"
             required>
         </div>
         <div>
-          <label class="form-input-label" title="Aquest camp es obligatori" errormessage="El segon cognom és obligatori"
-            for="cognom2">Segon cognom</label>
-          <br>
-          <input id="cognom2" type="text" name="cognom2" placeholder="Mirete" pattern="[a-zA-ZñÑÁÉÍÓÚÜÏÖáéíóúüïö-çÇ ]+"
-            required>
-        </div>
-        <div>
-          <label class="form-input-label" title="Aquest camp es obligatori" errormessage="El gènere és obligatori"
+          <label class="form-input-label" title="Aquest camp es obligatori" data-error-message="El gènere és obligatori"
             for="genere">Génere</label>
           <br>
-          <input id="genere" type="text" name="genere" placeholder="Barba" pattern="[A-Za-z]+" required>
+          <input id="genere" type="text" name="genere" placeholder="Presi" pattern="[A-Za-z]+" required>
         </div>
         <div>
-          <label class="form-input-label" title="Aquest camp es obligatori" errormessage="El email és obligatori"
+          <label class="form-input-label" title="Aquest camp es obligatori" data-error-message="El email és obligatori"
             for="email">E-mail</label>
           <br>
-          <input name="email" type="email" id="email" placeholder="david@uab.cat"
+          <input name="email" type="email" id="email" placeholder="junta@cruab.cat"
             pattern="^[A-Za-z0-9._%+-&]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
         </div>
         <div>
-          <label class="form-input-label" title="Aquest camp es obligatori" errormessage="La contrasenya és obligatoria"
-            for="password">Contrasenya</label>
+          <label class="form-input-label" title="Aquest camp es obligatori"
+            data-error-message="La contrasenya és obligatoria" for="password">Contrasenya</label>
           <br>
-          <input id="password" type="password" name="password" placeholder="Daeneryseslamillor"
+          <input id="password" type="password" name="password" placeholder="Tu-Tots-Tothom"
             pattern="[A-Za-z0-9.-_ /+*&%].{3,}" required>
         </div>
         <div>
-          <label class="form-input-label" title="Aquest camp es obligatori" errormessage="El telefon és obligatori"
-            for="telefon">Telèfon</label>
+          <label class="form-input-label" title="Aquest camp es obligatori"
+            data-error-message="El telefon és obligatori" for="telefon">Telèfon</label>
           <br>
           <input id="telefon" type="number" name="telefon" min="0" placeholder="626548325" pattern="[0-9].{9,}"
-            required>
+            title="Per motius obvis, aquest telefon no es de ningú del Cruab, crec." required>
         </div>
       </div>
       <div id="segona-columna">
@@ -60,6 +60,7 @@ require_once(__DIR__ . "/header.php");
           <label class="form-input-label" for="facultat">Facultat:</label>
           <br>
           <select id="facultat" name="facultat" class="form-select" aria-label="Default select example">
+            <option value="Cap" default>Cap</option>
             <option value="Escola Enginyeria">Escola d'Enginyeria</option>
             <option value="Escola de Postgrau">Escola de Postgrau</option>
             <option value="Economia i Empresa">Economia i Empresa</option>
@@ -74,7 +75,7 @@ require_once(__DIR__ . "/header.php");
             <option value="Psicologia">Psicologia</option>
             <option value="Traducció i Interpretació">Traducció i Interpretació</option>
             <option value="Veterinària">Veterinària</option>
-            <option value="Cap">Cap</option>
+
           </select>
         </div>
         <br>
@@ -95,7 +96,7 @@ require_once(__DIR__ . "/header.php");
         <br>
         <div>
           <label class="form-input-label" title="Aquest camp es obligatori"
-            errormessage="La data de naixement és obligatoria" for="naixement">Data de naixement:</label>
+            data-error-message="La data de naixement és obligatoria" for="naixement">Data de naixement:</label>
           <br>
           <input id="naixement" type="date" name="naixement" min="1960-01-01" max="2008-01-01" required>
         </div>
@@ -127,7 +128,7 @@ require_once(__DIR__ . "/header.php");
       </div>
     </form>
   </article>
-  
+
 </main>
 <?php
 require_once(__DIR__ . "/footer.php");

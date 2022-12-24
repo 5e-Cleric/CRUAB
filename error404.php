@@ -20,9 +20,7 @@ require_once(__DIR__ . "/header.php");
     </h2>
     <h2>Encara així, el servidor ha fallat, sorry</h2>
   </article>-->
-    <?php
-  require_once(__DIR__ . "/boto_pujar.php");
-  ?>
+    
 </main>
 <?php
 require_once(__DIR__ . "/footer.php");

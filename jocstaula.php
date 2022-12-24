@@ -46,23 +46,21 @@ require_once(__DIR__ . "/header.php");
           </select>
         </div>
     </aside>
-    <button id="boto-afegir" class="constructiu hidden"></button>
-    <div id="llistajocs" class="llistaelements">
-      <div class="joc element" minjugadors="" maxjugadors="">
+    <div id="llista" class="llistamaterial">
+      <div class="joc element" data-min-players="" data-max-players="" data-duration="" data-difficulty-level="">
         <h3 class="nom"></h3>
         <div class="contingut">
           <div class="image-holder">
             <a><img></a>
           </div>
-          <div class="detalls">
+          <div class="details">
             <p class="editorial"></p>
-            <p class="tipus"></p>
-            <p class="duracio"></p>
-            <p class="jugadors"></p>
+            <p class="type"></p>
+            <p class="duration"></p>
+            <p class="players"></p>
             <br>
             <span class="dificultat"></span>
             <br>
-            <button class="eliminarboto destructiu hidden"></button>
           </div>
         </div>
       </div>
