@@ -16,40 +16,40 @@ require_once(__DIR__ . "/header.php");
             <div id="president" class="juntari">
                 <label>President</label>
                 <div class="image-holder">
-                    <img src="" alt="president">
+                    <img src="https://unsplash.it/300?random=1" alt="president">
                 </div>
                 <label class="nom">Jana De Sande Bolart</label>
             </div>
             <div id="vicepresident" class="juntari">
                 <label>Vicepresident</label>
                 <div class=image-holder>
-                    <img src="" alt="vicepresident">
+                    <img src="https://unsplash.it/300?random=2" alt="vicepresident">
                 </div>
                 <label class="nom">Jose Antonio Piedra Guardiola</label>
             </div>
             <div id="tresorer" class="juntari">
                 <label>Tresorer</label>
                 <div class=image-holder>
-                    <img src="" alt="tresorer">
+                    <img src="https://unsplash.it/300?random=3" alt="tresorer">
                 </div>
                 <label class="nom">Raúl Izquierdo Álvarez</label>
             </div>
             <div id="secretari" class="juntari">
                 <label>Secretari</label>
                 <div class=image-holder>
-                    <img src="" alt="secretari">
+                    <img src="https://unsplash.it/300?random=4" alt="secretari">
                 </div>
                 <label class="nom">Mireia Torroja</label>
             </div>
             <div id="vocals" class="juntari">
                 <label>Vocals</label>
                 <div class=image-holder>
-                    <img src="" alt="vocals">
+                    <img src="https://unsplash.it/300?random=5" alt="vocals">
                 </div>
                 <label class="nom">Katty, David, Abel</label>
             </div>
         </section>
-        <section class="pc-row-mobile-column space-between">
+        <section class="pc-row-mobile-column between">
             <div>
                 <h2>Ón estem?</h2>
                 <p>El CRUAB no té un edifici propi, pero compartim diverses zones amb la resta d'associacions de la UAB,

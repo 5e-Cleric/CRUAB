@@ -53,9 +53,7 @@ require_once(__DIR__ . "/header.php");
             <button class="constructiu" type="submit">Crear comissió</button>
         </form>
     </article>
-    <?php
-    require_once(__DIR__ . "/boto_pujar.php");
-    ?>
+    
 </main>
 <?php
 require_once(__DIR__ . "/footer.php");

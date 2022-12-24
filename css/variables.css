@@ -6,28 +6,24 @@
 :root {
   /*fonts*/
   --brand-font-size: 35px;
-  --nav-font-size:clamp(16.5px ,1.2vw, 26px);
+  --nav-font-size: clamp(16.5px, 1.2vw, 40px);
 
-  --header-font-family: 'Cinzel', serif;
   /*family*/
-  --h1-font: var(--header-font-family);
-  --h2-font: var(--header-font-family);
-  --h3-font: var(--header-font-family);
-  --h4-font: var(--header-font-family);
-  --h5-font: var(--header-font-family);
+  --h-font: 'Cinzel', serif;
   --p-font: 'PT Serif', serif;
   /*size*/
   --h1-size: 40px;
   --h2-size: 36px;
   --h3-size: 32px;
   --h4-size: 28px;
+  --h5-size: 26px;
   --label-size: var(--h4-size);
   --p-size: 24px;
   --p-weight-normal: 100;
   --p-weight-semi: 400;
   --p-weight-bold: 700;
   --td-size: 18px;
-  --span-size:18px;
+  --span-size: 18px;
   --button-font-size: 18px;
   width: 100vw;
   height: 100%;
@@ -43,12 +39,8 @@
 body {
   /*text color*/
   --text-color-general: var(--theme-80contrast);
-  --header-color-general: var(--text-color-general);
+  --h-color: var(--text-color-general);
   --nav-color: var(--theme-80contrast);
-  --h1-color: var(--header-color-general);
-  --h2-color: var(--header-color-general);
-  --h3-color: var(--header-color-general);
-  --h4-color: var(--header-color-general);
   --p-color: var(--text-color-general);
   --a-color: var(--accent-color);
   --a-selected-color: var(--secondary-accent-color);
@@ -82,8 +74,8 @@ body.clar {
   --body-bg-color: var(--theme-mincontrast);
   --body-bg-image: url("/img/temes/white bg.png");
   --nav-bg-color: var(--tema-blau-clar);
-  --dropdown-bg-color:var(--tema-blau-clar);
-  --enllaç-navegacio-bg-hover: 90%;
+  --dropdown-bg-color: var(--tema-blau-clar);
+  --nav-link-bg-hover: 90%;
   --nav-bg-image: none;
   /*interactive colors*/
   --button-bg-fallback: yellow;
@@ -102,15 +94,11 @@ body.clar {
       hsl(200, 91%, 75%),
       hsl(200, 91%, 50%));
   --button-bg: var(--button-bg-fallback);
-  --enllaç-navegacio-bg-clicked: var(--theme-40contrast);
+  --nav-link-bg-clicked: var(--theme-40contrast);
   --input-border: var(--theme-maxcontrast);
   /*text color*/
   --text-color-general: var(--theme-80contrast);
-  --header-color-general: var(--text-color-general);
-  --h1-color: var(--header-color-general);
-  --h2-color: var(--header-color-general);
-  --h3-color: var(--header-color-general);
-  --h4-color: var(--header-color-general);
+  --h-color: var(--text-color-general);
   --p-color: var(--text-color-general);
   --a-color: var(--accent-color);
   --a-selected-color: var(--secondary-accent-color);
@@ -130,7 +118,8 @@ body.fosc {
   --theme-mincontrast: hsl(0, 0%, 0%);
   --body-bg-color: var(--theme-20contrast);
   /*--body-bg-image: url("/img/temes/blackscroll.png");*/
-  --nav-bg-color: var(--theme-30contrast);
+  --nav-bg-color: var(--theme-10contrast);
+  --dropdown-bg-color: var(--nav-bg-color);
   --button-bg-fallback: hsl(60, 70%, 50%);
   --destructiu: linear-gradient(150deg, hsl(0, 91%, 55%), hsl(0, 91%, 35%));
   --destructiu-hover: linear-gradient(150deg,
@@ -147,8 +136,8 @@ body.fosc {
       hsl(200, 91%, 75%),
       hsl(200, 91%, 50%));
   --button-bg: var(--button-bg-fallback);
-  --enllaç-navegacio-bg-hover: 130%;
-  --enllaç-navegacio-bg-clicked: var(--theme-50contrast);
+  --nav-link-bg-hover: 130%;
+  --nav-link-bg-clicked: var(--theme-50contrast);
   --accent-color: hsl(170, 100%, 50%);
   --secondary-accent-color: rgb(255, 8, 8);
 }
@@ -183,9 +172,9 @@ body.pergami {
   --body-bg-color: #053247;
   --body-bg-image: ;
   --content-bg-image: var(--scroll);
-  --nav-bg-color: var(--theme-20contrast);
-  --dropdown-bg-color:var(--PHB-statblocklines);
-  --enllaç-navegacio-bg-hover: 150%;
+  --nav-bg-color: var(--PHB-h1-color);
+  --dropdown-bg-color: var(--PHB-statblocklines);
+  --nav-link-bg-hover: 150%;
   --nav-bg-image: var(--redscroll);
   --footer-bg-image: var(--turquoisescroll);
   --nav-shadow: 0px 0px 14px #000;
@@ -204,11 +193,11 @@ body.pergami {
   --neutre: linear-gradient(150deg, hsl(0, 0%, 40%), hsl(0, 0%, 20%));
   --neutre-hover: linear-gradient(150deg, hsl(0, 0%, 70%), hsl(0, 0%, 40%));
   --button-bg: var(--button-bg-fallback);
-  --enllaç-navegacio-bg-clicked: var(--PHB-statblocklines);
+  --nav-link-bg-clicked: var(--PHB-statblocklines);
   --input-border: var(--theme-maxcontrast);
   /*text color*/
   --text-color-general: var(--theme-80contrast);
-  --header-color-general: var(--PHB-h1-color);
+  --h-color: var(--PHB-h1-color);
   --nav-color: var(--PHB-bg-color);
   --p-color: var(--text-color-general);
   --a-color: var(--PHB-logo-color);
@@ -236,7 +225,8 @@ body.lgbt {
   --body-bg-color: hsl(41, 100%, 85%);
   --body-bg-image: none;
   --nav-bg-color: hsl(41, 100%, 76%);
-  --enllaç-navegacio-bg-hover: 90%;
+  --dropdown-bg-color: var(--nav-bg-color);
+  --nav-link-bg-hover: 90%;
   --nav-bg-image: none;
   /*interactive colors*/
   --button-bg-fallback: yellow;
@@ -255,15 +245,11 @@ body.lgbt {
       hsl(200, 91%, 75%),
       hsl(200, 91%, 50%));
   --button-bg: var(--button-bg-fallback);
-  --enllaç-navegacio-bg-clicked: var(--theme-40contrast);
+  --nav-link-bg-clicked: var(--theme-40contrast);
   --input-border: var(--theme-maxcontrast);
   /*text color*/
   --text-color-general: var(--theme-80contrast);
-  --header-color-general: var(--text-color-general);
-  --h1-color: var(--header-color-general);
-  --h2-color: var(--header-color-general);
-  --h3-color: var(--header-color-general);
-  --h4-color: var(--header-color-general);
+  --h-color: var(--text-color-general);
   --p-color: var(--text-color-general);
   --a-color: var(--accent-color);
   --a-selected-color: var(--secondary-accent-color);
@@ -330,4 +316,3 @@ body.lgbt article {
   box-shadow: inset 0px 0px 0px var(--body-bg-color);
   background: hsla(41, 100%, 85%, 60%);
 }
-

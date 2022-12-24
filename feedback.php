@@ -5,7 +5,7 @@ require_once(__DIR__ . "/header.php");
     <article>
         <h1 clas="page-title">Feedback</h1>
         <section class="article">
-            <div class="header row align">
+            <div class="header align">
                 <h2 class="titol">Envia-ns la teva opinió!</h2>
             </div>
             <form action="">

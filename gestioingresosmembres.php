@@ -29,9 +29,7 @@
             </tr>
         </template>
     </article>
-    <?php
-      require_once(__DIR__."/boto_pujar.php");
-    ?>
+    
 </main>
 <?php
   require_once(__DIR__."/footer.php");

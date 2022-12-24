@@ -7,7 +7,7 @@ require_once(__DIR__ . "/header.php");
             <h1>Ludoteca</h1>
         </div>
         <br>
-        <div class="escollir">
+        <div class="ludoteca">
             <a href="jocstaula.php" class="image-holder" data-title="Jocs de taula">
                 <img src="https://img.joomcdn.net/0c9f5432a199507c2667641603bb36a52df024ba_original.jpeg"
                     alt="Jocs de taula">

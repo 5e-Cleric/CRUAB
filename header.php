@@ -16,67 +16,73 @@ require_once(__DIR__ . "/connectDB.php");
 <body>
     <header id="capçalera" class="navigation">
         <nav id="navbar">
-            <a class="logo enllaç-navegacio" style="max-width:100px;" href="index.php">
+            <a class="logo nav-link" style="max-width:100px;" href="index.php">
                 <img src="img/logo/logo.svg" alt="Logo" title="Logo" />
             </a>
-            <a id="paginasobrenosaltres" class="enllaç-navegacio" aria-current="page" href="sobrenosaltres.php">Sobre
+            <a id="paginasobrenosaltres" class="nav-link" aria-current="page" href="sobrenosaltres.php">Sobre
                 nosaltres</a>
-            <a id="paginaactualitat" class="enllaç-navegacio" aria-current="page" href="actualitat.php">Actualitat</a>
-            <a id="paginaludoteca" class="enllaç-navegacio" aria-current="page" href="ludoteca.php">Ludoteca</a>
-            <a id="paginaeleccions" class="enllaç-navegacio hidden" aria-current="page"
-                href="eleccions.php">Eleccions</a>
-
-
+            <a id="paginaactualitat" class="nav-link" aria-current="page" href="actualitat.php">Actualitat</a>
+            <a id="paginaludoteca" class="nav-link" aria-current="page" href="ludoteca.php">Ludoteca</a>
+            <a id="paginacomissions" class="nav-link" aria-current="page" href="comissions.php">Comissions</a>
+            <a id="paginaeleccions" class="nav-link hidden" aria-current="page" href="eleccions.php">Eleccions</a>
 
 
             </div>
-            <div id="float-right">
+            <div class="float-right">
                 <div class="dropdown-parent">
                     <button id="temes" class="nav-button theme-button" type="button" data-target="theme-dropdown">
                         <span class="material-symbols-rounded">palette</span>
                         <span class="material-symbols-rounded">expand_more</span>
                     </button>
                     <dropdown id="theme-dropdown" data-collapsed="yes" class="theme-dropdown">
-                        <button id="clar" class="canvi-tema" type="button" data-toggle="theme" data-target="body"
-                            disabled>Clar</button>
-                        <button id="fosc" class="canvi-tema" type="button" data-toggle="theme" data-target="body"
-                            disabled>Fosc</button>
-                        <button id="pergami" class="canvi-tema" type="button" data-toggle="theme"
-                            data-target="body">Pergami</button>
-                        <button id="lgbt" class="canvi-tema" type="button" data-toggle="theme" data-target="body"
-                            disabled>Lgbt</button>
+                        <content>
+                            <button id="clar" class="canvi-tema" type="button" data-toggle="theme"
+                                data-target="body">Clar</button>
+                            <button id="fosc" class="canvi-tema" type="button" data-toggle="theme"
+                                data-target="body">Fosc</button>
+                            <button id="pergami" class="canvi-tema" type="button" data-toggle="theme"
+                                data-target="body">Pergami</button>
+                            <button id="lgbt" class="canvi-tema" type="button" data-toggle="theme"
+                                data-target="body">Lgbt</button>
+                        </content>
                     </dropdown>
                 </div>
                 <div class="dropdown-parent">
-                    <a id="paginalogin" class="enllaç-navegacio hidden" aria-current="page" href="login.php">Iniciar
+                    <a id="paginalogin" class="nav-link hidden" aria-current="page" href="login.php">Iniciar
                         sessió</a>
 
-                    <button id="user-dropdown-button" class="nav-button row center hidden">
+                    <button id="user-dropdown-button" class="nav-button center hidden">
                         <span class="material-symbols-rounded">expand_more</span>
                         <div class="image-holder">
-                            <img id="user-image" src="" alt="Your user image">
+                            <img id="user-image" src="https://unsplash.it/50/50" alt="Your user image">
                         </div>
                     </button>
 
 
                     <dropdown id="user-menu" data-collapsed="yes">
-                        <a href="membre.php">El meu compte</a>
-                        <a href="lloguers.php">Els meus lloguers</a>
-                        <a href="feedback.php">Feedback</a>
-                        <a id="paginalogout">Tancar sessió</a>
+                        <content>
+                            <a href="membre.php">El meu compte</a>
+                            <a href="lloguers.php">Els meus lloguers</a>
+                            <a href="feedback.php">Feedback</a>
+                            <a id="paginalogout">Tancar sessió</a>
+                        </content>
                     </dropdown>
 
                 </div>
             </div>
         </nav>
     </header>
-    <button class="neutre hidden" id="juntanav-button"><span
+    <button class="neutre" id="juntanav-button"><span
             class="material-symbols-rounded">keyboard_double_arrow_up</span></button>
-    <nav id="juntanavbar" data-collapsed="yes">
+    <nav id="juntanavbar" data-collapsed="yes" style="
+        --n: 4;
+        --radius: 300px;
+        --button-diameter: 70px;">
+
         <a class="" href="gestiomembres.php" data-title="Ingresos membres">
             <div class="anti-rotate column center">
                 <span class="material-symbols-rounded">supervised_user_circle</span>
-                <span>Usuari</span>
+                <span>membres</span>
             </div>
         </a>
         <a class="" href="gestiolloguers.php" data-title="Gestió lloguers">
@@ -85,9 +91,15 @@ require_once(__DIR__ . "/connectDB.php");
                 <span>Llog.</span>
             </div>
         </a>
-        <a class="" href="gestiolloguersmanuals.php" data-title="Gestió lloguers manuals">
+        <a class="" href="gestiojocs.php" data-title="Gestió jocs de taula">
             <div class="anti-rotate column center">
                 <span class="material-symbols-rounded">extension</span>
+                <span>Jocs</span>
+            </div>
+        </a>
+        <a class="" href="gestiomanuals.php" data-title="Gestió manuals">
+            <div class="anti-rotate column center">
+                <span class="material-symbols-rounded">book</span>
                 <span>Rol</span>
             </div>
         </a>

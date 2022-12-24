@@ -4,7 +4,7 @@ require_once(__DIR__ . "/header.php");
 <main class="main-content">
     <article>
         <div id="missatge"></div>
-        <form id="formulari" name="formafegirmanual" action="/api/manuals.php" method="POST"
+        <form class="double-column" name="formafegirmanual" action="/api/manuals.php" method="POST"
             enctype="multipart/form-data">
             <div if="primera-columna">
                 <div>
@@ -64,9 +64,7 @@ require_once(__DIR__ . "/header.php");
             </div>
         </form>
     </article>
-    <?php
-    require_once(__DIR__ . "/boto_pujar.php");
-    ?>
+    
 </main>
 <?php
 require_once(__DIR__ . "/footer.php");

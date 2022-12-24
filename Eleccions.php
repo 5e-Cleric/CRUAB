@@ -117,15 +117,13 @@
                 </div>
             </div>
             <div class="column center">
-                <button type="button" id="afegirvocal" class="neutre row center">Afegir un/a vocal</button>
+                <button type="button" id="afegirvocal" class="neutre center">Afegir un/a vocal</button>
                 <br>
                 <input id="crearllista" type="button" class="constructiu" name="submit" value="crear la llista">
             </div>
         </form>
     </article>
-    <?php
-      require_once(__DIR__."/boto_pujar.php");
-    ?>
+    
 </main>
 <?php
   require_once(__DIR__."/footer.php");
