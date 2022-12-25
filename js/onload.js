@@ -81,9 +81,9 @@ function afegeixListeners() {
     botonsnavegacioprincipal[i].addEventListener("mouseup", clickeffect);
   }
   document
-    .getElementById("juntanav-button")
+    .getElementById("gestio-button")
     .addEventListener("click", function () {
-      toggleDropdown("juntanavbar");
+      toggleDropdown("gestio-nav");
     });
   ifSubmmit();
   ifFiltre();

@@ -53,8 +53,8 @@ require_once(__DIR__ . "/connectDB.php");
 
                     <button id="user-dropdown-button" class="nav-button center hidden">
                         <span class="material-symbols-rounded">expand_more</span>
-                        <div class="image-holder">
-                            <img id="user-image" src="https://unsplash.it/50/50" alt="Your user image">
+                        <div class="image-container">
+                            <img id="user-image" src="https://unsplash.it/50" alt="Your user image">
                         </div>
                     </button>
 
@@ -72,9 +72,14 @@ require_once(__DIR__ . "/connectDB.php");
             </div>
         </nav>
     </header>
-    <button class="neutre" id="juntanav-button"><span
-            class="material-symbols-rounded">keyboard_double_arrow_up</span></button>
-    <nav id="juntanavbar" data-collapsed="yes" style="
+    <button id="gestio-button">
+        <div class="center column">
+            <span class="material-symbols-rounded">settings</span>
+            <span>Gestió</span>
+        </div>
+
+    </button>
+    <nav id="gestio-nav" data-collapsed="yes" style="
         --n: 4;
         --radius: 300px;
         --button-diameter: 70px;">

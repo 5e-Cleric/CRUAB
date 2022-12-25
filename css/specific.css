@@ -99,14 +99,14 @@ user .user-image img {
 /* #############################   LUDOTECA    #############################*/
 
 
-.ludoteca .image-holder {
+.ludoteca .image-container {
     position: relative;
     max-width: unset;
     height: auto;
     isolation: isolate;
 }
 
-.ludoteca .image-holder:after {
+.ludoteca .image-container:after {
     display: block;
     content: attr(data-title);
     width: 100%;
@@ -272,7 +272,7 @@ div.ludoteca {
     align-items: center;
 }
 
-.juntari .image-holder {
+.juntari .image-container {
     width: 15vw;
     aspect-ratio: 1;
     background-color: grey;
@@ -296,14 +296,14 @@ div.ludoteca {
     margin-block: .1em;
 }
 
-.card .image-holder {
+.card .image-container {
     width: 100%;
     height: 100%;
     background: grey;
     overflow: hidden;
 }
 
-.card .image-holder img {
+.card .image-container img {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -323,4 +323,39 @@ div.ludoteca {
 
 .card p {
     font-size: var(--span-size);
+}
+
+#search-box {
+    height: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-block: 20px;
+}
+
+#search-box button,
+#search-box input {
+    display: block;
+    margin-block: 0;
+    margin-right: 20px;
+}
+
+.pagination ul {
+    list-style: none;
+}
+
+.pagination a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1;
+    text-align: center;
+    height: 2em;
+    color: var(--p-color);
+    border-radius: 1000px;
+}
+
+.pagination a[data-active="1"] {
+    background-color: var(--accent-color);
+    color: var(--secondary-accent-color);
 }

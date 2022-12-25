@@ -249,7 +249,8 @@ font-family: 'PT Serif', serif;
     }
 
     span[class*="material-symbols"] {
-        color: white;
+        color: var(--nav-color);
+        text-shadow: none;
     }
 
     a {
@@ -315,6 +316,7 @@ font-family: 'PT Serif', serif;
     dropdown>content>* {
         padding: 5px;
     }
+
     dropdown a:not(:first-child):after {
         display: block;
         pointer-events: none;
@@ -556,10 +558,45 @@ font-family: 'PT Serif', serif;
         margin-bottom: 20px;
     }
 
+    article>*:is(h1, h2, h3, h4, h5):first-child {
+        text-align: center;
+        margin-bottom: 1em;
+    }
+
     .date {
         position: absolute;
         right: 0px;
         bottom: 0px;
+    }
+
+    .news {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .news:nth-of-type(even) {
+        flex-direction: row-reverse;
+    }
+
+    .news:nth-of-type(odd) span {
+        left: 0;
+        right: unset;
+    }
+
+    .news:nth-of-type(even) span {
+        right: 0;
+    }
+
+    .news .image-container {
+        font-size: var(--p-size);
+        height: 100%;
+        width: 100%;
+    }
+
+    .news p {
+        max-width: 90%;
     }
 
     .missatge {
@@ -584,7 +621,7 @@ font-family: 'PT Serif', serif;
         aspect-ratio: 1;
     }
 
-    .image-holder {
+    .image-container {
         font-size: var(--p-size);
         max-width: 20vw;
         margin-right: .5em;
@@ -593,17 +630,17 @@ font-family: 'PT Serif', serif;
         border-radius: 10px;
     }
 
-    .image-holder img {
+    .image-container img {
         min-width: 100%;
         min-height: 100%;
     }
 
-    .image-holder img,
+    .image-container img,
     .logo [alt="Logo"] {
         transition: 250ms ease-in-out;
     }
 
-    .image-holder img:is(:hover, :focus),
+    .image-container img:is(:hover, :focus),
     .logo [alt="Logo"]:is(:hover, :focus) {
         scale: 1.1;
     }
@@ -696,7 +733,9 @@ font-family: 'PT Serif', serif;
         transition-duration: 200ms;
     }
 
-
+    button span {
+        color: inherit;
+    }
 
     :where(button, [type="button"], [type="submit"]):disabled {
         text-shadow: unset;
@@ -719,10 +758,10 @@ font-family: 'PT Serif', serif;
         box-shadow: 1px 1px 3px #000;
     }
 
-    :where(button, [type="button"], [type="submit"]).rodo {
-        aspect-ratio: 1;
+    :where(button, [type="button"], [type="submit"]).round {
+        aspect-ratio: 1 !important;
         padding: 0 !important;
-        border-radius: 100px;
+        border-radius: 1000px !important;
     }
 
     /*botons verds, que afegeixen alguna cosa i son "segurs"*/
@@ -966,6 +1005,13 @@ font-family: 'PT Serif', serif;
         flex-direction: initial;
     }
 
+    .row.start {
+        align-items: flex-start;
+    }
+    .row.end {
+        align-items: flex-end;
+    }
+
     .around {
         display: flex;
         justify-content: space-around;
@@ -1170,7 +1216,7 @@ font-family: 'PT Serif', serif;
             flex-direction: column;
             align-items: center;
         }
-        
+
 
         .element h3 {
             max-width: 90%;
@@ -1190,7 +1236,7 @@ font-family: 'PT Serif', serif;
             width: 100%;
         }
 
-        .image-holder {
+        .image-container {
             width: 50vw;
             max-width: 100px;
             margin-right: 0.5em;
@@ -1292,7 +1338,7 @@ font-family: 'PT Serif', serif;
 
 
 @layer specific {
-    #juntanavbar {
+    #gestio-nav {
         --a: calc(var(--n) + 1.5);
         /*if it goes in the bottom, make sure to position everything correctly and put orientation on -1*/
         --orientation: -1;
@@ -1312,7 +1358,7 @@ font-family: 'PT Serif', serif;
         z-index: 4;
     }
 
-    #juntanavbar>* {
+    #gestio-nav>* {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -1334,7 +1380,7 @@ font-family: 'PT Serif', serif;
         outline: 1px solid var(--nav-color);
     }
 
-    #juntanavbar>a:is(:hover, :focus):after {
+    #gestio-nav>a:is(:hover, :focus):after {
         display: block;
         content: '';
         position: absolute;
@@ -1347,46 +1393,47 @@ font-family: 'PT Serif', serif;
         backdrop-filter: brightness(150%);
     }
 
-    #juntanavbar>a:is(:hover, :focus) span.material-symbols-rounded {
+    #gestio-nav>a:is(:hover, :focus) span.material-symbols-rounded,
+    #gestio-button:is(:hover, :focus) span.material-symbols-rounded {
         scale: 1.5;
     }
 
-    #juntanavbar>a:is(:hover, :focus) span:not(.material-symbols-rounded) {
+    #gestio-nav>a:is(:hover, :focus) span:not(.material-symbols-rounded) {
         margin-top: 0;
     }
 
 
-    #juntanavbar> :first-child {
+    #gestio-nav> :first-child {
         --element: 1;
         --rot: calc(90deg / var(--a) * var(--orientation) * var(--element));
         rotate: var(--rot);
     }
 
-    #juntanavbar> :nth-child(2) {
+    #gestio-nav> :nth-child(2) {
         --element: 2;
         --rot: calc(90deg / var(--a) * var(--orientation) * var(--element));
         rotate: var(--rot);
     }
 
-    #juntanavbar> :nth-child(3) {
+    #gestio-nav> :nth-child(3) {
         --element: 3;
         --rot: calc(90deg / var(--a) * var(--orientation) * var(--element));
         rotate: var(--rot);
     }
 
-    #juntanavbar> :nth-child(4) {
+    #gestio-nav> :nth-child(4) {
         --element: 4;
         --rot: calc(90deg / var(--a) * var(--orientation) * var(--element));
         rotate: var(--rot);
     }
 
-    #juntanavbar> :nth-child(5) {
+    #gestio-nav> :nth-child(5) {
         --element: 5;
         --rot: calc(90deg / var(--a) * var(--orientation) * var(--element));
         rotate: var(--rot);
     }
 
-    #juntanavbar> :nth-child(6) {
+    #gestio-nav> :nth-child(6) {
         --element: 6;
         --rot: calc(90deg / var(--a) * var(--orientation) * var(--element));
         rotate: var(--rot);
@@ -1394,15 +1441,15 @@ font-family: 'PT Serif', serif;
 
 
 
-    #juntanavbar[data-collapsed="no"] {
+    #gestio-nav[data-collapsed="no"] {
         rotate: 0deg;
     }
 
-    #juntanavbar .anti-rotate {
+    #gestio-nav .anti-rotate {
         rotate: calc(var(--rot) * -1);
     }
 
-    #juntanavbar span {
+    #gestio-nav span {
         font-size: 0.8vw;
         margin-top: -5px;
         height: min-content;
@@ -1412,16 +1459,31 @@ font-family: 'PT Serif', serif;
 
 
 
-    #juntanav-button {
-        display: block;
+
+    #gestio-button {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
         position: fixed;
         left: 0;
-        bottom: 0;
+        bottom: 20px;
         z-index: 5;
-
-        height: 20px;
-        aspect-ratio: 1;
-        border-radius: 100%;
+        translate: -35% 0;
+        height: 100px;
+        width: 140px;
+        border-radius: 1000px;
         padding: unset;
+        background-color: var(--nav-bg-color);
+        background-image: var(--nav-bg-image);
+        color: var(--nav-color);
+        text-align: right;
+        padding-inline-end: 15px;
     }
+
+    #gestio-button span {
+        transition: all 250ms;
+        text-shadow: none;
+    }
+
+
 }

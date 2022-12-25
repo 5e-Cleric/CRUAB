@@ -4,32 +4,60 @@ require_once(__DIR__ . "/header.php");
 <main class="main-content column center">
     <article class="column">
         <h2>Totes les notícies</h2>
-        <ol>
-            <li>
-                <details>
-                    <summary>Notícia 1</summary>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </details>
-            </li>
-            <li>
-                <details>
-                    <summary>Notícia 2</summary>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </details>
-            </li>
-            <li>
-                <details>
-                    <summary>Notícia 3</summary>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </details>
-            </li>
-            <li>
-                <details>
-                    <summary>Notícia 4</summary>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </details>
-            </li>
-        </ol>
+        <section class="news">
+            <div>
+                <h4 class="news-title">No et creuràs el que ha passat a les nits lúdiques!</h4>
+                <p class="news-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip
+                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                    dolore eu
+                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum.
+                </p>
+                <br>
+                <span class="date">24-12-2022</span>
+            </div>
+            <div class="image-container">
+                <img src="https://unsplash.it/500?random=1" alt="Imatge de la noticia">
+            </div>
+        </section>
+        <section class="news">
+            <div>
+                <h4 class="news-title">No et creuràs el que ha passat a les nits lúdiques!</h4>
+                <p class="news-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip
+                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                    dolore eu
+                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum.
+                </p>
+                <br>
+                <span class="date">24-12-2022</span>
+            </div>
+            <div class="image-container">
+                <img src="https://unsplash.it/500?random=2" alt="Imatge de la noticia">
+            </div>
+        </section>
+        <section class="center">
+            <div class="pagination center">
+                <ul class="center">
+                    <li><a href="#">&laquo;</a></li>
+                    <li><a href="#" data-active="1">1</a></li>
+                    <li><a href="#" data-active="0">2</a></li>
+                    <li><a href="#" data-active="0">3</a></li>
+                    <li><a href="#" data-active="0">4</a></li>
+                    <li><a href="#" data-active="0">5</a></li>
+                    <li><a href="#" data-active="0">6</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+            </div>
+        </section>
 
     </article>
     <article>

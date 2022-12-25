@@ -3,8 +3,9 @@ require_once(__DIR__ . "/header.php");
 ?>
 <main class="main-content column center">
     <article id="noticies">
-        <h2>Qui sóm?</h2>
+        
         <section class="article">
+            <h2>Qui sóm?</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
             ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
@@ -15,36 +16,36 @@ require_once(__DIR__ . "/header.php");
         <section class="junta">
             <div id="president" class="juntari">
                 <label>President</label>
-                <div class="image-holder">
-                    <img src="https://unsplash.it/300?random=1" alt="president">
+                <div class="image-container">
+                    <img src="https://unsplash.it/500?random=1" alt="president">
                 </div>
                 <label class="nom">Jana De Sande Bolart</label>
             </div>
             <div id="vicepresident" class="juntari">
                 <label>Vicepresident</label>
-                <div class=image-holder>
-                    <img src="https://unsplash.it/300?random=2" alt="vicepresident">
+                <div class=image-container>
+                    <img src="https://unsplash.it/500?random=2" alt="vicepresident">
                 </div>
                 <label class="nom">Jose Antonio Piedra Guardiola</label>
             </div>
             <div id="tresorer" class="juntari">
                 <label>Tresorer</label>
-                <div class=image-holder>
-                    <img src="https://unsplash.it/300?random=3" alt="tresorer">
+                <div class=image-container>
+                    <img src="https://unsplash.it/500?random=3" alt="tresorer">
                 </div>
                 <label class="nom">Raúl Izquierdo Álvarez</label>
             </div>
             <div id="secretari" class="juntari">
                 <label>Secretari</label>
-                <div class=image-holder>
-                    <img src="https://unsplash.it/300?random=4" alt="secretari">
+                <div class=image-container>
+                    <img src="https://unsplash.it/500?random=4" alt="secretari">
                 </div>
                 <label class="nom">Mireia Torroja</label>
             </div>
             <div id="vocals" class="juntari">
                 <label>Vocals</label>
-                <div class=image-holder>
-                    <img src="https://unsplash.it/300?random=5" alt="vocals">
+                <div class=image-container>
+                    <img src="https://unsplash.it/500?random=5" alt="vocals">
                 </div>
                 <label class="nom">Katty, David, Abel</label>
             </div>

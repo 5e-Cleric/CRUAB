@@ -2,25 +2,40 @@
 require_once(__DIR__ . "/header.php");
 ?>
 <main class="main-content">
-    <article class="center">
+    <article class="row start">
+        <div class="center column">
+            <div class="search-container">
+                <form id="search-box" action="">
+                    <input type="text" placeholder="Search.." name="search" autocomplete="off" required>
+                    <button class="neutre round" type="submit">
+                        <span class="material-symbols-rounded">search</span>
+                    </button>
+                </form>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="nom">Catan</td>
+                        <td>
+                            <button class="eliminarboto destructiu">
+                                <span class="material-symbols-rounded">delete</span>
+                            </button>
+                        </td>
+                        <td>
+                            <a href="">Editar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Nom</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="nom">Catan</td>
-                    <td><button class="eliminarboto destructiu"><span
-                                class="material-symbols-rounded">delete</span></button></td>
-                    <td><a href="">Editar</a></td>
-                </tr>
-            </tbody>
-        </table>
         <form class="column center" name="formafegirjoc" action="/api/JocsTaula.php" method="POST"
             enctype="multipart/form-data">
             <h2>Afegir joc</h2>
@@ -30,7 +45,7 @@ require_once(__DIR__ . "/header.php");
                         <label class="form-input-label" title="Aquest camp es obligatori" for="nom">Nom del
                             joc</label>
                         <br>
-                        <input type="text" id="nom" name="nom" autocomplete="off" placeholder="Lords Of Waterdeep"
+                        <input type="text" id="nom" name="nom"  placeholder="Lords Of Waterdeep"
                             pattern="[A-Za-zÀ-ÖØ-öø-ÿ&' 0-9]+" title="Nom del joc de taula" required>
                     </div>
                     <div>
