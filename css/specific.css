@@ -340,6 +340,10 @@ div.ludoteca {
     margin-right: 20px;
 }
 
+
+/*#############################   actualitat.PHP   #############################*/
+
+
 .pagination ul {
     list-style: none;
 }
@@ -358,4 +362,47 @@ div.ludoteca {
 .pagination a[data-active="1"] {
     background-color: var(--accent-color);
     color: var(--secondary-accent-color);
+}
+
+
+
+/*#############################   TEMA CLAR   #############################*/
+
+
+.clar table {
+    margin-block: 20px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    display: table;
+    border: 1px solid #ccc;
+}
+
+.clar tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.clar tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.clar tr:nth-child(even) {
+    background-color: #E7E9EB;
+}
+
+.clar td, .clar th {
+    padding: 8px 8px;
+    display: table-cell;
+    text-align: left;
+    vertical-align: center;
+}
+
+.clar th:first-child, td:first-child {
+    padding-left: 16px;
+}
+
+.clar th, .clar td {
+    border: none;
+    text-align: left;
+    padding: 8px;
 }

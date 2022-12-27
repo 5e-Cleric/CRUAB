@@ -19,9 +19,9 @@
   --h5-size: 26px;
   --label-size: var(--h4-size);
   --p-size: 24px;
-  --p-weight-normal: 100;
-  --p-weight-semi: 400;
-  --p-weight-bold: 700;
+  --weight-normal: 100;
+  --weight-semi: 600;
+  --weight-bold: 700;
   --td-size: 18px;
   --span-size: 18px;
   --button-font-size: 18px;
@@ -34,6 +34,10 @@
   --tema-blau-mig: #87b4dd;
   --tema-blau-clar: #cfe2f3;
   --tema-crema: #f2ece4;
+}
+
+* {
+  font-family: var(--p-font);
 }
 
 body {

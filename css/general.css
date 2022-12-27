@@ -105,7 +105,9 @@ font-family: 'PT Serif', serif;
         background-color: hsl(0, 0%, 60%);
     }
 
-    header *,
+    header,
+    nav,
+    nav *,
     input,
     button,
     [id="filterbox"] *,
@@ -147,19 +149,9 @@ font-family: 'PT Serif', serif;
         gap: 30px;
         height: var(--nav-height);
         margin-inline: 1.7vw;
-        -webkit-touch-callout: none;
-        /* iOS Safari */
-        -webkit-user-select: none;
-        /* Safari */
-        -khtml-user-select: none;
-        /* Konqueror HTML */
-        -moz-user-select: none;
-        /* Old versions of Firefox */
-        -ms-user-select: none;
-        /* Internet Explorer/Edge */
-        user-select: none;
         /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
     }
+
 
     body {
         color: var(--p-color);
@@ -212,27 +204,30 @@ font-family: 'PT Serif', serif;
     h1 {
         font-size: var(--h1-size);
         text-align: center;
+        font-weight: var(--weight-semi);
     }
 
     h2 {
         font-size: var(--h2-size);
+        font-weight: var(--weight-semi);
     }
 
     h3 {
         font-size: var(--h3-size);
+        font-weight: var(--weight-semi);
     }
 
     h4 {
         font-size: var(--h4-size);
+        font-weight: var(--weight-bold);
     }
 
     h5 {
         font-size: var(--h5-size);
+        font-weight: var(--weight-bold);
     }
 
-    p,
-    label,
-    textarea {
+    p, label, textarea {
         color: var(--p-color);
         font-family: var(--p-font);
         font-size: var(--p-size);
@@ -248,7 +243,7 @@ font-family: 'PT Serif', serif;
         font-size: var(--span-size);
     }
 
-    span[class*="material-symbols"] {
+    span[class|="material-symbols"] {
         color: var(--nav-color);
         text-shadow: none;
     }
@@ -356,7 +351,7 @@ font-family: 'PT Serif', serif;
         color: var(--nav-color);
         font-size: calc(var(--nav-font-size) + 5px);
         font-family: var(--header-font-family);
-        font-weight: 600;
+        font-weight: var(--weight-semi);
         pointer-events: none;
     }
 
@@ -386,7 +381,7 @@ font-family: 'PT Serif', serif;
         color: var(--nav-color);
         font-size: var(--nav-font-size);
         font-family: var(--h-font);
-        font-weight: 600;
+        font-weight: var(--weight-semi);
     }
 
     /*enllaços de navegacio quan hover o focus si la navegacio te fons opac*/
@@ -408,18 +403,6 @@ font-family: 'PT Serif', serif;
         min-width: 70px;
         padding: 0;
         margin-block: auto;
-        -webkit-touch-callout: none;
-        /* iOS Safari */
-        -webkit-user-select: none;
-        /* Safari */
-        -khtml-user-select: none;
-        /* Konqueror HTML */
-        -moz-user-select: none;
-        /* Old versions of Firefox */
-        -ms-user-select: none;
-        /* Internet Explorer/Edge */
-        user-select: none;
-        /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
         height: 90%;
         aspect-ratio: 100/111;
     }
@@ -724,7 +707,7 @@ font-family: 'PT Serif', serif;
         border-radius: 7px;
         padding: .2em .5em;
         border: none;
-        font-weight: bolder;
+        font-weight: var(--weight-bold);
         min-height: 27px;
         letter-spacing: 0.1em;
         text-shadow: 1px 2px 2px #000;
@@ -952,7 +935,7 @@ font-family: 'PT Serif', serif;
 
     th {
         font-size: var(--p-size);
-        font-weight: var(--p-weight-bold);
+        font-weight: var(--weight-bold);
         padding: 0 5px;
     }
 
@@ -1008,6 +991,7 @@ font-family: 'PT Serif', serif;
     .row.start {
         align-items: flex-start;
     }
+
     .row.end {
         align-items: flex-end;
     }

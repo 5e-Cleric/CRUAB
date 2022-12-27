@@ -16,13 +16,35 @@ require_once(__DIR__ . "/header.php");
                 <thead>
                     <tr>
                         <th>Nom</th>
-                        <th></th>
+                        <th>Eliminar</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td class="nom">Catan</td>
+                        <td>
+                            <button class="eliminarboto destructiu">
+                                <span class="material-symbols-rounded">delete</span>
+                            </button>
+                        </td>
+                        <td>
+                            <a href="">Editar</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="nom">Monopoly</td>
+                        <td>
+                            <button class="eliminarboto destructiu">
+                                <span class="material-symbols-rounded">delete</span>
+                            </button>
+                        </td>
+                        <td>
+                            <a href="">Editar</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="nom">Escacs</td>
                         <td>
                             <button class="eliminarboto destructiu">
                                 <span class="material-symbols-rounded">delete</span>
