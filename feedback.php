@@ -8,7 +8,7 @@ require_once(__DIR__ . "/header.php");
             <div class="header align">
                 <h2 class="titol">Envia-ns la teva opinió!</h2>
             </div>
-            <form action="">
+            <form action="" class="column a-start gap">
             <textarea name="feedback content" id="feedback-content" cols="30" column="10"></textarea>
             <button class="constructiu" type="submit">Submit</button>
             </form>

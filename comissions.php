@@ -4,7 +4,7 @@ require_once(__DIR__ . "/header.php");
 <main class="main-content column center">
     <article class="error">
         <h1>Comissions</h1>
-        <div class="around">
+        <div class="around wrap gap">
             <div id="comi-name1" class="card">
                 <h5>Comissió web</h5>
                 <div class="content">

@@ -2,9 +2,9 @@ window.onload = alCarregar;
 function alCarregar() {
   //carregant();
   canviaTema();
-  checkEleccions();
+  //checkEleccions();
   afegirClassAMain();
-  ensenyarSocisActius();
+  //ensenyarSocisActius();
   switch (
     nomArxiu() /*carga los eventos onload para la pagina correspondiente*/
   ) {
@@ -73,13 +73,19 @@ function alCarregar() {
   afegeixListeners();
   console.table(sessionStorage);
 }
+
 function afegeixListeners() {
-  var botonsnavegacioprincipal =
-    document.getElementsByClassName("nav-link");
+  var botonsnavegacioprincipal = document.getElementsByClassName("nav-link");
   for (i = 0; i < botonsnavegacioprincipal.length; i++) {
     botonsnavegacioprincipal[i].addEventListener("mousedown", clickeffect);
     botonsnavegacioprincipal[i].addEventListener("mouseup", clickeffect);
   }
+
+  document.getElementById("nav-button").addEventListener("click", function () {
+    document.getElementById("nav-button").classList.toggle("open");
+    document.getElementById("nav-dropdown").classList.toggle("open");
+  });
+
   document
     .getElementById("gestio-button")
     .addEventListener("click", function () {
@@ -182,6 +188,7 @@ function ifFiltre() {
     });
   }
 }
+/*
 function checkEleccions() {
   var xhttpcheckeleccions = new XMLHttpRequest();
   xhttpcheckeleccions.onreadystatechange = function () {
@@ -202,8 +209,8 @@ function checkEleccions() {
   };
   xhttpcheckeleccions.open("GET", "/api/eleccions.php?opcio=eleccio", true);
   xhttpcheckeleccions.send();
-}
-function ensenyarSocisActius() {
+}*/
+/*function ensenyarSocisActius() {
   var socisactius = [];
   const nummembre = sessionStorage.getItem("numsoci");
   var xhttpactiu = new XMLHttpRequest();
@@ -228,4 +235,4 @@ function ensenyarSocisActius() {
       document.getElementById("socisactius").textContent = socisactius.length;
     }
   }, 100);
-}
+}*/

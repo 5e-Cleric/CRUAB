@@ -19,8 +19,14 @@ font-family: 'PT Serif', serif;
 @import "specific.css"layer(specific);
 /*esto tendria que estar en la layer specific, pero no pueddo declarar layers en otro orden si la delcaro aqui, import debe ir primero?*/
 
+@import "media-queries.css"layer(media);
 
 /*#########################   BODY & REGLAS GENERALES   ##########################################*/
+
+* {
+    outline: 1px dotted red;
+}
+
 
 @layer general-layout {
     :root {
@@ -28,6 +34,7 @@ font-family: 'PT Serif', serif;
         --main-height: 72vh;
         --footer-height: 16vh;
     }
+
 
     header {
         height: var(--nav-height);
@@ -43,7 +50,7 @@ font-family: 'PT Serif', serif;
     }
 
     footer {
-        height: var(--footer-height);
+        min-height: var(--footer-height);
         position: relative;
         z-index: 3;
         width: 100vw;
@@ -59,10 +66,10 @@ font-family: 'PT Serif', serif;
         overflow: overlay;
         overflow-x: hidden;
         scroll-behavior: smooth;
-        max-width: 100vw;
-        width: 100%;
-        min-height: 100vh;
-        min-width: 100vw;
+        height:100vh;
+        max-height: 100%;
+        width:100vw;
+        max-width: 100%;
     }
 
     ::selection {
@@ -137,10 +144,12 @@ font-family: 'PT Serif', serif;
         background-image: var(--nav-bg-image);
         background-size: 70%;
         box-shadow: var(--nav-shadow);
+        --parent-height: var(--nav-height);
     }
 
     /*llista de botons de navegacio*/
     header>nav {
+        --margin: 1.7vw;
         position: relative;
         display: flex;
         flex-direction: row;
@@ -148,7 +157,7 @@ font-family: 'PT Serif', serif;
         justify-content: center;
         gap: 30px;
         height: var(--nav-height);
-        margin-inline: 1.7vw;
+        margin-inline: var(--margin);
         /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
     }
 
@@ -199,7 +208,13 @@ font-family: 'PT Serif', serif;
     h1, h2, h3, h4, h5 {
         color: var(--h-color);
         font-family: var(--h-font);
+        text-transform: lowercase;
     }
+
+    :is(h1, h2, h3, h4, h5)::first-letter {
+        text-transform: uppercase;
+    }
+
 
     h1 {
         font-size: var(--h1-size);
@@ -231,6 +246,8 @@ font-family: 'PT Serif', serif;
         color: var(--p-color);
         font-family: var(--p-font);
         font-size: var(--p-size);
+        font-weight: var(--weight-normal);
+        max-width: 1000px;
     }
 
     img {
@@ -252,7 +269,7 @@ font-family: 'PT Serif', serif;
         color: var(--a-color);
         font-family: var(--p-font);
         font-size: var(--p-size);
-        text-decoration: unset;
+        text-decoration: underline;
         background: linear-gradient(90deg, var(--theme-maxcontrast), var(--theme-maxcontrast)) left bottom 0px 2px no-repeat;
         transition: ease-out 200ms;
         transition-property: background-size;
@@ -345,7 +362,6 @@ font-family: 'PT Serif', serif;
 
 @layer specific {
 
-
     header>.dropdown-button {
         padding-inline: 1em;
         color: var(--nav-color);
@@ -356,18 +372,23 @@ font-family: 'PT Serif', serif;
     }
 
     header dropdown {
-        --parent-height: var(--nav-height);
         background-color: var(--dropdown-bg-color);
     }
 
     dropdown a {
         color: var(--nav-color);
         font-size: var(--span-size);
+        text-decoration: none;
     }
 
     #user-dropdown-button {
         background: unset;
         backdrop-filter: brightness(110%);
+    }
+
+    #user-dropdown-button .image-container {
+        height: 50%;
+        aspect-ratio: 1;
     }
 
 
@@ -376,6 +397,7 @@ font-family: 'PT Serif', serif;
         display: flex;
         align-items: center;
         text-align: center;
+        text-decoration: none;
         height: 100%;
         padding-inline: .5em;
         color: var(--nav-color);
@@ -393,6 +415,14 @@ font-family: 'PT Serif', serif;
     .nav-link.clicked,
     .nav-link.active {
         backdrop-filter: brightness(170%);
+    }
+
+    #nav-dropdown {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 30px;
+        height: var(--nav-height);
     }
 
     .logo {
@@ -437,7 +467,7 @@ font-family: 'PT Serif', serif;
 
 @layer unique {
 
-    [id="boto-navegacio"] {
+    .hamburger {
         background: unset;
         height: 30px;
         width: 30px;
@@ -448,7 +478,7 @@ font-family: 'PT Serif', serif;
         border: 0;
     }
 
-    [id="boto-navegacio"] div {
+    .hamburger div {
         background: var(--theme-maxcontrast);
         width: 100%;
         height: .2em;
@@ -456,21 +486,21 @@ font-family: 'PT Serif', serif;
         transform-origin: left;
     }
 
-    [id="boto-navegacio"].active div:nth-child(2) {
+    .hamburger.open div:nth-child(2) {
         opacity: 0;
     }
 
-    [id="boto-navegacio"].active div:first-child {
+    .hamburger.open div:first-child {
         transform: translateX(2px) rotate(45deg);
         width: 120%;
     }
 
-    [id="boto-navegacio"].active div:last-child {
+    .hamburger.open div:last-child {
         transform: translateX(2px) rotate(-45deg);
         width: 120%;
     }
 
-    [id="boto-navegacio"] {
+    .hamburger {
         box-shadow: unset;
     }
 
@@ -531,6 +561,7 @@ font-family: 'PT Serif', serif;
 /*#########################   CONTENINDO PRINCIPAL   #############################*/
 
 @layer base {
+
     [id="contingut"]:empty {
         /* ara mateix hem d'arreglar el html per que el que hi ha dins de contingut sigui una template fora, i aquesta regla es compleixi*/
         display: none;
@@ -556,11 +587,13 @@ font-family: 'PT Serif', serif;
         position: relative;
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
         gap: 20px;
     }
 
     .news:nth-of-type(even) {
         flex-direction: row-reverse;
+        justify-content: flex-end;
     }
 
     .news:nth-of-type(odd) span {
@@ -576,11 +609,9 @@ font-family: 'PT Serif', serif;
         font-size: var(--p-size);
         height: 100%;
         width: 100%;
+        max-height: 300px;
     }
 
-    .news p {
-        max-width: 90%;
-    }
 
     .missatge {
         /*missatges d'error als formularis de login*/
@@ -698,6 +729,7 @@ font-family: 'PT Serif', serif;
 
 
 @layer base {
+
 
     /* base per botons actius o inactius */
 
@@ -983,43 +1015,56 @@ font-family: 'PT Serif', serif;
 
     /*########################   FLEX & GRID   ###################*/
 
-    .row {
+
+    .row,
+    .column,
+    .around,
+    .between,
+    .evenly,
+    .center,
+    .a-start,
+    .a-end,
+    .j-start,
+    .j-end,
+    .wrap {
         display: flex;
+    }
+
+    .row {
         flex-direction: initial;
     }
 
-    .row.start {
-        align-items: flex-start;
-    }
-
-    .row.end {
-        align-items: flex-end;
-    }
-
     .around {
-        display: flex;
         justify-content: space-around;
     }
 
     .between {
-        display: flex;
         justify-content: space-between;
     }
 
     .evenly {
-        display: flex;
         justify-content: space-evenly;
     }
 
     .center {
-        display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    .align {
-        display: flex;
-        align-items: center;
+    .a-start {
+        align-items: flex-start;
+    }
+
+    .a-end {
+        align-items: flex-end;
+    }
+
+    .j-start {
+        justify-content: flex-start;
+    }
+
+    .j-end {
+        justify-content: flex-end;
     }
 
     .column {
@@ -1034,6 +1079,10 @@ font-family: 'PT Serif', serif;
     .grid {
         display: grid;
     }
+
+    .wrap {
+        flex-wrap: wrap;
+    }
 }
 
 
@@ -1044,7 +1093,7 @@ font-family: 'PT Serif', serif;
     }
 }
 
-@layer base {
+@layer specific {
 
     /*#########################   FOOTER   #############################*/
     footer {
@@ -1055,6 +1104,8 @@ font-family: 'PT Serif', serif;
         text-align: center;
         box-shadow: var(--nav-shadow);
         align-items: flex-start;
+
+        font-size:20px;
     }
 
     footer section {
@@ -1067,6 +1118,11 @@ font-family: 'PT Serif', serif;
 
     footer h3 {
         color: var(--nav-color);
+        font-size: 1.7em;
+    }
+
+    footer :is(a, span, label) {
+        font-size: 1em;
     }
 
     footer a {
@@ -1074,7 +1130,6 @@ font-family: 'PT Serif', serif;
         background-position: left bottom;
         background-repeat: no-repeat;
         background-size: 0px 2px;
-        font-size: var(--span-size);
         transition: ease-out 200ms;
         transition-property: background-size;
     }
@@ -1095,180 +1150,7 @@ font-family: 'PT Serif', serif;
         top: -50px;
         right: 20px;
     }
-}
 
-
-/*#########################   MEDIA QUERIES   ##########################################*/
-
-@layer media {
-
-
-    /*#########################   PARA PC   #############################*/
-    @media screen and (min-width: 900px) {
-        [id="boto-navegacio-parent"] {
-            display: none;
-        }
-
-        .pc-row-mobile-column {
-            display: flex;
-            flex-direction: row;
-            gap: 30px;
-        }
-
-        .pc-column-mobile-row {
-            display: flex;
-            flex-direction: column;
-        }
-    }
-
-    /* ########################################################     PARA MOVIL      ##################################*/
-    /*#########################   FUENTES   #############################*/
-    @media screen and (max-width: 900px) {
-        :root {
-            --nav-font-size: 20px;
-            --h1-size: 30px;
-            --h2-size: 25px;
-            --h3-size: 20px;
-            --h4-size: 17px;
-            --p-size: 12px;
-        }
-    }
-
-    /*#########################   MAQUETACIÓ(LAYOUT)   #############################*/
-
-
-
-    @media screen and (max-width: 900px) {
-        p {
-            font-style: normal;
-            padding-left: 10px;
-        }
-
-        :root {
-            --nav-height: 10vh;
-        }
-
-        .logo {
-            max-width: unset;
-            min-width: unset;
-        }
-
-        nav {
-            flex-direction: row;
-            justify-content: flex-start;
-        }
-
-
-        .nav-link:not(.logo) {
-            align-items: flex-start;
-            width: 100%;
-            justify-content: center;
-
-        }
-
-        .theme-button {
-            width: 50px;
-        }
-
-        .main-content>div,
-        .main-content>article {
-            width: 90%;
-            padding: 10px 20px;
-        }
-
-
-
-        .main-content>article {
-            min-height: 10vh;
-        }
-
-        .llistaelements {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            gap: 5vh;
-            margin-bottom: 20px;
-        }
-
-        .element {
-            margin-bottom: 0;
-            height: 40vh;
-            padding-bottom: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-
-        .element h3 {
-            max-width: 90%;
-        }
-
-        .element p {
-            line-height: var(--p-size);
-        }
-
-        .contingut {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-around;
-            height: 100%;
-            min-height: 150px;
-            width: 100%;
-        }
-
-        .image-container {
-            width: 50vw;
-            max-width: 100px;
-            margin-right: 0.5em;
-        }
-
-        .detalls {
-            justify-content: center;
-            text-align: center;
-            align-items: center;
-            width: 80%;
-        }
-
-        .nom {
-            text-align: center;
-        }
-
-        .filter-parent {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .pc-row-mobile-column {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .pc-column-mobile-row {
-            display: flex;
-            flex-direction: column;
-        }
-
-        footer {
-            --h3-size: 17px;
-            --h4-size: 15px;
-            --p-size: 12px;
-        }
-
-
-        div.ludoteca {
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1fr;
-        }
-
-    }
-
-}
-
-@layer specific {
     .loading-parent {
         position: absolute;
         display: flex;
@@ -1322,6 +1204,9 @@ font-family: 'PT Serif', serif;
 
 
 @layer specific {
+
+
+
     #gestio-nav {
         --a: calc(var(--n) + 1.5);
         /*if it goes in the bottom, make sure to position everything correctly and put orientation on -1*/
@@ -1329,7 +1214,6 @@ font-family: 'PT Serif', serif;
         --rot: calc(90deg / var(--a) * var(--orientation) * var(--element));
 
         display: flex;
-
         position: fixed;
         bottom: 0;
         left: 0;
@@ -1343,38 +1227,40 @@ font-family: 'PT Serif', serif;
     }
 
     #gestio-nav>* {
+        translate: -50% 50%;
+        isolation: isolate;
+        position: absolute;
+        bottom: 0;
+        left: var(--radius);
+        background: var(--nav-bg-color);
+        background-image: var(--nav-bg-image);
+        font-size: 1.75rem !important;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         height: var(--button-diameter);
-        text-align: center;
         width: var(--button-diameter);
-        background: var(--nav-bg-color);
-        background-image: var(--nav-bg-image);
-        border-radius: 100%;
         padding: unset;
-        color: var(--nav-color);
-        position: absolute;
-        bottom: 0;
-        left: var(--radius);
-        translate: -50% 50%;
-        transform-origin: calc(var(--radius) * -1) bottom;
-        isolation: isolate;
+        border-radius: 100%;
         outline: 1px solid var(--nav-color);
+        color: var(--nav-color);
+        text-align: center;
+        text-decoration: none;
+        transform-origin: calc(var(--radius) * -1) bottom;
     }
 
     #gestio-nav>a:is(:hover, :focus):after {
-        display: block;
-        content: '';
+        backdrop-filter: brightness(150%);
         position: absolute;
         top: 0;
         bottom: 0;
         z-index: 99;
-        width: 100%;
+        content: '';
+        display: block;
         height: 100%;
+        width: 100%;
         border-radius: 100%;
-        backdrop-filter: brightness(150%);
     }
 
     #gestio-nav>a:is(:hover, :focus) span.material-symbols-rounded,
@@ -1434,7 +1320,7 @@ font-family: 'PT Serif', serif;
     }
 
     #gestio-nav span {
-        font-size: 0.8vw;
+        font-size: 1.75rem;
         margin-top: -5px;
         height: min-content;
         color: var(--nav-color);

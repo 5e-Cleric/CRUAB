@@ -21,7 +21,7 @@ require_once(__DIR__ . "/header.php");
                 <span class="date">24-12-2022</span>
             </div>
             <div class="image-container">
-                <img src="https://unsplash.it/500?random=1" alt="Imatge de la noticia">
+                <img src="https://unsplash.it/700?random=1" alt="Imatge de la noticia">
             </div>
         </section>
         <section class="news">
@@ -41,7 +41,7 @@ require_once(__DIR__ . "/header.php");
                 <span class="date">24-12-2022</span>
             </div>
             <div class="image-container">
-                <img src="https://unsplash.it/500?random=2" alt="Imatge de la noticia">
+                <img src="https://unsplash.it/700?random=2" alt="Imatge de la noticia">
             </div>
         </section>
         <section class="center">

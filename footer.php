@@ -34,7 +34,6 @@
     <section id="textos-legals">
         <h3>Textos legals</h3>
         <a href="avis-legal.php" target="_blank" rel="">Avís Legal</a>
-        <br>
         <a href="politica-de-privacitat.php" target="_blank" rel=""> Política de Privacitat i
             Cookies</a>
 
