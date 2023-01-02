@@ -9,7 +9,7 @@ require_once(__DIR__ . "/header.php");
       <div class="manual element">
         <h3 class="nom"></h3>
         <div class="contingut">
-          <div class="image-holder">
+          <div class="image-container">
             <a><img></a>
           </div>
           <div class="detalls">

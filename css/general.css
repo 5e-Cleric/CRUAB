@@ -19,8 +19,14 @@ font-family: 'PT Serif', serif;
 @import "specific.css"layer(specific);
 /*esto tendria que estar en la layer specific, pero no pueddo declarar layers en otro orden si la delcaro aqui, import debe ir primero?*/
 
+@import "media-queries.css"layer(media);
 
 /*#########################   BODY & REGLAS GENERALES   ##########################################*/
+
+* {
+    outline: 1px dotted red;
+}
+
 
 @layer general-layout {
     :root {
@@ -28,6 +34,7 @@ font-family: 'PT Serif', serif;
         --main-height: 72vh;
         --footer-height: 16vh;
     }
+
 
     header {
         height: var(--nav-height);
@@ -43,7 +50,7 @@ font-family: 'PT Serif', serif;
     }
 
     footer {
-        height: var(--footer-height);
+        min-height: var(--footer-height);
         position: relative;
         z-index: 3;
         width: 100vw;
@@ -59,10 +66,10 @@ font-family: 'PT Serif', serif;
         overflow: overlay;
         overflow-x: hidden;
         scroll-behavior: smooth;
-        max-width: 100vw;
-        width: 100%;
-        min-height: 100vh;
-        min-width: 100vw;
+        height:100vh;
+        max-height: 100%;
+        width:100vw;
+        max-width: 100%;
     }
 
     ::selection {
@@ -105,7 +112,9 @@ font-family: 'PT Serif', serif;
         background-color: hsl(0, 0%, 60%);
     }
 
-    header *,
+    header,
+    nav,
+    nav *,
     input,
     button,
     [id="filterbox"] *,
@@ -135,10 +144,12 @@ font-family: 'PT Serif', serif;
         background-image: var(--nav-bg-image);
         background-size: 70%;
         box-shadow: var(--nav-shadow);
+        --parent-height: var(--nav-height);
     }
 
     /*llista de botons de navegacio*/
     header>nav {
+        --margin: 1.7vw;
         position: relative;
         display: flex;
         flex-direction: row;
@@ -146,20 +157,10 @@ font-family: 'PT Serif', serif;
         justify-content: center;
         gap: 30px;
         height: var(--nav-height);
-        margin-inline: 1.7vw;
-        -webkit-touch-callout: none;
-        /* iOS Safari */
-        -webkit-user-select: none;
-        /* Safari */
-        -khtml-user-select: none;
-        /* Konqueror HTML */
-        -moz-user-select: none;
-        /* Old versions of Firefox */
-        -ms-user-select: none;
-        /* Internet Explorer/Edge */
-        user-select: none;
+        margin-inline: var(--margin);
         /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
     }
+
 
     body {
         color: var(--p-color);
@@ -207,35 +208,46 @@ font-family: 'PT Serif', serif;
     h1, h2, h3, h4, h5 {
         color: var(--h-color);
         font-family: var(--h-font);
+        text-transform: lowercase;
     }
+
+    :is(h1, h2, h3, h4, h5)::first-letter {
+        text-transform: uppercase;
+    }
+
 
     h1 {
         font-size: var(--h1-size);
         text-align: center;
+        font-weight: var(--weight-semi);
     }
 
     h2 {
         font-size: var(--h2-size);
+        font-weight: var(--weight-semi);
     }
 
     h3 {
         font-size: var(--h3-size);
+        font-weight: var(--weight-semi);
     }
 
     h4 {
         font-size: var(--h4-size);
+        font-weight: var(--weight-bold);
     }
 
     h5 {
         font-size: var(--h5-size);
+        font-weight: var(--weight-bold);
     }
 
-    p,
-    label,
-    textarea {
+    p, label, textarea {
         color: var(--p-color);
         font-family: var(--p-font);
         font-size: var(--p-size);
+        font-weight: var(--weight-normal);
+        max-width: 1000px;
     }
 
     img {
@@ -248,15 +260,16 @@ font-family: 'PT Serif', serif;
         font-size: var(--span-size);
     }
 
-    span[class*="material-symbols"] {
-        color: white;
+    span[class|="material-symbols"] {
+        color: var(--nav-color);
+        text-shadow: none;
     }
 
     a {
         color: var(--a-color);
         font-family: var(--p-font);
         font-size: var(--p-size);
-        text-decoration: unset;
+        text-decoration: underline;
         background: linear-gradient(90deg, var(--theme-maxcontrast), var(--theme-maxcontrast)) left bottom 0px 2px no-repeat;
         transition: ease-out 200ms;
         transition-property: background-size;
@@ -315,6 +328,7 @@ font-family: 'PT Serif', serif;
     dropdown>content>* {
         padding: 5px;
     }
+
     dropdown a:not(:first-child):after {
         display: block;
         pointer-events: none;
@@ -348,29 +362,33 @@ font-family: 'PT Serif', serif;
 
 @layer specific {
 
-
     header>.dropdown-button {
         padding-inline: 1em;
         color: var(--nav-color);
         font-size: calc(var(--nav-font-size) + 5px);
         font-family: var(--header-font-family);
-        font-weight: 600;
+        font-weight: var(--weight-semi);
         pointer-events: none;
     }
 
     header dropdown {
-        --parent-height: var(--nav-height);
         background-color: var(--dropdown-bg-color);
     }
 
     dropdown a {
         color: var(--nav-color);
         font-size: var(--span-size);
+        text-decoration: none;
     }
 
     #user-dropdown-button {
         background: unset;
         backdrop-filter: brightness(110%);
+    }
+
+    #user-dropdown-button .image-container {
+        height: 50%;
+        aspect-ratio: 1;
     }
 
 
@@ -379,12 +397,13 @@ font-family: 'PT Serif', serif;
         display: flex;
         align-items: center;
         text-align: center;
+        text-decoration: none;
         height: 100%;
         padding-inline: .5em;
         color: var(--nav-color);
         font-size: var(--nav-font-size);
         font-family: var(--h-font);
-        font-weight: 600;
+        font-weight: var(--weight-semi);
     }
 
     /*enllaços de navegacio quan hover o focus si la navegacio te fons opac*/
@@ -398,6 +417,14 @@ font-family: 'PT Serif', serif;
         backdrop-filter: brightness(170%);
     }
 
+    #nav-dropdown {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 30px;
+        height: var(--nav-height);
+    }
+
     .logo {
         position: absolute;
         left: 0px;
@@ -406,18 +433,6 @@ font-family: 'PT Serif', serif;
         min-width: 70px;
         padding: 0;
         margin-block: auto;
-        -webkit-touch-callout: none;
-        /* iOS Safari */
-        -webkit-user-select: none;
-        /* Safari */
-        -khtml-user-select: none;
-        /* Konqueror HTML */
-        -moz-user-select: none;
-        /* Old versions of Firefox */
-        -ms-user-select: none;
-        /* Internet Explorer/Edge */
-        user-select: none;
-        /* Non-prefixed version, currently supported by Chrome, Opera and Firefox */
         height: 90%;
         aspect-ratio: 100/111;
     }
@@ -452,7 +467,7 @@ font-family: 'PT Serif', serif;
 
 @layer unique {
 
-    [id="boto-navegacio"] {
+    .hamburger {
         background: unset;
         height: 30px;
         width: 30px;
@@ -463,7 +478,7 @@ font-family: 'PT Serif', serif;
         border: 0;
     }
 
-    [id="boto-navegacio"] div {
+    .hamburger div {
         background: var(--theme-maxcontrast);
         width: 100%;
         height: .2em;
@@ -471,21 +486,21 @@ font-family: 'PT Serif', serif;
         transform-origin: left;
     }
 
-    [id="boto-navegacio"].active div:nth-child(2) {
+    .hamburger.open div:nth-child(2) {
         opacity: 0;
     }
 
-    [id="boto-navegacio"].active div:first-child {
+    .hamburger.open div:first-child {
         transform: translateX(2px) rotate(45deg);
         width: 120%;
     }
 
-    [id="boto-navegacio"].active div:last-child {
+    .hamburger.open div:last-child {
         transform: translateX(2px) rotate(-45deg);
         width: 120%;
     }
 
-    [id="boto-navegacio"] {
+    .hamburger {
         box-shadow: unset;
     }
 
@@ -546,6 +561,7 @@ font-family: 'PT Serif', serif;
 /*#########################   CONTENINDO PRINCIPAL   #############################*/
 
 @layer base {
+
     [id="contingut"]:empty {
         /* ara mateix hem d'arreglar el html per que el que hi ha dins de contingut sigui una template fora, i aquesta regla es compleixi*/
         display: none;
@@ -556,11 +572,46 @@ font-family: 'PT Serif', serif;
         margin-bottom: 20px;
     }
 
+    article>*:is(h1, h2, h3, h4, h5):first-child {
+        text-align: center;
+        margin-bottom: 1em;
+    }
+
     .date {
         position: absolute;
         right: 0px;
         bottom: 0px;
     }
+
+    .news {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .news:nth-of-type(even) {
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+    }
+
+    .news:nth-of-type(odd) span {
+        left: 0;
+        right: unset;
+    }
+
+    .news:nth-of-type(even) span {
+        right: 0;
+    }
+
+    .news .image-container {
+        font-size: var(--p-size);
+        height: 100%;
+        width: 100%;
+        max-height: 300px;
+    }
+
 
     .missatge {
         /*missatges d'error als formularis de login*/
@@ -584,7 +635,7 @@ font-family: 'PT Serif', serif;
         aspect-ratio: 1;
     }
 
-    .image-holder {
+    .image-container {
         font-size: var(--p-size);
         max-width: 20vw;
         margin-right: .5em;
@@ -593,17 +644,17 @@ font-family: 'PT Serif', serif;
         border-radius: 10px;
     }
 
-    .image-holder img {
+    .image-container img {
         min-width: 100%;
         min-height: 100%;
     }
 
-    .image-holder img,
+    .image-container img,
     .logo [alt="Logo"] {
         transition: 250ms ease-in-out;
     }
 
-    .image-holder img:is(:hover, :focus),
+    .image-container img:is(:hover, :focus),
     .logo [alt="Logo"]:is(:hover, :focus) {
         scale: 1.1;
     }
@@ -679,6 +730,7 @@ font-family: 'PT Serif', serif;
 
 @layer base {
 
+
     /* base per botons actius o inactius */
 
     :where(button, [type="button"], [type="submit"]) {
@@ -687,7 +739,7 @@ font-family: 'PT Serif', serif;
         border-radius: 7px;
         padding: .2em .5em;
         border: none;
-        font-weight: bolder;
+        font-weight: var(--weight-bold);
         min-height: 27px;
         letter-spacing: 0.1em;
         text-shadow: 1px 2px 2px #000;
@@ -696,7 +748,9 @@ font-family: 'PT Serif', serif;
         transition-duration: 200ms;
     }
 
-
+    button span {
+        color: inherit;
+    }
 
     :where(button, [type="button"], [type="submit"]):disabled {
         text-shadow: unset;
@@ -719,10 +773,10 @@ font-family: 'PT Serif', serif;
         box-shadow: 1px 1px 3px #000;
     }
 
-    :where(button, [type="button"], [type="submit"]).rodo {
-        aspect-ratio: 1;
+    :where(button, [type="button"], [type="submit"]).round {
+        aspect-ratio: 1 !important;
         padding: 0 !important;
-        border-radius: 100px;
+        border-radius: 1000px !important;
     }
 
     /*botons verds, que afegeixen alguna cosa i son "segurs"*/
@@ -913,7 +967,7 @@ font-family: 'PT Serif', serif;
 
     th {
         font-size: var(--p-size);
-        font-weight: var(--p-weight-bold);
+        font-weight: var(--weight-bold);
         padding: 0 5px;
     }
 
@@ -961,35 +1015,56 @@ font-family: 'PT Serif', serif;
 
     /*########################   FLEX & GRID   ###################*/
 
-    .row {
+
+    .row,
+    .column,
+    .around,
+    .between,
+    .evenly,
+    .center,
+    .a-start,
+    .a-end,
+    .j-start,
+    .j-end,
+    .wrap {
         display: flex;
+    }
+
+    .row {
         flex-direction: initial;
     }
 
     .around {
-        display: flex;
         justify-content: space-around;
     }
 
     .between {
-        display: flex;
         justify-content: space-between;
     }
 
     .evenly {
-        display: flex;
         justify-content: space-evenly;
     }
 
     .center {
-        display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    .align {
-        display: flex;
-        align-items: center;
+    .a-start {
+        align-items: flex-start;
+    }
+
+    .a-end {
+        align-items: flex-end;
+    }
+
+    .j-start {
+        justify-content: flex-start;
+    }
+
+    .j-end {
+        justify-content: flex-end;
     }
 
     .column {
@@ -1004,6 +1079,10 @@ font-family: 'PT Serif', serif;
     .grid {
         display: grid;
     }
+
+    .wrap {
+        flex-wrap: wrap;
+    }
 }
 
 
@@ -1014,7 +1093,7 @@ font-family: 'PT Serif', serif;
     }
 }
 
-@layer base {
+@layer specific {
 
     /*#########################   FOOTER   #############################*/
     footer {
@@ -1025,6 +1104,8 @@ font-family: 'PT Serif', serif;
         text-align: center;
         box-shadow: var(--nav-shadow);
         align-items: flex-start;
+
+        font-size:20px;
     }
 
     footer section {
@@ -1037,6 +1118,11 @@ font-family: 'PT Serif', serif;
 
     footer h3 {
         color: var(--nav-color);
+        font-size: 1.7em;
+    }
+
+    footer :is(a, span, label) {
+        font-size: 1em;
     }
 
     footer a {
@@ -1044,7 +1130,6 @@ font-family: 'PT Serif', serif;
         background-position: left bottom;
         background-repeat: no-repeat;
         background-size: 0px 2px;
-        font-size: var(--span-size);
         transition: ease-out 200ms;
         transition-property: background-size;
     }
@@ -1065,180 +1150,7 @@ font-family: 'PT Serif', serif;
         top: -50px;
         right: 20px;
     }
-}
 
-
-/*#########################   MEDIA QUERIES   ##########################################*/
-
-@layer media {
-
-
-    /*#########################   PARA PC   #############################*/
-    @media screen and (min-width: 900px) {
-        [id="boto-navegacio-parent"] {
-            display: none;
-        }
-
-        .pc-row-mobile-column {
-            display: flex;
-            flex-direction: row;
-            gap: 30px;
-        }
-
-        .pc-column-mobile-row {
-            display: flex;
-            flex-direction: column;
-        }
-    }
-
-    /* ########################################################     PARA MOVIL      ##################################*/
-    /*#########################   FUENTES   #############################*/
-    @media screen and (max-width: 900px) {
-        :root {
-            --nav-font-size: 20px;
-            --h1-size: 30px;
-            --h2-size: 25px;
-            --h3-size: 20px;
-            --h4-size: 17px;
-            --p-size: 12px;
-        }
-    }
-
-    /*#########################   MAQUETACIÓ(LAYOUT)   #############################*/
-
-
-
-    @media screen and (max-width: 900px) {
-        p {
-            font-style: normal;
-            padding-left: 10px;
-        }
-
-        :root {
-            --nav-height: 10vh;
-        }
-
-        .logo {
-            max-width: unset;
-            min-width: unset;
-        }
-
-        nav {
-            flex-direction: row;
-            justify-content: flex-start;
-        }
-
-
-        .nav-link:not(.logo) {
-            align-items: flex-start;
-            width: 100%;
-            justify-content: center;
-
-        }
-
-        .theme-button {
-            width: 50px;
-        }
-
-        .main-content>div,
-        .main-content>article {
-            width: 90%;
-            padding: 10px 20px;
-        }
-
-
-
-        .main-content>article {
-            min-height: 10vh;
-        }
-
-        .llistaelements {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            gap: 5vh;
-            margin-bottom: 20px;
-        }
-
-        .element {
-            margin-bottom: 0;
-            height: 40vh;
-            padding-bottom: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-
-        .element h3 {
-            max-width: 90%;
-        }
-
-        .element p {
-            line-height: var(--p-size);
-        }
-
-        .contingut {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-around;
-            height: 100%;
-            min-height: 150px;
-            width: 100%;
-        }
-
-        .image-holder {
-            width: 50vw;
-            max-width: 100px;
-            margin-right: 0.5em;
-        }
-
-        .detalls {
-            justify-content: center;
-            text-align: center;
-            align-items: center;
-            width: 80%;
-        }
-
-        .nom {
-            text-align: center;
-        }
-
-        .filter-parent {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .pc-row-mobile-column {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .pc-column-mobile-row {
-            display: flex;
-            flex-direction: column;
-        }
-
-        footer {
-            --h3-size: 17px;
-            --h4-size: 15px;
-            --p-size: 12px;
-        }
-
-
-        div.ludoteca {
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1fr;
-        }
-
-    }
-
-}
-
-@layer specific {
     .loading-parent {
         position: absolute;
         display: flex;
@@ -1292,14 +1204,16 @@ font-family: 'PT Serif', serif;
 
 
 @layer specific {
-    #juntanavbar {
+
+
+
+    #gestio-nav {
         --a: calc(var(--n) + 1.5);
         /*if it goes in the bottom, make sure to position everything correctly and put orientation on -1*/
         --orientation: -1;
         --rot: calc(90deg / var(--a) * var(--orientation) * var(--element));
 
         display: flex;
-
         position: fixed;
         bottom: 0;
         left: 0;
@@ -1312,81 +1226,84 @@ font-family: 'PT Serif', serif;
         z-index: 4;
     }
 
-    #juntanavbar>* {
+    #gestio-nav>* {
+        translate: -50% 50%;
+        isolation: isolate;
+        position: absolute;
+        bottom: 0;
+        left: var(--radius);
+        background: var(--nav-bg-color);
+        background-image: var(--nav-bg-image);
+        font-size: 1.75rem !important;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         height: var(--button-diameter);
-        text-align: center;
         width: var(--button-diameter);
-        background: var(--nav-bg-color);
-        background-image: var(--nav-bg-image);
-        border-radius: 100%;
         padding: unset;
-        color: var(--nav-color);
-        position: absolute;
-        bottom: 0;
-        left: var(--radius);
-        translate: -50% 50%;
-        transform-origin: calc(var(--radius) * -1) bottom;
-        isolation: isolate;
+        border-radius: 100%;
         outline: 1px solid var(--nav-color);
+        color: var(--nav-color);
+        text-align: center;
+        text-decoration: none;
+        transform-origin: calc(var(--radius) * -1) bottom;
     }
 
-    #juntanavbar>a:is(:hover, :focus):after {
-        display: block;
-        content: '';
+    #gestio-nav>a:is(:hover, :focus):after {
+        backdrop-filter: brightness(150%);
         position: absolute;
         top: 0;
         bottom: 0;
         z-index: 99;
-        width: 100%;
+        content: '';
+        display: block;
         height: 100%;
+        width: 100%;
         border-radius: 100%;
-        backdrop-filter: brightness(150%);
     }
 
-    #juntanavbar>a:is(:hover, :focus) span.material-symbols-rounded {
+    #gestio-nav>a:is(:hover, :focus) span.material-symbols-rounded,
+    #gestio-button:is(:hover, :focus) span.material-symbols-rounded {
         scale: 1.5;
     }
 
-    #juntanavbar>a:is(:hover, :focus) span:not(.material-symbols-rounded) {
+    #gestio-nav>a:is(:hover, :focus) span:not(.material-symbols-rounded) {
         margin-top: 0;
     }
 
 
-    #juntanavbar> :first-child {
+    #gestio-nav> :first-child {
         --element: 1;
         --rot: calc(90deg / var(--a) * var(--orientation) * var(--element));
         rotate: var(--rot);
     }
 
-    #juntanavbar> :nth-child(2) {
+    #gestio-nav> :nth-child(2) {
         --element: 2;
         --rot: calc(90deg / var(--a) * var(--orientation) * var(--element));
         rotate: var(--rot);
     }
 
-    #juntanavbar> :nth-child(3) {
+    #gestio-nav> :nth-child(3) {
         --element: 3;
         --rot: calc(90deg / var(--a) * var(--orientation) * var(--element));
         rotate: var(--rot);
     }
 
-    #juntanavbar> :nth-child(4) {
+    #gestio-nav> :nth-child(4) {
         --element: 4;
         --rot: calc(90deg / var(--a) * var(--orientation) * var(--element));
         rotate: var(--rot);
     }
 
-    #juntanavbar> :nth-child(5) {
+    #gestio-nav> :nth-child(5) {
         --element: 5;
         --rot: calc(90deg / var(--a) * var(--orientation) * var(--element));
         rotate: var(--rot);
     }
 
-    #juntanavbar> :nth-child(6) {
+    #gestio-nav> :nth-child(6) {
         --element: 6;
         --rot: calc(90deg / var(--a) * var(--orientation) * var(--element));
         rotate: var(--rot);
@@ -1394,16 +1311,16 @@ font-family: 'PT Serif', serif;
 
 
 
-    #juntanavbar[data-collapsed="no"] {
+    #gestio-nav[data-collapsed="no"] {
         rotate: 0deg;
     }
 
-    #juntanavbar .anti-rotate {
+    #gestio-nav .anti-rotate {
         rotate: calc(var(--rot) * -1);
     }
 
-    #juntanavbar span {
-        font-size: 0.8vw;
+    #gestio-nav span {
+        font-size: 1.75rem;
         margin-top: -5px;
         height: min-content;
         color: var(--nav-color);
@@ -1412,16 +1329,31 @@ font-family: 'PT Serif', serif;
 
 
 
-    #juntanav-button {
-        display: block;
+
+    #gestio-button {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
         position: fixed;
         left: 0;
-        bottom: 0;
+        bottom: 20px;
         z-index: 5;
-
-        height: 20px;
-        aspect-ratio: 1;
-        border-radius: 100%;
+        translate: -35% 0;
+        height: 100px;
+        width: 140px;
+        border-radius: 1000px;
         padding: unset;
+        background-color: var(--nav-bg-color);
+        background-image: var(--nav-bg-image);
+        color: var(--nav-color);
+        text-align: right;
+        padding-inline-end: 15px;
     }
+
+    #gestio-button span {
+        transition: all 250ms;
+        text-shadow: none;
+    }
+
+
 }

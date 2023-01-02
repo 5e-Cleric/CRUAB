@@ -21,7 +21,7 @@
             <template id="templatetaula">
                 <tr class="llista">
                     <td>
-                        <button class="editar rodo neutre hidden">
+                        <button class="editar round neutre hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
                                 <path style="transform:translate(20%, 20%)"
                                     d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3
@@ -60,8 +60,8 @@
             </template>
             <template id="templatebutton">
                 <div class="botonsvocals row">
-                    <input class="afegirvocal rodo" type="button" class="neutre" value="+">
-                    <input class="eliminarvocal rodo" type="button" class="neutre" value="-">
+                    <input class="afegirvocal round" type="button" class="neutre" value="+">
+                    <input class="eliminarvocal round" type="button" class="neutre" value="-">
                 </div>
             </template>
         </div>

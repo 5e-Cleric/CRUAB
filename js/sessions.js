@@ -33,7 +33,7 @@ function logout() {
           sessionStorage.hasOwnProperty("juntari") &&
           sessionStorage["juntari"] == "true"
         ) {
-          document.getElementById("juntanav-button").classList.remove("hidden");
+          document.getElementById("gestio-button").classList.remove("hidden");
         }
       } else {
         logout();

@@ -16,16 +16,24 @@ require_once(__DIR__ . "/connectDB.php");
 <body>
     <header id="capçalera" class="navigation">
         <nav id="navbar">
+            <button id="nav-button" class="mobile-view hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </button>
+
             <a class="logo nav-link" style="max-width:100px;" href="index.php">
                 <img src="img/logo/logo.svg" alt="Logo" title="Logo" />
             </a>
-            <a id="paginasobrenosaltres" class="nav-link" aria-current="page" href="sobrenosaltres.php">Sobre
-                nosaltres</a>
-            <a id="paginaactualitat" class="nav-link" aria-current="page" href="actualitat.php">Actualitat</a>
-            <a id="paginaludoteca" class="nav-link" aria-current="page" href="ludoteca.php">Ludoteca</a>
-            <a id="paginacomissions" class="nav-link" aria-current="page" href="comissions.php">Comissions</a>
-            <a id="paginaeleccions" class="nav-link hidden" aria-current="page" href="eleccions.php">Eleccions</a>
 
+            <div id="nav-dropdown">
+                <a id="paginasobrenosaltres" class="nav-link" aria-current="page" href="sobrenosaltres.php">Sobre
+                    nosaltres</a>
+                <a id="paginaactualitat" class="nav-link" aria-current="page" href="actualitat.php">Actualitat</a>
+                <a id="paginaludoteca" class="nav-link" aria-current="page" href="ludoteca.php">Ludoteca</a>
+                <a id="paginacomissions" class="nav-link" aria-current="page" href="comissions.php">Comissions</a>
+                <a id="paginaeleccions" class="nav-link hidden" aria-current="page" href="eleccions.php">Eleccions</a>
+            </div>
 
             </div>
             <div class="float-right">
@@ -53,8 +61,8 @@ require_once(__DIR__ . "/connectDB.php");
 
                     <button id="user-dropdown-button" class="nav-button center hidden">
                         <span class="material-symbols-rounded">expand_more</span>
-                        <div class="image-holder">
-                            <img id="user-image" src="https://unsplash.it/50/50" alt="Your user image">
+                        <div class="image-container">
+                            <img id="user-image" src="https://unsplash.it/50" alt="Your user image">
                         </div>
                     </button>
 
@@ -72,12 +80,17 @@ require_once(__DIR__ . "/connectDB.php");
             </div>
         </nav>
     </header>
-    <button class="neutre" id="juntanav-button"><span
-            class="material-symbols-rounded">keyboard_double_arrow_up</span></button>
-    <nav id="juntanavbar" data-collapsed="yes" style="
+    <button id="gestio-button">
+        <div class="center column">
+            <span class="material-symbols-rounded">settings</span>
+            <span>Gestió</span>
+        </div>
+
+    </button>
+    <nav id="gestio-nav" data-collapsed="yes" style="
         --n: 4;
-        --radius: 300px;
-        --button-diameter: 70px;">
+        --radius: clamp(200px, 50vw, 400px);
+        --button-diameter: 8ch;">
 
         <a class="" href="gestiomembres.php" data-title="Ingresos membres">
             <div class="anti-rotate column center">
