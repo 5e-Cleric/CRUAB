@@ -11,7 +11,7 @@
     border-radius: 100%;
     isolation: isolate;
     background: grey;
-    
+
     outline: 5px solid black;
     box-shadow: 0 0 0 5px #000;
 }
@@ -25,7 +25,7 @@ user .user-image img {
 .user-image:after {
     content: '';
     display: block;
-    background-color:#e5e5e587;
+    background-color: #e5e5e587;
     background-image: url(https://cdn-icons-png.flaticon.com/512/266/266146.png);
     position: absolute;
     top: 0;
@@ -251,7 +251,7 @@ div.ludoteca {
 /*#############################   SOBRENOSALTRES.PHP   #############################*/
 
 .junta {
-    display:grid;
+    display: grid;
     grid-template-columns: repeat(5, 1fr);
 }
 
@@ -355,6 +355,19 @@ div.ludoteca {
     color: var(--secondary-accent-color);
 }
 
+/*#############################   error   #############################*/
+
+.error-message {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.error-message h2 {
+    margin-bottom: 2rem;
+}
 
 
 /*#############################   TEMA CLAR   #############################*/
@@ -397,4 +410,3 @@ div.ludoteca {
     text-align: left;
     padding: 8px;
 }
-

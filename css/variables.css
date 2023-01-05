@@ -3,8 +3,8 @@
 
 @font-face {
   font-family: 'Day Roman';
-  src: url('/path-to/day-roman.woff2') format('woff2'),
-    url('/path-to/day-roman.woff') format('woff'),
+  src:
+    url('/css/day-roman.woff') format('woff'),
     url('/path-to/day-roman.ttf') format('truetype');
 }
 
