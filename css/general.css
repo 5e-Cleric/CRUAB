@@ -28,7 +28,9 @@ font-family: 'PT Serif', serif;
 @layer general-layout {
     :root {
         --nav-height: 12vh;
-        --main-height: 72vh;
+        --space-nav-main:3vh;
+        --main-height: 66vh;
+        --space-main-footer: 3vh;
         --footer-height: 16vh;
     }
 
@@ -44,10 +46,12 @@ font-family: 'PT Serif', serif;
 
     main {
         min-height: var(--main-height);
+        margin-top: calc(var(--nav-height) + var(--space-nav-main));
     }
 
     footer {
         min-height: var(--footer-height);
+        margin-top: var(--space-main-footer);
         position: relative;
         z-index: 3;
         width: 100vw;
@@ -63,9 +67,9 @@ font-family: 'PT Serif', serif;
         overflow: overlay;
         overflow-x: hidden;
         scroll-behavior: smooth;
-        height:100vh;
+        height: 100vh;
         max-height: 100%;
-        width:100vw;
+        width: 100vw;
         max-width: 100%;
     }
 
@@ -167,7 +171,7 @@ font-family: 'PT Serif', serif;
         display: flex;
         justify-content: center;
         width: 100vw;
-        margin-top: var(--nav-height);
+
         height: fit-content;
         z-index: 5;
     }
@@ -186,7 +190,7 @@ font-family: 'PT Serif', serif;
     }
 
     main>article:first-child {
-        margin-top: 3vh;
+        margin-top: 0;
     }
 
     main>article:only-child {
@@ -246,6 +250,15 @@ font-family: 'PT Serif', serif;
         font-weight: var(--weight-normal);
         max-width: 1000px;
     }
+
+    b {
+        font-weight: 1000;
+    }
+    
+    b, strong, i, em, mark, del, ins {
+        color: var(--p-color);
+        font-size: var(--p-size);
+    } 
 
     img {
         font-size: var(--span-size);
@@ -1103,7 +1116,7 @@ font-family: 'PT Serif', serif;
         box-shadow: var(--nav-shadow);
         align-items: flex-start;
 
-        font-size:20px;
+        font-size: 20px;
     }
 
     footer section {
@@ -1355,4 +1368,3 @@ font-family: 'PT Serif', serif;
 
 
 }
-
