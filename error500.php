@@ -3,23 +3,18 @@ require_once(__DIR__ . "/header.php");
 ?>
 <main class="main-content column center">
   <article class="error">
-    <h1>SERVER ERROR</h1>
-    <div class="error-message">
+    <h2>SERVER ERROR</h2>
+    <section class="error-message">
       <h2>500 - Internal server error.</h2>
       <br>
-      <h3>
+      <br>
+      <p>
         Algú de la comi web la ha liat, refresca la pagina siusplau. <br>
         Si l'error continua, avisa'ns a <a id="email" href="mailto:comiweb@cruab.cat">comiweb@cruab.cat</a>
         .
-      </h3>
-    </div>
+      </p>
+    </section>
   </article>
-  <!--<article>
-    <h2>
-      Aixó es una prova per veure si podem canviar el css de les pagines d'error
-    </h2>
-    <h2>Encara així, el servidor ha fallat, sorry</h2>
-  </article>-->
   
 </main>
 <?php

@@ -71,7 +71,7 @@ require_once(__DIR__ . "/connectDB.php");
                         <content>
                             <a href="membre.php">El meu compte</a>
                             <a href="lloguers.php">Els meus lloguers</a>
-                            <a href="feedback.php">Feedback</a>
+                            <a href="feedback.php">Tens un dubte?</a>
                             <a id="paginalogout">Tancar sessió</a>
                         </content>
                     </dropdown>
@@ -80,40 +80,4 @@ require_once(__DIR__ . "/connectDB.php");
             </div>
         </nav>
     </header>
-    <button id="gestio-button">
-        <div class="center column">
-            <span class="material-symbols-rounded">settings</span>
-            <span>Gestió</span>
-        </div>
-
-    </button>
-    <nav id="gestio-nav" data-collapsed="yes" style="
-        --n: 4;
-        --radius: clamp(200px, 50vw, 400px);
-        --button-diameter: 8ch;">
-
-        <a class="" href="gestiomembres.php" data-title="Ingresos membres">
-            <div class="anti-rotate column center">
-                <span class="material-symbols-rounded">supervised_user_circle</span>
-                <span>membres</span>
-            </div>
-        </a>
-        <a class="" href="gestiolloguers.php" data-title="Gestió lloguers">
-            <div class="anti-rotate column center">
-                <span class="material-symbols-rounded">casino</span>
-                <span>Llog.</span>
-            </div>
-        </a>
-        <a class="" href="gestiojocs.php" data-title="Gestió jocs de taula">
-            <div class="anti-rotate column center">
-                <span class="material-symbols-rounded">extension</span>
-                <span>Jocs</span>
-            </div>
-        </a>
-        <a class="" href="gestiomanuals.php" data-title="Gestió manuals">
-            <div class="anti-rotate column center">
-                <span class="material-symbols-rounded">book</span>
-                <span>Rol</span>
-            </div>
-        </a>
-    </nav>
+    
