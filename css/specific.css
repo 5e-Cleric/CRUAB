@@ -71,8 +71,30 @@ user .user-image img {
     color: var(--secondary-accent-color);
 }
 
+/* #########################   FEEDBACK AND FAQ   #######################*/
 
-/* #########################   LOGIN   ###################*/
+details>summary {
+    line-height: 2em;
+    border-bottom: 1px solid grey;
+    font-weight: 900;
+}
+
+details[open]+details>summary {
+    border-top: 1px solid grey;
+}
+
+details>p {
+    padding-left: 20px;
+}
+
+
+
+
+
+
+
+
+/* #########################   LOGIN   #######################*/
 
 
 [id="loginform"] {
@@ -91,14 +113,14 @@ user .user-image img {
 /* #############################   LUDOTECA    #############################*/
 
 
-.ludoteca .image-container {
+section.ludoteca .image-container {
     position: relative;
     max-width: unset;
     height: auto;
     isolation: isolate;
 }
 
-.ludoteca .image-container:after {
+section.ludoteca .image-container:after {
     display: block;
     content: attr(data-title);
     width: 100%;
@@ -112,7 +134,7 @@ user .user-image img {
     left: 0;
 }
 
-div.ludoteca {
+section.ludoteca {
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
@@ -121,8 +143,28 @@ div.ludoteca {
     justify-items: center;
 }
 
+.question {
+    position: relative;
+    display: inline-block;
+    margin: 1em 0;
+    padding-left:15px;
+}
 
+.question:before {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 12px;
+    width: 7px;
+    height: 7px;
+    background-color: #000;
+    border-radius: 100%;
+}
 
+.question+p {
+    padding-left: 25px;
+}
 
 
 .jocmanual-pare {

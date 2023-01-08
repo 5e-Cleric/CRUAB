@@ -28,7 +28,7 @@ font-family: 'PT Serif', serif;
 @layer general-layout {
     :root {
         --nav-height: 12vh;
-        --space-nav-main:3vh;
+        --space-nav-main: 3vh;
         --main-height: 66vh;
         --space-main-footer: 3vh;
         --footer-height: 16vh;
@@ -181,7 +181,7 @@ font-family: 'PT Serif', serif;
         background-image: var(--content-bg-image);
         width: 90%;
         margin-top: 10vh;
-        padding: 10px;
+        padding: 20px;
         box-shadow: var(--nav-shadow);
     }
 
@@ -243,7 +243,7 @@ font-family: 'PT Serif', serif;
         font-weight: var(--weight-bold);
     }
 
-    p, label, textarea {
+    p, label, textarea, details, summary {
         color: var(--p-color);
         font-family: var(--p-font);
         font-size: var(--p-size);
@@ -254,11 +254,11 @@ font-family: 'PT Serif', serif;
     b {
         font-weight: 1000;
     }
-    
+
     b, strong, i, em, mark, del, ins {
         color: var(--p-color);
         font-size: var(--p-size);
-    } 
+    }
 
     img {
         font-size: var(--span-size);
