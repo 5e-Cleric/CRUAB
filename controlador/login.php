@@ -3,7 +3,7 @@
 	require_once(__DIR__."/../model/login.php");
 	$missatge_error_login="";
 	$email = "exemple@cruab.cat";
-	if($_POST["email"] && $_POST["password"] )
+	if($_POST && $_POST["email"] && $_POST["password"] )
 	{
 		$email = assegurarInputs($_POST["email"]);
 		[$id, $es_junta] = comprovaUsuari($conn,$email,assegurarInputs($_POST["password"]));
