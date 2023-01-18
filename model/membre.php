@@ -10,8 +10,11 @@ function esJunta($conn,$id)
 		if($result=$conn->query($SQLquery))
 		{
 			$row = $result->fetch_assoc();
-			$components = $row["Components"].explode(",");
-			$es_junta = in_array($id, $components);
+			if($row && $row["Components"])
+			{
+				$components = $row["Components"].explode(",");
+				$es_junta = in_array($id, $components);
+			}
 
 		}
 		else
