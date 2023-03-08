@@ -1,7 +1,5 @@
-<?php
-require_once(__DIR__ . "/header.php");
-?>
 <main class="main-content">
+    
     <article class="center">
 
         <table>
@@ -121,6 +119,3 @@ require_once(__DIR__ . "/header.php");
         </form>
     </article>
 </main>
-<?php
-require_once(__DIR__ . "/footer.php");
-?>

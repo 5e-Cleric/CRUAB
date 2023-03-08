@@ -21,10 +21,9 @@
 	}
 	$server = "localhost";//"hl1136.dinaserver.com";
 	$username = "root";//"admin_suprem";
-	$password = "root";//"Renunciode-36";
+	$password = "";//"Renunciode-36";
 	$dbname = "cruab_dataset";
-	$dbport = 8889;
-	$conn = mysqli_connect($server, $username, $password, $dbname,$dbport);
+	$conn = mysqli_connect($server, $username, $password, $dbname);
 	//echo "cc\n";
 	if (!$conn) {
 	    console_log("Connect failed: %s\n".$conn->connect_error);

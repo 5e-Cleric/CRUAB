@@ -1,5 +1,12 @@
 <?php
     require_once(__DIR__."/../model/membre.php");
+    $_SESSION["permisos"] = null;
+    $_SESSION["es_junta"] = false;
+    if(isset($_SESSION["user_id"]))
+    {
+        $_SESSION["permisos"] = obtenirPermisos($conn,$_SESSION["user_id"]);
+        $_SESSION["es_junta"] = esJunta($conn,$_SESSION["user_id"]);
+    }
 
 ?>
 <!DOCTYPE html>
@@ -94,35 +101,56 @@
             </div>
         </nav>
     </header>
+    <?php
+        if(isset($_SESSION["user_id"]))
+        {
+            if($_SESSION["es_junta"] || in_array(true, $_SESSION["permisos"]))
+            {
+    ?>
     <button class="neutre" id="juntanav-button"><span
             class="material-symbols-rounded">keyboard_double_arrow_up</span></button>
+    
     <nav id="juntanavbar" data-collapsed="yes" style="
         --n: 4;
         --radius: 300px;
         --button-diameter: 70px;">
-
-        <a class="" href="gestiomembres.php" data-title="Ingresos membres">
+        <?php
+            if($_SESSION["es_junta"] || $_SESSION["permisos"][2]==true)
+            {
+        ?>
+        <a class="" href="gestiomembres.php" data-title="Gestió membres">
             <div class="anti-rotate column center">
                 <span class="material-symbols-rounded">supervised_user_circle</span>
                 <span>membres</span>
             </div>
         </a>
+        <?php
+            }
+            if($_SESSION["es_junta"] || $_SESSION["permisos"][1]==true)
+            {
+        ?>
         <a class="" href="gestiolloguers.php" data-title="Gestió lloguers">
             <div class="anti-rotate column center">
                 <span class="material-symbols-rounded">casino</span>
                 <span>Llog.</span>
             </div>
         </a>
-        <a class="" href="gestiojocs.php" data-title="Gestió jocs de taula">
-            <div class="anti-rotate column center">
-                <span class="material-symbols-rounded">extension</span>
-                <span>Jocs</span>
-            </div>
-        </a>
-        <a class="" href="gestiomanuals.php" data-title="Gestió manuals">
+        <?php
+            }
+            if($_SESSION["es_junta"] || $_SESSION["permisos"][0]==true)
+            {
+        ?>
+        <a class="" href="gestiomaterials.php" data-title="Gestió materials">
             <div class="anti-rotate column center">
                 <span class="material-symbols-rounded">book</span>
                 <span>Rol</span>
             </div>
         </a>
+        <?php
+            }
+        ?>
     </nav>
+    <?php
+            }
+        }
+    ?>

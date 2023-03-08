@@ -14,7 +14,7 @@
 		else
 		{
 			$_SESSION["user_id"] = $id;
-			$_SESSION["es_junta"] = $es_junta;
+			$_SESSION["permisos"] = obtenirPermisos($conn,$id);
 			echo '<script type="text/javascript">window.location = "'.$root.'index.php"</script>';
 		}
 
