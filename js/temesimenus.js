@@ -43,15 +43,7 @@ function clickeffect(e) {
 }
 
 function toggleDropdown(dropdownId) {
-  console.log("Se abre el dropdown= " + dropdownId);
-  const collapsed = document
-    .getElementById(dropdownId)
-    .getAttribute("data-collapsed");
-  if (collapsed == "yes") {
-    document.getElementById(dropdownId).setAttribute("data-collapsed", "no");
-  } else {
-    document.getElementById(dropdownId).setAttribute("data-collapsed", "yes");
-  }
+  document.getElementById(dropdownId).classList.toggle('collapsed');
 }
 
 function inputError() {

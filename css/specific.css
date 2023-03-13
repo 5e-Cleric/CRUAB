@@ -140,7 +140,6 @@ section.ludoteca {
     width: 100%;
     gap: 50px;
     height: 50vh;
-    justify-items: center;
 }
 
 .question {
@@ -392,7 +391,7 @@ section.ludoteca {
     border-radius: 1000px;
 }
 
-.pagination a[data-active="1"] {
+.pagination a.active {
     background-color: var(--accent-color);
     color: var(--secondary-accent-color);
 }

@@ -14,7 +14,7 @@
             <span>Gestió</span>
         </div>
     </button>
-    <nav id="gestio-nav" data-collapsed="yes" style="
+    <nav id="gestio-nav" class="collapsed" style="
         --n: 4;
         --radius: clamp(200px, 50vw, 400px);
         --button-diameter: 8ch;">
@@ -76,8 +76,8 @@
 
     </section>
 </footer>
-<!--<script src="js/checkjunta.js"></script>-->
-<script src="js/contingut.js"></script>
+<!--<script src="js/checkjunta.js"></script>
+script src="js/contingut.js"></script>
 <script src="js/eleccions.js"></script>
 <script src="js/gestio.js"></script>
 <script src="js/jocsindividuals.js"></script>
@@ -90,7 +90,7 @@
 <script src="js/validarlloguerjoc.js"></script>
 <script src="js/validarlloguermanual.js"></script>
 <script src="js/validarmembres.js"></script>
-<script src="js/sessions.js"></script>
+<script src="js/sessions.js"></script>-->
 <script src="js/temesimenus.js"></script>
 <script src="js/onload.js"></script>
 <!--<script src="js/checkmembre.js"></script>-->

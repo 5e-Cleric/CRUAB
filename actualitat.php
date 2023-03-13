@@ -48,12 +48,12 @@ require_once(__DIR__ . "/header.php");
             <div class="pagination center">
                 <ul class="center">
                     <li><a href="#">&laquo;</a></li>
-                    <li><a href="#" data-active="1">1</a></li>
-                    <li><a href="#" data-active="0">2</a></li>
-                    <li><a href="#" data-active="0">3</a></li>
-                    <li><a href="#" data-active="0">4</a></li>
-                    <li><a href="#" data-active="0">5</a></li>
-                    <li><a href="#" data-active="0">6</a></li>
+                    <li><a href="#" class="active">1</a></li>
+                    <li><a href="#" class="">2</a></li>
+                    <li><a href="#" class="">3</a></li>
+                    <li><a href="#" class="">4</a></li>
+                    <li><a href="#" class="">5</a></li>
+                    <li><a href="#" class="">6</a></li>
                     <li><a href="#">&raquo;</a></li>
                 </ul>
             </div>

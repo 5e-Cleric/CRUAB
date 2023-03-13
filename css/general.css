@@ -352,7 +352,7 @@ font-family: 'PT Serif', serif;
         filter: brightness(70%);
     }
 
-    dropdown[data-collapsed="yes"] {
+    dropdown.collapsed {
         grid-template-rows: 0fr;
     }
 
@@ -365,7 +365,9 @@ font-family: 'PT Serif', serif;
     }
 
 
-
+.image-container img {
+    object-fit: cover;
+}
 
 }
 
@@ -648,7 +650,6 @@ font-family: 'PT Serif', serif;
     .image-container {
         font-size: var(--p-size);
         max-width: 20vw;
-        margin-right: .5em;
         height: max-content;
         overflow: hidden;
         border-radius: 10px;
@@ -1233,7 +1234,7 @@ font-family: 'PT Serif', serif;
         isolation: isolate;
         transform-origin: bottom left;
         transition: all 1s;
-        rotate: 90deg;
+        rotate: 0deg;
         z-index: 4;
     }
 
@@ -1322,8 +1323,8 @@ font-family: 'PT Serif', serif;
 
 
 
-    #gestio-nav[data-collapsed="no"] {
-        rotate: 0deg;
+    #gestio-nav.collapsed {
+        rotate: 90deg;
     }
 
     #gestio-nav .anti-rotate {

@@ -38,20 +38,16 @@ require_once(__DIR__ . "/connectDB.php");
             </div>
             <div class="float-right">
                 <div class="dropdown-parent">
-                    <button id="temes" class="nav-button theme-button" type="button" data-target="theme-dropdown">
+                    <button id="temes" class="nav-button theme-button" type="button">
                         <span class="material-symbols-rounded">palette</span>
                         <span class="material-symbols-rounded">expand_more</span>
                     </button>
-                    <dropdown id="theme-dropdown" data-collapsed="yes" class="theme-dropdown">
+                    <dropdown id="theme-dropdown" class="theme-dropdown collapsed">
                         <content>
-                            <button id="clar" class="canvi-tema" type="button" data-toggle="theme"
-                                data-target="body">Clar</button>
-                            <button id="fosc" class="canvi-tema" type="button" data-toggle="theme"
-                                data-target="body">Fosc</button>
-                            <button id="pergami" class="canvi-tema" type="button" data-toggle="theme"
-                                data-target="body">Pergami</button>
-                            <button id="lgbt" class="canvi-tema" type="button" data-toggle="theme"
-                                data-target="body">Lgbt</button>
+                            <button id="clar" class="canvi-tema" type="button">Clar</button>
+                            <button id="fosc" class="canvi-tema" type="button">Fosc</button>
+                            <button id="pergami" class="canvi-tema" type="button">Pergami</button>
+                            <button id="lgbt" class="canvi-tema" type="button">Lgbt</button>
                         </content>
                     </dropdown>
                 </div>
@@ -67,7 +63,7 @@ require_once(__DIR__ . "/connectDB.php");
                     </button>
 
 
-                    <dropdown id="user-menu" data-collapsed="yes">
+                    <dropdown id="user-menu" class="collapsed">
                         <content>
                             <a href="membre.php">El meu compte</a>
                             <a href="lloguers.php">Els meus lloguers</a>
