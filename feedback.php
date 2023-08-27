@@ -3,7 +3,7 @@ require_once(__DIR__ . "/header.php");
 ?>
 <main class="main-content column center">
     <article>
-        <h1 clas="page-title">Feedback</h1>
+        <h1 class="page-title">Feedback</h1>
         <section class="article">
             <div class="header align">
                 <h2 class="titol">Envia-ns la teva opinió!</h2>

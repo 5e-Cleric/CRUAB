@@ -1,5 +1,6 @@
 <?php
     require_once(__DIR__."/../model/membre.php");
+    require_once(__DIR__."/../utils.php");
     $_SESSION["permisos"] = null;
     $_SESSION["es_junta"] = false;
     if(isset($_SESSION["user_id"]))
@@ -18,6 +19,8 @@
     <title><?php echo $pageName;?></title>
     <link rel="icon" type="image/x-icon" href="/img/logo/dragon.ico">
     <link rel="stylesheet" href="css/general.css">
+    <script src="js/jquery-3.7.0.min.js"></script>
+    <script src="js/main.js"></script>
 </head>
 
 <body>
@@ -104,6 +107,9 @@
     <?php
         if(isset($_SESSION["user_id"]))
         {
+            console_log("CCCCCCCCCC");
+            console_log($_SESSION["permisos"]);
+            console_log("DDDDDDD");
             if($_SESSION["es_junta"] || in_array(true, $_SESSION["permisos"]))
             {
     ?>
@@ -144,6 +150,20 @@
             <div class="anti-rotate column center">
                 <span class="material-symbols-rounded">book</span>
                 <span>Rol</span>
+            </div>
+        </a>
+        <?php
+            }
+        ?>
+        <?php
+            
+            if($_SESSION["permisos"][6]==true)
+            {
+        ?>
+        <a class="" href="gestio_eleccions.php" data-title="Gestió Eleccions">
+            <div class="anti-rotate column center">
+                <span class="material-symbols-rounded">book</span>
+                <span>Eleccions</span>
             </div>
         </a>
         <?php

@@ -1,5 +1,5 @@
 <article id="loginform" class="form">
-    <a href="registre.php">Registrar-se</a>
+    
     <br>
 
     <form name="formlogin" autocomplete="on" action="login.php" method=post>

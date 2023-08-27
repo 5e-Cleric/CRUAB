@@ -2,10 +2,10 @@
 require_once(__DIR__ . "/../model/recuperarcontrassenya.php");
 $correu_especificat = false;
 $actualitzacio_interna = false;
-if ($_GET["email"]) {
+if ($_GET and $_GET["email"]) {
     $correu_especificat = true;
 }
-if ($_POST["email"]) {
+if ($_POST and $_POST["email"]) {
     $actualitzacio_interna = true;
 }
 if ($actualitzacio_interna) {

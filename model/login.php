@@ -6,7 +6,7 @@
 		$SQLquery="SELECT * FROM `Usuaris` WHERE `Email`='$email'";
 		console_log($SQLquery);
 		#echo "<br>";
-		console_log($conn->query($SQLquery));
+		//console_log($conn->query($SQLquery));
 		#;
 		if($result=$conn->query($SQLquery))
 		{

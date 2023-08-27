@@ -20,7 +20,7 @@ function canviaTema() {
 function canviaTema() {
   var tema = localStorage.getItem("tema");
   if (tema == null) {
-    localStorage.setItem("tema", "pergami");
+    localStorage.setItem("tema", "clar");
   }
   document.body.classList = tema;
 }

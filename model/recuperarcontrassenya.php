@@ -27,7 +27,7 @@
 		$codi =  hash("sha256",random_int(0, 4096));
 		$SQLquery="UPDATE `Usuaris` SET Contrassenya = '$contrassenya', Codi_temporal = '$codi' WHERE `Email`='$email'";
 		console_log($SQLquery);
-		console_log($conn->query($SQLquery));
+		//console_log($conn->query($SQLquery));
 		#;
 		if($result=$conn->query($SQLquery))
 		{

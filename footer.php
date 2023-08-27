@@ -16,7 +16,7 @@
         <adress property="adress" typeof="PostalAdress">
             <span property="streetAdress">Plaça Cívica, 08193 Bellaterra, Barcelona</span>
             <br>
-            <span>T'esperem!</span>
+            <span>T'hi esperem!</span>
         </adress>
     </section>
     <section id="enllaços-socials">

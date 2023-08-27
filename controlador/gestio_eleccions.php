@@ -6,12 +6,11 @@ require_once(__DIR__."/../model/membre.php");
 
 ?>
 <?php
-	$gestio = false;
+	$gestio = true;
 	if(comprovaEleccionsActives($conn))
 	{
 		$etapa = getEtapaActualEleccions($conn);
 		$id_eleccions = getIDEleccions($conn);
-		$membre_actiu = getMembreActiu($conn,$_SESSION["user_id"]);
 
 		/*
 		ETAPES ELECCIONS
@@ -24,21 +23,19 @@ require_once(__DIR__."/../model/membre.php");
 		switch($etapa)
 		{
 			case 0:
-				require_once(__DIR__."/../vista/eleccions_actiu_inactiu.php");
+				$seguent_etapa = 1;
+				$anterior_etapa = 0;
+				require_once(__DIR__."/../vista/eleccions_canviar_etapa.php");
 				break;
 
 			case 1:
-				$actius = getMembresActius($conn);
-				require_once(__DIR__."/../vista/eleccions_cens.php");
+				$seguent_etapa = 2;
+				$anterior_etapa = 0;
+				require_once(__DIR__."/../vista/eleccions_canviar_etapa.php");
 				break;
 
 			case 2:
-				$actius = getMembresActius($conn);
-				require_once(__DIR__."/../vista/eleccions_presentar_candidatura.php");
-				break;
-
-			case 3:
-				$llistes = getLlistesEleccionsActives($conn);
+				$llistes = getLlistesNoRevisades($conn, getIDEleccions($conn));
 				$membres_llistes = array();
 				foreach ($llistes as $llista) {
 					array_push($membres_llistes,getMembresLlista($conn, $llista));
@@ -47,11 +44,21 @@ require_once(__DIR__."/../model/membre.php");
 				foreach ($membres_llistes as $llista) {
 					array_push($numero_membres,sizeof(explode(",",$llista)));
 				}
-				$membres_maxims = max($numero_membres);
-				require_once(__DIR__."/../vista/eleccions_votar.php");
-				break;
-			case 4:
+				$membres_maxims = sizeof($numero_membres) > 0 ? max($numero_membres) : 0;
+				require_once(__DIR__."/../vista/eleccions_revisar_candidatures.php");
 
+				$seguent_etapa = 3;
+				$anterior_etapa = 1;
+				require_once(__DIR__."/../vista/eleccions_canviar_etapa.php");
+				break;
+
+			case 3:
+				$seguent_etapa = 4;
+				$anterior_etapa = 2;
+				require_once(__DIR__."/../vista/eleccions_canviar_etapa.php");
+				break;
+
+			case 4:
 				$llistes = getLlistesEleccionsActives($conn);
 				$membres_llistes = array();
 				foreach ($llistes as $llista) {
@@ -71,9 +78,13 @@ require_once(__DIR__."/../model/membre.php");
 				{
 					require_once(__DIR__."/../vista/eleccions_resultats.php");
 				}
+				$seguent_etapa = 4;
+				$anterior_etapa = 3;
+				require_once(__DIR__."/../vista/eleccions_canviar_etapa.php");
 				break;
+
 			default:
-				require_once(__DIR__."/../vista/eleccions_actiu_inactiu.php");
+				require_once(__DIR__."/../vista/eleccions_no_actives.php");
 				break;
 		}
 	}

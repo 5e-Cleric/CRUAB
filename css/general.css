@@ -959,6 +959,14 @@ font-family: 'PT Serif', serif;
         display: block;
     }
 
+
+    /*########################   LLISTES   ###################*/
+    #llista-cens {
+          columns: 3;
+          -webkit-columns: 3;
+          -moz-columns: 3;
+        }
+
     /*########################   FLEX & GRID   ###################*/
 
     .row {
@@ -1232,6 +1240,11 @@ font-family: 'PT Serif', serif;
         div.ludoteca {
             grid-template-columns: 1fr;
             grid-template-rows: 1fr 1fr;
+        }
+        #llista-cens {
+          columns: 1;
+          -webkit-columns: 1;
+          -moz-columns: 1;
         }
 
     }
