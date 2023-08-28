@@ -63,7 +63,7 @@ function setMembreActiu($conn, $id, $estat)
 	$SQLquery="UPDATE `Usuaris` SET `Actiu` = $estat WHERE `ID`=$id";
 	console_log($SQLquery);
 	#echo "<br>";
-	//console_log($conn->query($SQLquery));
+	$conn->query($SQLquery);
 	if($conn -> affected_rows == 1)
 	{
 		return 1;

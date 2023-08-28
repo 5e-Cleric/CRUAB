@@ -70,7 +70,7 @@
 	function getEtapaActualEleccions($conn)
 	{
 		$etapa = -1;
-		$SQLquery = "SELECT * FROM `Etapes_Eleccions` WHERE `Actives`=1";
+		$SQLquery = "SELECT * FROM `Etapes_Eleccions` WHERE `Actives` = 1";
 		console_log($SQLquery);
 		#echo "<br>";
 		//console_log($conn->query($SQLquery));
@@ -78,7 +78,9 @@
 		if($result=$conn->query($SQLquery))
 		{
 			$row = $result->fetch_assoc();
-			if($row and $row["Etapa"])
+			console_log("TEST");
+			console_log($row);
+			if($row and $row["Etapa"]!=null)
 				$etapa = $row["Etapa"];
 		}
 		else
