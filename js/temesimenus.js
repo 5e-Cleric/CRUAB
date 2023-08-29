@@ -18,6 +18,8 @@ function canviaTema() {
 */
 
 function canviaTema() {
+
+  
   var tema = localStorage.getItem("tema");
   if (tema == null) {
     localStorage.setItem("tema", "clar");
@@ -27,6 +29,7 @@ function canviaTema() {
 
 function estableixTema(temaactual) {
   localStorage.setItem("tema", temaactual);
+  document.body.classList = temaactual;
 }
 
 function afegirClassAMain() {

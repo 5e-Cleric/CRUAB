@@ -2,9 +2,9 @@ window.onload = alCarregar;
 function alCarregar() {
   //carregant();
   canviaTema();
-  checkEleccions();
-  afegirClassAMain();
-  ensenyarSocisActius();
+  //checkEleccions();
+  //afegirClassAMain();
+  //ensenyarSocisActius();
   switch (
     nomArxiu() /*carga los eventos onload para la pagina correspondiente*/
   ) {
@@ -80,10 +80,15 @@ function afegeixListeners() {
     botonsnavegacioprincipal[i].addEventListener("mousedown", clickeffect);
     botonsnavegacioprincipal[i].addEventListener("mouseup", clickeffect);
   }
+  document.getElementById("nav-button").addEventListener("click", function () {
+    document.getElementById("nav-button").classList.toggle("open");
+    document.getElementById("nav-dropdown").classList.toggle("open");
+  });
+
   document
-    .getElementById("juntanav-button")
+    .getElementById("gestio-button")
     .addEventListener("click", function () {
-      toggleDropdown("juntanavbar");
+      toggleDropdown("gestio-nav");
     });
   ifSubmmit();
   ifFiltre();
@@ -102,6 +107,7 @@ function afegeixListeners() {
     element.addEventListener("click", function () {
       estableixTema(this.id);
       canviaTema();
+      console.log(this.id);
     });
   });
   document

@@ -8,6 +8,70 @@
     </svg>
 </button>
 <footer class="evenly">
+    
+    <button id="gestio-button">
+        <div class="center column">
+            <span class="material-symbols-rounded">settings</span>
+            <span>Gestió</span>
+        </div>
+    </button>
+    <nav id="gestio-nav" data-collapsed="yes" style="
+        --n: 4;
+        --radius: clamp(200px, 50vw, 400px);
+        --button-diameter: 8ch;">
+
+        <?php
+            if($_SESSION["es_junta"] || $_SESSION["permisos"][2]==true)
+            {
+        ?>
+        <a class="" href="gestiomembres.php" data-title="Gestió membres">
+            <div class="anti-rotate column center">
+                <span class="material-symbols-rounded">supervised_user_circle</span>
+                <span>membres</span>
+            </div>
+        </a>
+        <?php
+            }
+            if($_SESSION["es_junta"] || $_SESSION["permisos"][1]==true)
+            {
+        ?>
+        <a class="" href="gestiolloguers.php" data-title="Gestió lloguers">
+            <div class="anti-rotate column center">
+                <span class="material-symbols-rounded">casino</span>
+                <span>Llog.</span>
+            </div>
+        </a>
+        <?php
+            }
+            if($_SESSION["es_junta"] || $_SESSION["permisos"][0]==true)
+            {
+        ?>
+        <a class="" href="gestiomaterials.php" data-title="Gestió materials">
+            <div class="anti-rotate column center">
+                <span class="material-symbols-rounded">book</span>
+                <span>Rol</span>
+            </div>
+        </a>
+        <?php
+            }
+        ?>
+        <?php
+            
+            if($_SESSION["permisos"][6]==true)
+            {
+        ?>
+        <a class="" href="gestio_eleccions.php" data-title="Gestió Eleccions">
+            <div class="anti-rotate column center">
+                <span class="material-symbols-rounded">book</span>
+                <span>Eleccions</span>
+            </div>
+        </a>
+        <?php
+            }
+        ?>
+    </nav>
+
+
     <section id="contacte">
         <h3>Contacta amb nosaltres!</h3>
         <adress property="email">
@@ -41,7 +105,7 @@
     </section>
 </footer>
 <!--<script src="js/checkjunta.js"></script>-->
-<script src="js/contingut.js"></script>
+<!--<script src="js/contingut.js"></script>
 <script src="js/eleccions.js"></script>
 <script src="js/gestio.js"></script>
 <script src="js/jocsindividuals.js"></script>
@@ -55,9 +119,9 @@
 <script src="js/validarlloguermanual.js"></script>
 <script src="js/validarmembres.js"></script>
 <script src="js/sessions.js"></script>
-<script src="js/temesimenus.js"></script>
+<script src="js/checkmembre.js"></script>-->
 <script src="js/onload.js"></script>
-<!--<script src="js/checkmembre.js"></script>-->
+<script src="js/temesimenus.js"></script>
 </body>
 
 </html>

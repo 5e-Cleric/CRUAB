@@ -26,10 +26,15 @@
 <body>
     <header id="capçalera" class="navigation">
         <nav id="navbar">
-            </div>
-                <a class="logo nav-link" style="max-width:100px;" href="index.php">
-                    <img src="img/logo/logo.svg" alt="Logo" title="Logo" />
-                </a>
+            <button id="nav-button" class="mobile-view hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </button>
+            <a class="logo nav-link" style="max-width:100px;" href="index.php">
+                <img src="img/logo/logo.svg" alt="Logo" title="Logo" />
+            </a>
+            <div id="nav-dropdown">
                 <a id="paginasobrenosaltres" class="nav-link" aria-current="page" href="sobrenosaltres.php">Sobre
                     nosaltres</a>
                 <a id="paginaactualitat" class="nav-link" aria-current="page" href="actualitat.php">Actualitat</a>
@@ -107,9 +112,6 @@
     <?php
         if(isset($_SESSION["user_id"]))
         {
-            console_log("CCCCCCCCCC");
-            console_log($_SESSION["permisos"]);
-            console_log("DDDDDDD");
             if($_SESSION["es_junta"] || in_array(true, $_SESSION["permisos"]))
             {
     ?>
@@ -120,7 +122,7 @@
         --n: 4;
         --radius: 300px;
         --button-diameter: 70px;">
-        <?php
+        <?php /*
             if($_SESSION["es_junta"] || $_SESSION["permisos"][2]==true)
             {
         ?>
@@ -167,7 +169,7 @@
             </div>
         </a>
         <?php
-            }
+            }*/
         ?>
     </nav>
     <?php

@@ -10,19 +10,10 @@
     overflow: hidden;
     border-radius: 100%;
     isolation: isolate;
-}
-
-.user-image:before {
-    content: '';
-    display: block;
     background: grey;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100px;
-    width: 100px;
-    z-index: -999;
 
+    outline: 5px solid black;
+    box-shadow: 0 0 0 5px #000;
 }
 
 user .user-image img {
@@ -34,6 +25,7 @@ user .user-image img {
 .user-image:after {
     content: '';
     display: block;
+    background-color: #e5e5e587;
     background-image: url(https://cdn-icons-png.flaticon.com/512/266/266146.png);
     position: absolute;
     top: 0;
@@ -79,8 +71,30 @@ user .user-image img {
     color: var(--secondary-accent-color);
 }
 
+/* #########################   FEEDBACK AND FAQ   #######################*/
 
-/* #########################   LOGIN   ###################*/
+details>summary {
+    line-height: 2em;
+    border-bottom: 1px solid grey;
+    font-weight: 900;
+}
+
+details[open]+details>summary {
+    border-top: 1px solid grey;
+}
+
+details>p {
+    padding-left: 20px;
+}
+
+
+
+
+
+
+
+
+/* #########################   LOGIN   #######################*/
 
 
 [id="loginform"] {
@@ -99,14 +113,14 @@ user .user-image img {
 /* #############################   LUDOTECA    #############################*/
 
 
-.ludoteca .image-holder {
+section.ludoteca .image-container {
     position: relative;
     max-width: unset;
     height: auto;
     isolation: isolate;
 }
 
-.ludoteca .image-holder:after {
+section.ludoteca .image-container:after {
     display: block;
     content: attr(data-title);
     width: 100%;
@@ -120,7 +134,7 @@ user .user-image img {
     left: 0;
 }
 
-div.ludoteca {
+section.ludoteca {
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
@@ -129,8 +143,28 @@ div.ludoteca {
     justify-items: center;
 }
 
+.question {
+    position: relative;
+    display: inline-block;
+    margin: 1em 0;
+    padding-left:15px;
+}
 
+.question:before {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 12px;
+    width: 7px;
+    height: 7px;
+    background-color: #000;
+    border-radius: 100%;
+}
 
+.question+p {
+    padding-left: 25px;
+}
 
 
 .jocmanual-pare {
@@ -259,20 +293,19 @@ div.ludoteca {
 /*#############################   SOBRENOSALTRES.PHP   #############################*/
 
 .junta {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
 }
 
 .juntari {
+    align-self: flex-start;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.juntari .image-holder {
+.juntari .image-container {
     width: 15vw;
     aspect-ratio: 1;
     background-color: grey;
@@ -296,14 +329,14 @@ div.ludoteca {
     margin-block: .1em;
 }
 
-.card .image-holder {
+.card .image-container {
     width: 100%;
     height: 100%;
     background: grey;
     overflow: hidden;
 }
 
-.card .image-holder img {
+.card .image-container img {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -323,4 +356,99 @@ div.ludoteca {
 
 .card p {
     font-size: var(--span-size);
+}
+
+#search-box {
+    height: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-block: 20px;
+}
+
+#search-box button,
+#search-box input {
+    display: block;
+    margin-block: 0;
+    margin-right: 20px;
+}
+
+
+/*#############################   actualitat.PHP   #############################*/
+
+
+.pagination ul {
+    list-style: none;
+}
+
+.pagination a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1;
+    text-align: center;
+    height: 2em;
+    color: var(--p-color);
+    border-radius: 1000px;
+}
+
+.pagination a[data-active="1"] {
+    background-color: var(--accent-color);
+    color: var(--secondary-accent-color);
+}
+
+/*#############################   error   #############################*/
+
+.error-message {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.error-message h2 {
+    margin-bottom: 2rem;
+}
+
+
+/*#############################   TEMA CLAR   #############################*/
+
+
+.clar table {
+    margin-block: 20px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    display: table;
+    border: 1px solid #ccc;
+}
+
+.clar tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.clar tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+.clar tr:nth-child(even) {
+    background-color: #E7E9EB;
+}
+
+.clar td, .clar th {
+    padding: 8px 8px;
+    display: table-cell;
+    text-align: left;
+    vertical-align: center;
+}
+
+.clar th:first-child, td:first-child {
+    padding-left: 16px;
+}
+
+.clar th, .clar td {
+    border: none;
+    text-align: left;
+    padding: 8px;
 }

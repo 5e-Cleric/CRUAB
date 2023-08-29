@@ -18,7 +18,7 @@ require_once(__DIR__ . "/header.php");
                 <div class="image-holder">
                     <img src="https://unsplash.it/300?random=1" alt="president">
                 </div>
-                <label class="nom">Jana De Sande Bolart</label>
+                <label class="nom">Jan De Sande Bolart</label>
             </div>
             <div id="vicepresident" class="juntari">
                 <label>Vicepresident</label>
