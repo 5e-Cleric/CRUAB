@@ -89,4 +89,55 @@ $(document).ready(function(){
 		$("#botons-gestio-etapa").load("set_etapa.php?etapa="+index_etapa+" #resultat_ajax");
 	});
 
+	//===================PEFRIL=====================
+	$("#actualitzar-perfil").click(function()
+	{
+		$("#user-page").load("membre.php?editar=1 #user-page");
+	});
+	$("#user-page").on("click", "#modificar-usuari-submit",function()
+	{
+		console.log("modificant usuari");
+		var formData = {
+			nom: $("#nom").val(),
+			cognoms: $("#cognoms").val(),
+			sobrenom: $("#sobrenom").val(),
+			correu: $("#correu").val(),
+			genere: $("#genere").val(),
+			pronoms: $("#pronoms").val(),
+			naixement: $("#naixement").val(),
+			ingres: $("#ingres").val(),
+			telefon: $("#telefon").val(),
+			facultat: $("#facultat").val(),
+			curs: $("#curs").val(),
+			pdi_pas: $("#pdipas").is(':checked'),
+		};
+		
+		console.log(formData);
+		$("#form-usuari").load("actualitzar_perfil.php #resultat_ajax", formData);
+	});
+
+	//===================REGISTRE=====================
+
+	$("#registrar-usuari-submit").click(function()
+	{
+		console.log("registrant usuari");
+		var formData = {
+			nom: $("#nom").val(),
+			cognoms: $("#cognoms").val(),
+			correu: $("#correu").val(),
+			genere: $("#genere").val(),
+			pronoms: $("#pronoms").val(),
+			naixement: $("#naixement").val(),
+			telefon: $("#telefon").val(),
+			facultat: $("#facultat").val(),
+			curs: $("#curs").val(),
+			pdi_pas: $("#pdipas").is(':checked'),
+			telegram: $("#telegram").is(':checked'),
+			whatsapp: $("#whatsapp").is(':checked'),
+		};
+		
+		console.log(formData);
+		$("#form-registre").load("registre.php #resultat_ajax", formData);
+	});
+
 });

@@ -1,7 +1,7 @@
 <?php
 function getLlistesEleccionsActives($conn)
 {
-	$llistes = "";
+	$llistes = [];
 	$SQLquery = "SELECT * FROM `Etapes_Eleccions` Et INNER JOIN `Eleccions` El WHERE Et.Actives=1 and Et.ID_Eleccions=El.ID";
 	console_log($SQLquery);
 	#echo "<br>";
@@ -49,6 +49,7 @@ function setEstatLlista($conn, $id, $estat, $id_eleccions)
 	$llistes = getLlistesEleccionsActives($conn);
 	if(!in_array($id, $llistes) and $estat == 1)
 	{
+		console_log($llistes);
 		array_push($llistes, $id);
 		$new_llistes = implode(",", $llistes);
 		$SQLquery = "UPDATE `Eleccions` SET `Llistes` = '".$new_llistes."' WHERE `ID` = $id_eleccions";

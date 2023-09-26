@@ -3,6 +3,10 @@
     require_once(__DIR__."/../utils.php");
     $_SESSION["permisos"] = null;
     $_SESSION["es_junta"] = false;
+    if(isset($_COOKIE["user_id"]))
+    {
+        $_SESSION["user_id"] = $_COOKIE["user_id"];
+    }
     if(isset($_SESSION["user_id"]))
     {
         $_SESSION["permisos"] = obtenirPermisos($conn,$_SESSION["user_id"]);
@@ -96,6 +100,7 @@
                         {
                     ?>
                     <a id="paginalogin" class="nav-link" aria-current="page" href="login.php">Iniciar sessió</a>
+                    <a id="paginaregistre" class="nav-link" aria-current="page" href="registre.php">Registrar-se</a>
                     <?php
                         }
                     ?>

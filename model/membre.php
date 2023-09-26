@@ -34,6 +34,52 @@ function getNomUsuari($conn, $id)
 	}
 	return $nom.' '.$pseudonim.$cognoms;
 }
+function getCorreuUsuari($conn, $id)
+{
+	$correu = "";
+	$SQLquery="SELECT * FROM `Usuaris` WHERE `ID` =$id";
+	console_log($SQLquery);
+	#echo "<br>";
+	//console_log($conn->query($SQLquery));
+	
+	if($result=$conn->query($SQLquery))
+	{
+		$row = $result->fetch_assoc();
+		if($row)
+		{
+			$correu = $row["Email"];
+		}	
+	}
+	else
+	{
+		echo "ERROR: ";
+		echo $conn->error;
+	}
+	return $correu;
+}
+function getDadesUsuari($conn, $id)
+{
+	$dades = -1;
+	$SQLquery="SELECT * FROM `Usuaris` WHERE `ID` =$id";
+	console_log($SQLquery);
+	#echo "<br>";
+	//console_log($conn->query($SQLquery));
+	
+	if($result=$conn->query($SQLquery))
+	{
+		$row = $result->fetch_assoc();
+		if($row)
+		{
+			$dades = $row;
+		}	
+	}
+	else
+	{
+		echo "ERROR: ";
+		echo $conn->error;
+	}
+	return $dades;
+}
 
 function getMembreActiu($conn, $id)
 {
@@ -253,7 +299,7 @@ function anularVotUsuari($conn, $id)
 	$SQLquery="UPDATE `Usuaris` SET `Ultim_Vot_Xifrat` = NULL WHERE `ID`=$id";
 	console_log($SQLquery);
 	#echo "<br>";
-	//console_log($conn->query($SQLquery));
+	$conn->query($SQLquery);
 	if($conn -> affected_rows == 1)
 	{
 		return 1;
@@ -261,6 +307,89 @@ function anularVotUsuari($conn, $id)
 	else
 	{
 		echo "ERROR: ";
+		echo $conn->error;
+		return -1;
+	}
+	return 1;
+}
+
+function actualitzarPerfil($conn, $id, $dades)
+{
+	$nom = str_replace("'"," ",str_replace("\\","",assegurarInputs($dades['nom'])));
+	$cognoms = str_replace("'"," ",str_replace("\\","",assegurarInputs($dades['cognoms'])));
+	$sobrenom = str_replace("'"," ",str_replace("\\","",assegurarInputs($dades['sobrenom'])));
+	$correu = str_replace("'"," ",str_replace("\\","",assegurarInputs($dades['correu'])));
+	$genere = str_replace("'"," ",str_replace("\\","",assegurarInputs($dades['genere'])));
+	$pronoms = str_replace("'"," ",str_replace("\\","",assegurarInputs($dades['pronoms'])));
+	$naixement = $dades['naixement'];
+	$ingres = $dades['ingres'];
+	$telefon = str_replace("'"," ",str_replace("\\","",assegurarInputs($dades['telefon'])));
+	$facultat = str_replace("'"," ",str_replace("\\","",assegurarInputs($dades['facultat'])));
+	$curs = $dades['curs'];
+	$pdi_pas = $dades['pdi_pas']=="true"?1:0;
+	$SQLquery="UPDATE `Usuaris` SET `Nom`='$nom', `Cognoms`='$cognoms', `Pseudonim`='$sobrenom', `Email`='$correu', `Genere`='$genere', `Pronoms`='$pronoms', `Data_Naixement`='$naixement', `Any_Ingres`=$ingres, `Telefon`='$telefon', `Facultat`='$facultat', `Curs`='$curs', `PDI_Pas`=$pdi_pas WHERE `ID`=$id";
+	console_log($SQLquery);
+	#echo "<br>";
+	$conn->query($SQLquery);
+	if($conn -> affected_rows == 1)
+	{
+		return 1;
+	}
+	else
+	{
+		echo "ERROR: ";
+		console_log($conn->error);
+		echo $conn->error;
+		return -1;
+	}
+	return 1;
+}
+
+function registrarUsuari($conn, $dades)
+{
+	$nom = str_replace("'"," ",str_replace("\\","",assegurarInputs($dades['nom'])));
+	$cognoms = str_replace("'"," ",str_replace("\\","",assegurarInputs($dades['cognoms'])));
+	$correu = str_replace("'"," ",str_replace("\\","",assegurarInputs($dades['correu'])));
+	$genere = str_replace("'"," ",str_replace("\\","",assegurarInputs($dades['genere'])));
+	$pronoms = str_replace("'"," ",str_replace("\\","",assegurarInputs($dades['pronoms'])));
+	$naixement = $dades['naixement'];
+	$ingres = date('Y');
+	$telefon = str_replace("'"," ",str_replace("\\","",assegurarInputs($dades['telefon'])));
+	$facultat = str_replace("'"," ",str_replace("\\","",assegurarInputs($dades['facultat'])));
+	$curs = $dades['curs'];
+	$pdi_pas = $dades['pdi_pas']=="true"?1:0;
+	$whatsapp = $dades['whatsapp']=="true"?1:0;
+	$telegram = $dades['telegram']=="true"?1:0;
+	$grups = $telegram.$whatsapp;
+
+	$SQLquery = "INSERT INTO `Usuaris` (`Nom`, `Cognoms`, `Actiu`, `Validat`, `Email`, `Telefon`, `Data_Naixement`, `Any_Ingres`, `Genere`, `Facultat`, `Curs`, `PDI_Pas`, `Pronoms`, `Grups`) VALUES ('$nom', '$cognoms', '1', '0', '$correu', '$telefon', '$naixement', '$ingres', '$genere', '$facultat', '$curs', '$pdi_pas', '$pronoms', '$grups');";
+	console_log($SQLquery);
+	#echo "<br>";
+	$conn->query($SQLquery);
+	if($conn -> affected_rows == 1)
+	{
+		$msg = "<html><head><title>Registre Usuari ".$nom." ".$cognoms."</title></head><body>";
+		$msg .= 'El teu usuari ha sigut registrat correctament i està pendent de revisió i aprovació.';
+		$msg .= "<br><br>".'Tu usuario ha sido registrado correctamente y está pendiente de revisión y aprobación.';
+		$msg .= "<br><br>".'Your user has been registered correctly and is pending review and approval.';
+		$msg .= "</body></html>";
+		$msg = wordwrap($msg,70);
+		$headers = "MIME-Version: 1.0" . "\r\n";
+		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+		$headers .= 'From: <no_contesteu@cruab.cat>' . "\r\n";
+		$headers .= 'Reply-to: <no_contesteu@cruab.cat>' . "\r\n";
+		if(mail($correu, "Registre Usuari ".$nom." ".$cognoms, $msg, $headers))#, "", "no_contesteu@cruab.cat", "Renunciode-36"))
+		{
+			echo "Correu enviant correctament a l'usuari.";
+			mail("juntacruab@gmail.com", "Registre Usuari ".$nom." ".$cognoms, $msg, $headers);
+		}
+		return 1;
+
+	}
+	else
+	{
+		echo "ERROR: ";
+		console_log($conn->error);
 		echo $conn->error;
 		return -1;
 	}

@@ -24,4 +24,6 @@
         <?php echo $missatge_error_login; ?>
     </p>
     <span>No recordes la teva contrassenya? Clica <a href="recuperarcontrassenya.php">Aquí</a></span>
+
+    <span>Vols registrar-te? Clica <a href="registre.php">Aquí</a></span>
 </article>

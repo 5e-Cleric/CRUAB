@@ -15,7 +15,7 @@ else
     <div>
       <label class="form-input-label" for="contrasenya">Contrassenya</label>
         <br>
-      <input id="contrassenya" type="password" name="contrassenya" placeholder="Contrassenya" pattern="[A-Za-z0-9.-_ ].{6,}" title="6 caracters minim, siusplau.">
+      <input id="contrassenya" type="password" name="contrassenya" placeholder="Contrassenya" pattern="[A-Za-z0-9.-_ ].{5,}" title="6 caracters minim, siusplau.">
     </div>
     <div>
       <label class="form-input-label" for="contrassenya2">Contrassenya</label>

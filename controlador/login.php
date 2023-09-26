@@ -15,6 +15,9 @@
 		{
 			$_SESSION["user_id"] = $id;
 			$_SESSION["permisos"] = obtenirPermisos($conn,$id);
+			$cookie_name = "user_id";
+			$cookie_value = $id;
+			setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
 			echo '<script type="text/javascript">window.location = "'.$root.'index.php"</script>';
 		}
 

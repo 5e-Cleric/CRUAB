@@ -33,7 +33,7 @@ if ($actualitzacio_interna) {
     } else {
         $missatge_formulari_enviat = "";
         if (checkCorreuEnviar($conn, $email)) {
-            $missatge_formulari_enviat = "Petició rebuda. Si el correu està registrat, hi enviarem un enllaç per restablir la contrassenya.";
+            $missatge_formulari_enviat = "Petició rebuda. Si el correu està registrat, i l'usuari validat, hi enviarem un enllaç per restablir la contrassenya.";
         } else {
             $missatge_formulari_enviat = "Error en l'enviament del correu. Prova-ho en una estona o contacta amb un administrador.";
         }

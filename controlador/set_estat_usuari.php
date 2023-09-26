@@ -3,9 +3,16 @@
 	$titol_missatge = "Error modificant el teu estat al cens";
 	$missatge = "El teu estat al cens no s'ha pogut modificar correctament. Intenta-ho més tard, i si l'error es manté, si us plau, avisa a la comissió web.";
 	$error = true;
+	console_log("AAAA");
+	console_log($_SESSION['user_id']);
+	console_log($_GET['estat']);
 	if($_GET and $_GET["estat"]!=null and $_SESSION['user_id'])
 	{
+		console_log("AAAA");
+		console_log($_SESSION['user_id']);
+		console_log($_GET['estat']);
 		$result = setMembreActiu($conn, $_SESSION['user_id'], $_GET["estat"]);
+		console_log($result);
 		switch($result)
 		{
 			/*case -2:

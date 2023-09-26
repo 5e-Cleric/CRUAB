@@ -7,7 +7,7 @@
                 <input id="nom-llista" name="nom-llista" placeholder="Nom de la llista">
             </div>
             <div class="form-option">
-                <label class="form-input-label" for="presidenti">Presidenti</label>
+                <label class="form-input-label" for="presidenti">Presidència</label>
                 <br>
                 <select name="presidenti" id="presidenti" form="form-candidatura">
                     <?php
@@ -21,7 +21,7 @@
                 </select>
             </div>
             <div class="form-option">
-                <label class="form-input-label" for="vicepresidenti">Vicepresidenti</label>
+                <label class="form-input-label" for="vicepresidenti">Vicepresidència</label>
                 <br>
                 <select name="vicepresidenti" id="vicepresidenti" form="form-candidatura">
                     <?php
@@ -35,7 +35,7 @@
                 </select>
             </div>
             <div class="form-option">
-                <label class="form-input-label" for="secretari">Secretari</label>
+                <label class="form-input-label" for="secretari">Secretaria</label>
                 <br>
                 <select name="secretari" id="secretari" form="form-candidatura">
                     <?php
@@ -49,7 +49,7 @@
                 </select>
             </div>
             <div class="form-option">
-                <label class="form-input-label" for="tresoreri">Tresoreri</label>
+                <label class="form-input-label" for="tresoreri">Tresoreria</label>
                 <br>
                 <select name="tresoreri" id="tresoreri" form="form-candidatura">
                     <?php

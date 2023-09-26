@@ -32,11 +32,11 @@ function estableixTema(temaactual) {
   document.body.classList = temaactual;
 }
 
-function afegirClassAMain() {
+/*function afegirClassAMain() {
   var nomarxiu = nomArxiu();
   nomarxiu = nomarxiu.slice(0, -4);
   document.querySelector(".main-content").classList += " " + nomarxiu;
-}
+}*/
 
 /*############################################################   MENUS   ##############################################################*/
 

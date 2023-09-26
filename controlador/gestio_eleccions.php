@@ -17,8 +17,9 @@ require_once(__DIR__."/../model/membre.php");
 		0 Declarar-se membre actiu
 		1 Comprovar cens
 		2 Presentar candidatura
-		3 Votació
-		4 Resultats
+		3 Veure candidatures
+		4 Votació
+		5 Resultats
 		*/
 		switch($etapa)
 		{
@@ -59,6 +60,12 @@ require_once(__DIR__."/../model/membre.php");
 				break;
 
 			case 4:
+				$seguent_etapa = 5;
+				$anterior_etapa = 3;
+				require_once(__DIR__."/../vista/eleccions_canviar_etapa.php");
+				break;
+
+			case 5:
 				$llistes = getLlistesEleccionsActives($conn);
 				$membres_llistes = array();
 				foreach ($llistes as $llista) {
@@ -78,8 +85,8 @@ require_once(__DIR__."/../model/membre.php");
 				{
 					require_once(__DIR__."/../vista/eleccions_resultats.php");
 				}
-				$seguent_etapa = 4;
-				$anterior_etapa = 3;
+				$seguent_etapa = 5;
+				$anterior_etapa = 4;
 				require_once(__DIR__."/../vista/eleccions_canviar_etapa.php");
 				break;
 
